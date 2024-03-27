@@ -18,7 +18,7 @@
         transform: translate3d(0, 0, 0);
     }
     .u-sheet:not(.u-image):not(.u-video) {
-        pointer-events: none;
+        pointer-events: no2ne;
     }
     .u-section-1-1 .u-sheet-1 {
         min-height: 800px;
@@ -71,7 +71,7 @@ section.u-image:not(.u-hover-box), .u-sheet.u-image:not(.u-hover-box), .u-group.
 .u-section-1-1 .u-image-1 {
     min-height: 600px;
     pointer-events: auto;
-    background-image: url(../images/pexels-photo-4015088.jpeg);
+    background-image: url(assets/images/pexels-photo-4015088.jpeg);
     background-position: 50% 50%;
 }
 .u-layout-row > .u-size-30 {
@@ -474,6 +474,7 @@ svg:not(:root) {
     position: absolute;
     bottom: 10px;
 }
+
 .u-carousel-indicators {
     position: absolute;
     left: 0;
@@ -528,6 +529,36 @@ svg:not(:root) {
 .u-text-body-color, li.active > a.u-button-style.u-text-body-color, li.active > a.u-button-style.u-text-body-color[class*="u-border-"], a.u-button-style.u-text-body-color, a.u-button-style.u-text-body-color[class*="u-border-"] {
     color: #111111 !important;
 }
+.u-block-f754-3 {
+    position: absolute;
+    left: 0;
+    width: 45px;
+    height: 45px;
+}
+.u-block-f754-3 svg {
+    width: 45px;
+    height: 45px;
+}
+.u-block-f754-4 {
+    position: absolute;
+    right: 0;
+    width: 45px;
+    height: 45px;
+}
+.u-block-f754-4 svg {
+    width: 45px;
+    height: 45px;
+}
+.sr-only {
+    position: absolute;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
 </style>
 <section id="carousel_9324" class="u-carousel u-slide u-block-f754-1" data-u-ride="carousel" data-interval="5000">
     <ol class="u-absolute-hcenter u-carousel-indicators u-block-f754-2">
@@ -540,10 +571,10 @@ svg:not(:root) {
             <div class="u-clearfix u-expanded-width u-gutter-10 u-layout-wrap u-layout-wrap-1">
                 <div class="u-layout">
                     <div class="u-layout-row">
-                        <div class="u-align-left u-container-style u-image u-layout-cell u-left-cell u-size-30 u-size-xs-60 u-image-1" src="">
+                        <div class="u-container-style u-image u-layout-cell u-left-cell u-size-30 u-size-xs-60 u-image-1" src="">
                             <div class="u-container-layout u-valign-middle u-container-layout-1" src=""></div>
                         </div>
-                        <div class="u-align-left u-container-style u-layout-cell u-right-cell u-size-30 u-size-xs-60 u-white u-layout-cell-2">
+                        <div class="u-container-style u-layout-cell u-right-cell u-size-30 u-size-xs-60 u-white u-layout-cell-2">
                         <div class="u-container-layout u-valign-middle u-container-layout-2">
                             <h3 class="u-custom-font u-font-oswald u-text u-text-default u-text-1">enjoy this moments</h3>
                             <h2 class="u-custom-font u-font-oswald u-text u-text-2">free travel style</h2>
@@ -557,13 +588,23 @@ svg:not(:root) {
             </div>
         </div>
     </div>
-    <a class="u-absolute-vcenter u-carousel-control u-carousel-control-prev u-text-body-color u-block-f754-3" href="#carousel_9324" role="button" data-u-slide="prev">
+    <a class="u-absolute-vcenter u-carousel-control u-carousel-control-prev u-text-body-color u-block-f754-3" href="#" role="button" data-u-slide="prev">
         <span aria-hidden="true">
           <svg viewBox="0 0 256 256"><g><polygon points="207.093,30.187 176.907,0 48.907,128 176.907,256 207.093,225.813 109.28,128"></polygon>
 </g></svg>
         </span>
         <span class="sr-only">
           <svg viewBox="0 0 256 256"><g><polygon points="207.093,30.187 176.907,0 48.907,128 176.907,256 207.093,225.813 109.28,128"></polygon>
+</g></svg>
+        </span>
+      </a>
+      <a class="u-absolute-vcenter u-carousel-control u-carousel-control-next u-text-body-color u-block-f754-4" href="#" role="button" data-u-slide="next">
+        <span aria-hidden="true">
+          <svg viewBox="0 0 306 306"><g id="chevron-right"><polygon points="94.35,0 58.65,35.7 175.95,153 58.65,270.3 94.35,306 247.35,153"></polygon>
+</g></svg>
+        </span>
+        <span class="sr-only">
+          <svg viewBox="0 0 306 306"><g id="chevron-right"><polygon points="94.35,0 58.65,35.7 175.95,153 58.65,270.3 94.35,306 247.35,153"></polygon>
 </g></svg>
         </span>
       </a>
