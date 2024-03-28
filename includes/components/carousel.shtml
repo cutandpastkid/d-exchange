@@ -202,11 +202,6 @@
         top: 50% !important;
         transform: translateY(-50%);
     }
-    .dx-expanded-width {
-        width: 100% !important;
-        margin-left: 0 !important;
-        margin-right: 0 !important;
-    }
     /*carousel controls*/
     .dx-carousel-control {
         display: inline-block;
@@ -263,7 +258,7 @@
         .dx-sheet {
             width: 540px !important;
         }
-        .dx-layout-wrap:not(.dx-layout-custom-sm) .dx-layout-row > * {
+        .dx-layout-wrap .dx-layout-row > * {
             min-width: 100%;
         }
     }
@@ -279,7 +274,7 @@
         }
     }
     @media (max-width: 575px) {
-        .dx-layout-wrap:not(.dx-layout-custom-xs) .dx-layout-row > * {
+        .dx-layout-wrap .dx-layout-row > * {
             min-width: 100%;
         }
     }
@@ -289,7 +284,7 @@
     <div class="dx-carousel-inner">
         <div class="dx-carousel-item dx-clearfix">
             <div class="dx-clearfix dx-sheet">
-                <div class="dx-clearfix dx-expanded-width dx-layout-wrap">
+                <div class="dx-clearfix dx-layout-wrap">
                     <div class="dx-layout">
                         <div class="dx-layout-row">
                             <div class="dx-image dx-layout-cell dx-size-30 dx-size-xs-60">
