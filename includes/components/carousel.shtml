@@ -1,63 +1,63 @@
 <style> 
-    .u-clearfix:after, .u-clearfix:before {
+    .dx-clearfix:after, .dx-clearfix:before {
         content: '';
         display: table;
     }
-    .u-carousel {
+    .dx-carousel {
       position: relative;
     }
-    .u-carousel-inner {
+    .dx-carousel-inner {
         position: relative;
         width: 100%;
         overflow: hidden;
     }
-    .u-carousel-item {
+    .dx-carousel-item {
         position: relative;
         align-items: center;
         width: 100%;
     }
-    .u-sheet {
+    .dx-sheet {
         position: relative;
         margin: 0 auto;
     }
-    .u-layout-wrap {
+    .dx-layout-wrap {
         pointer-events: auto;
         margin: 6rem auto 6rem 0;
     }
-    .u-layout {
+    .dx-layout {
         margin: -5px;
     }
-    .u-layout-row {
+    .dx-layout-row {
         flex-direction: row;
         flex-wrap: wrap;
         min-height: fit-content;
         max-width: 100%;
     }
-    .u-layout-cell {
+    .dx-layout-cell {
         position: relative;
         display: flex;
         background-clip: padding-box;
         background-origin: padding-box;
 
     }
-    .u-carousel-item .u-layout-cell {
+    .dx-carousel-item .dx-layout-cell {
         pointer-events: auto;
     }
-    .u-layout-row > * {
+    .dx-layout-row > * {
         max-height: 100%;
         min-height: -webkit-fit-content;
         min-height: fit-content;
     }
-    .u-layout-col, .u-layout-row, .u-layout-col > *, .u-layout-row > * {
+    .dx-layout-col, .dx-layout-row, .dx-layout-col > *, .dx-layout-row > * {
         display: flex;
     }
-    .u-fimage {
+    .dx-image {
         pointer-events: auto;
         display: block;
         background-color: #f3f3f3;
         overflow: hidden;
     }
-    .u-fimage img {
+    .dx-image img {
         display: block;
         max-width: 100%;
         position: absolute;
@@ -68,42 +68,42 @@
         object-fit: cover;
         object-position: center center;
     }
-    .u-container-layout {
+    .dx-container-layout {
         padding: 2rem 4rem;
     }
-    .u-layout-row > .u-size-30 {
+    .dx-layout-row > .dx-size-30 {
         flex: 0 0 50%;
         max-width: 50%;
         min-width: 50%;
     }
-    .u-layout-col, .u-layout-row {
+    .dx-layout-col, .dx-layout-row {
         flex: 1 1 auto;
     }
-    .u-layout-col, .u-layout-row, .u-layout-col > *, .u-layout-row > * {
+    .dx-layout-col, .dx-layout-row, .dx-layout-col > *, .dx-layout-row > * {
         display: flex;
     }
-    .u-container-layout {
+    .dx-container-layout {
         position: relative;
         flex: 1;
         max-width: 100%;
         transition-duration: inherit;
     }
-    .u-pimage {
+    .dx-pimage {
         margin: 1rem 0 0 0;
         max-width: 120px;
         height: auto;
     }
-    .u-text {
+    .dx-text {
         word-wrap: break-word;
         position: relative;
     }
-    .u-text-1 {
+    .dx-text-1 {
         font-size: 1.675rem;
         text-transform: uppercase;
         margin: 1rem 0 0;
     }
     /*asset tags*/
-    .u-tags-list {
+    .dx-tags-list {
         font-size: 1rem;
         margin: 1rem 0 0 0;
         padding: 0;
@@ -111,7 +111,7 @@
         flex-wrap: wrap;
         list-style: none;
     }
-    .u-tag {
+    .dx-tag {
         font-size: .5rem;
         color: #111111;
         text-transform: uppercase;
@@ -121,23 +121,23 @@
         display: flex;
         align-items: center;
     }
-    .u-tag img {
+    .dx-tag img {
         display: inline;
         max-width: 15px;
         margin: 0 .2rem;
     }
-    .u-valign-middle {
+    .dx-valign-middle {
         justify-content: center;
     }
-    .u-valign-middle, .u-valign-top, .u-valign-bottom {
+    .dx-valign-middle, .dx-valign-top, .dx-valign-bottom {
         display: flex;
         flex-direction: column;
     }
-    .u-valign-middle > *, .u-valign-top > *, .u-valign-bottom > * {
+    .dx-valign-middle > *, .dx-valign-top > *, .dx-valign-bottom > * {
         flex-shrink: 0;
     }
     /*buttons*/
-    .u-btn {
+    .dx-btn {
         display: table;
         cursor: pointer;
         color: #ffffff;
@@ -152,7 +152,7 @@
         align-self: flex-start;
     }
     /*carousel pagination*/
-    .u-carousel-indicators {
+    .dx-carousel-indicators {
         position: absolute;
         left: 0;
         bottom: 25px;
@@ -163,7 +163,7 @@
         margin: 0;
         list-style: none;
     }
-    .u-carousel-indicators li {
+    .dx-carousel-indicators li {
         position: relative;
         flex: 0 1 auto;
         width: 30px;
@@ -173,7 +173,7 @@
         text-indent: -999px;
         background-color: #f3f3f3;
     }
-    .u-carousel-indicators li::before {
+    .dx-carousel-indicators li::before {
         position: absolute;
         top: -10px;
         left: 0;
@@ -182,7 +182,7 @@
         height: 10px;
         content: '';
     }
-    .u-carousel-indicators li::after {
+    .dx-carousel-indicators li::after {
         position: absolute;
         bottom: -10px;
         left: 0;
@@ -191,36 +191,36 @@
         height: 10px;
         content: '';
     }
-    .u-carousel-indicators li.u-active {
+    .dx-carousel-indicators li.dx-active {
         background-color: #111111;
     }
-    .u-absolute-hcenter {
+    .dx-absolute-hcenter {
         left: 50% !important;
         transform: translateX(-50%);
     }
-    .u-absolute-vcenter {
+    .dx-absolute-vcenter {
         top: 50% !important;
         transform: translateY(-50%);
     }
-    .u-expanded-width {
+    .dx-expanded-width {
         width: 100% !important;
         margin-left: 0 !important;
         margin-right: 0 !important;
     }
     /*carousel controls*/
-    .u-carousel-control {
+    .dx-carousel-control {
         display: inline-block;
         height: 45px;
         width: 45px;
         z-index: 2;
     }
-    .u-carousel-control-prev {
+    .dx-carousel-control-prev {
         left: 0;
     }
-    .u-carousel-control-next {
+    .dx-carousel-control-next {
         right: 0;
     }
-    .u-carousel-control-prev, .u-carousel-control-next {
+    .dx-carousel-control-prev, .dx-carousel-control-next {
         text-decoration: none;
         border: 0 none transparent;
         outline-width: 0;
@@ -237,79 +237,78 @@
         justify-content: center;
         color: #111111;
         text-align: center;
-        opacity: 1;
     }
-    .u-carousel-control-prev img, .u-carousel-control-next img {
+    .dx-carousel-control-prev img, .dx-carousel-control-next img {
         width: 100%;
     }
     @media (min-width: 1200px) {
-        .u-sheet {
+        .dx-sheet {
         width: 1140px !important;
         }
     }
     @media (min-width: 992px) and (max-width: 1199px) {
-        .u-sheet {
+        .dx-sheet {
             width: 940px !important;
         }
     }
     @media (min-width: 768px) and (max-width: 991px) {
-        .u-sheet {
+        .dx-sheet {
             width: 720px !important;
         }
-        .u-layout-wrap:not(.u-layout-custom-sm) .u-layout-row > * {
+        .dx-layout-wrap:not(.dx-layout-custom-sm) .dx-layout-row > * {
             min-width: 100%;
         }
     }
     @media (min-width: 576px) and (max-width: 767px) {
-        .u-sheet {
+        .dx-sheet {
             width: 540px !important;
         }
-        .u-layout-wrap:not(.u-layout-custom-sm) .u-layout-row > * {
+        .dx-layout-wrap:not(.dx-layout-custom-sm) .dx-layout-row > * {
             min-width: 100%;
         }
     }
     @media (max-width: 575px) {
-        .u-sheet {
+        .dx-sheet {
             width: 340px !important;
         }
     }
     @media (max-width: 767px) {
-        .u-container-layout {
+        .dx-container-layout {
             padding-left: 10px;
             padding-right: 10px;
         }
     }
     @media (max-width: 575px) {
-        .u-layout-wrap:not(.u-layout-custom-xs) .u-layout-row > * {
-        min-width: 100%;
+        .dx-layout-wrap:not(.dx-layout-custom-xs) .dx-layout-row > * {
+            min-width: 100%;
         }
     }
 </style>
 
-<section class="u-carousel">
-    <div class="u-carousel-inner">
-        <div class="u-carousel-item u-clearfix">
-            <div class="u-clearfix u-sheet">
-                <div class="u-clearfix u-expanded-width u-layout-wrap">
-                    <div class="u-layout">
-                        <div class="u-layout-row">
-                            <div class="u-fimage u-layout-cell u-size-30 u-size-xs-60">
-                                <div class="u-container-layout u-valign-middle dx-asset-featured-image__REF__">
-                                    <img src="assets/images/slide-landscape.jpg" alt="" />
+<section class="dx-carousel">
+    <div class="dx-carousel-inner">
+        <div class="dx-carousel-item dx-clearfix">
+            <div class="dx-clearfix dx-sheet">
+                <div class="dx-clearfix dx-expanded-width dx-layout-wrap">
+                    <div class="dx-layout">
+                        <div class="dx-layout-row">
+                            <div class="dx-image dx-layout-cell dx-size-30 dx-size-xs-60">
+                                <div class="dx-container-layout dx-valign-middle">
+                                    <img src="assets/images/slide-landscape.jpg" srcset="assets/images/slide-landscape.jpg 1120w, assets/images/slide-landscape.jpg 720w, assets/images/slide-landscape.jpg 400w" sizes="(max-width: 640px) 50vw, 100vw" class=" dx-asset-featured-image__REF__" alt="" title="" />
                                 </div>
                             </div>
-                            <div class="u-layout-cell u-size-30 u-size-xs-60">
-                                <div class="u-container-layout u-valign-middle">
-                                    <img src="assets/images/partner-logo.png" class="u-pimage" alt="" />
-                                    <ul class="u-tags-list">
-                                        <li class="u-tag dx-asset-asset-type__REF__"><img src="assets/icons/document.svg "/> Report</li>
-                                        <li class="u-tag dx-asset-time-to-read__REF__"><img src="assets/icons/clock.svg "/> 16 Min Read</li>
-                                        <li class="u-tag dx-asset-starttimes__REF__"><img src="assets/icons/calendar.svg "/> 26th March 14:00 GMT</li>
-                                        <li class="u-tag dx-asset-duration__REF__"><img src="assets/icons/timer.svg" /> 35 mins</li>
+                            <div class="dx-layout-cell dx-size-30 dx-size-xs-60">
+                                <div class="dx-container-layout dx-valign-middle">
+                                    <img src="assets/images/partner-logo.png" class="dx-pimage dx-asset-partner-logo__REF__" alt="" title="" />
+                                    <ul class="dx-tags-list">
+                                        <li class="dx-tag dx-asset-asset-type__REF__"><img src="assets/icons/document.svg "/> Report</li>
+                                        <li class="dx-tag dx-asset-time-to-read__REF__"><img src="assets/icons/clock.svg "/> 16 Min Read</li>
+                                        <li class="dx-tag dx-asset-starttimes__REF__"><img src="assets/icons/calendar.svg "/> 26th March 14:00 GMT</li>
+                                        <li class="dx-tag dx-asset-duration__REF__"><img src="assets/icons/timer.svg" /> 35 mins</li>
                                     </ul>
-                                    <h2 class="u-text u-text-1 dx-asset-title__REF__">2024 Predictions: 10 Trends in eCommerce Marketing</h2>
-                                    <p class="u-text">The year 2024 is not just a chapter but a saga in the evolution of eCommerce and digital marketing. Wunderkind is embracing change, driving growth, and revolutionising the way brands connect with consumers. The journey begins now. Are you ready?</p>
-                                    <a href="#" class="u-btn dx-asset-cta__REF__">Watch Now</a>
+                                    <h2 class="dx-text dx-text-1 dx-asset-title__REF__">2024 Predictions: 10 Trends in eCommerce Marketing</h2>
+                                    <p class="dx-text">The year 2024 is not just a chapter but a saga in the evolution of eCommerce and digital marketing. Wunderkind is embracing change, driving growth, and revolutionising the way brands connect with consumers. The journey begins now. Are you ready?</p>
+                                    <a href="#" class="dx-btn dx-asset-cta__REF__" title="">Watch Now</a>
                                 </div>
                             </div>
                         </div>
@@ -318,14 +317,14 @@
             </div> 
         </div>
     </div>
-    <ol class="u-absolute-hcenter u-carousel-indicators">
-        <li class="u-active"></li>
+    <ol class="dx-absolute-hcenter dx-carousel-indicators">
+        <li class="dx-active"></li>
         <li></li>
     </ol>
-    <a class="u-absolute-vcenter u-carousel-control u-carousel-control-prev" href="#" role="button" data-u-slide="prev">
+    <a class="dx-absolute-vcenter dx-carousel-control dx-carousel-control-prev" href="#" role="button">
         <img src="assets/icons/chevron-left.svg"/>
     </a>
-    <a class="u-absolute-vcenter u-carousel-control u-carousel-control-next" href="#" role="button" data-u-slide="next">
+    <a class="dx-absolute-vcenter dx-carousel-control dx-carousel-control-next" href="#" role="button">
         <img src="assets/icons/chevron-right.svg"/>
     </a>
 </section>
