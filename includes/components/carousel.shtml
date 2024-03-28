@@ -5,7 +5,6 @@
     }
     .u-carousel {
       position: relative;
-      background-color: #f3f3f3;
     }
     .u-carousel-inner {
         position: relative;
@@ -16,20 +15,14 @@
         position: relative;
         align-items: center;
         width: 100%;
-        transition: transform 0.6s ease;
-        backface-visibility: hidden;
-        perspective: 1000px;
-        transform: translate3d(0, 0, 0);
-        -webkit-backface-visibility: hidden;
     }
     .u-sheet {
-        min-height: 750px;
         position: relative;
         margin: 0 auto;
     }
     .u-layout-wrap {
         pointer-events: auto;
-        margin: 72px auto 60px 0;
+        margin: 6rem auto 6rem 0;
     }
     .u-layout {
         margin: -5px;
@@ -37,7 +30,6 @@
     .u-layout-row {
         flex-direction: row;
         flex-wrap: wrap;
-        min-height: -webkit-fit-content;
         min-height: fit-content;
         max-width: 100%;
     }
@@ -46,11 +38,9 @@
         display: flex;
         background-clip: padding-box;
         background-origin: padding-box;
-        border: 5px solid transparent;
 
     }
     .u-carousel-item .u-layout-cell {
-        min-height: 600px;
         pointer-events: auto;
     }
     .u-layout-row > * {
@@ -62,19 +52,24 @@
         display: flex;
     }
     .u-fimage {
-        min-height: 600px;
         pointer-events: auto;
-        background-position: 50% 50%;
-        object-fit: cover;
         display: block;
-        vertical-align: middle;
-        background-size: cover;
-        background-position: 50% 50%;
-        background-repeat: no-repeat;
-        background-color: #b3b3b3;
+        background-color: #f3f3f3;
+        overflow: hidden;
+    }
+    .u-fimage img {
+        display: block;
+        max-width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center center;
     }
     .u-container-layout {
-        padding: 30px 60px;
+        padding: 2rem 4rem;
     }
     .u-layout-row > .u-size-30 {
         flex: 0 0 50%;
@@ -94,33 +89,33 @@
         transition-duration: inherit;
     }
     .u-pimage {
+        margin: 1rem 0 0 0;
         max-width: 120px;
-        height: 80px;
-        background-color: #b3b3b3;
+        height: auto;
     }
     .u-text {
         word-wrap: break-word;
         position: relative;
     }
     .u-text-1 {
-        font-size: 2rem;
+        font-size: 1.675rem;
         text-transform: uppercase;
-        margin: 20px 0 0;
+        margin: 1rem 0 0;
     }
     /*asset tags*/
     .u-tags-list {
         font-size: 1rem;
-        margin: 20px 0 0 0;
+        margin: 1rem 0 0 0;
         padding: 0;
         display: flex;
         flex-wrap: wrap;
         list-style: none;
     }
     .u-tag {
-        font-size: .65rem;
+        font-size: .5rem;
         color: #111111;
         text-transform: uppercase;
-        background: #b3b3b3;
+        background: #f3f3f3;
         margin: 0 .2rem 0 0;
         padding: .2rem;
         display: flex;
@@ -146,36 +141,21 @@
         display: table;
         cursor: pointer;
         color: #ffffff;
-        font-size: inherit;
-        font-family: inherit;
-        line-height: inherit;
-        letter-spacing: inherit;
-        text-transform: inherit;
-        font-style: inherit;
-        font-weight: inherit;
-        text-decoration: none;
-        border: 0 none transparent;
         outline-width: 0;
         background-color: #111111;
-        margin-top: 20px;
-        margin-bottom: 20px;
-        font-style: initial;
-        white-space: nowrap;
-        user-select: none;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
         vertical-align: middle;
         text-align: center;
-        padding: 10px 30px;
+        padding: 1rem 2rem;
         border-radius: 0;
         align-self: flex-start;
-        -webkit-user-select: none;
-        -ms-user-select: none;
-        -webkit-text-decoration-skip: objects;
     }
     /*carousel pagination*/
     .u-carousel-indicators {
         position: absolute;
         left: 0;
-        bottom: 10px;
+        bottom: 25px;
         z-index: 15;
         display: flex;
         justify-content: center;
@@ -191,8 +171,7 @@
         margin-right: 3px;
         margin-left: 3px;
         text-indent: -999px;
-        color: #ffffff;
-        background-color: #b3b3b3;
+        background-color: #f3f3f3;
     }
     .u-carousel-indicators li::before {
         position: absolute;
@@ -201,7 +180,7 @@
         display: inline-block;
         width: 100%;
         height: 10px;
-        content: "";
+        content: '';
     }
     .u-carousel-indicators li::after {
         position: absolute;
@@ -210,7 +189,7 @@
         display: inline-block;
         width: 100%;
         height: 10px;
-        content: "";
+        content: '';
     }
     .u-carousel-indicators li.u-active {
         background-color: #111111;
@@ -236,22 +215,12 @@
         z-index: 2;
     }
     .u-carousel-control-prev {
-        position: absolute;
         left: 0;
     }
     .u-carousel-control-next {
-        position: absolute;
         right: 0;
     }
     .u-carousel-control-prev, .u-carousel-control-next {
-        color: inherit;
-        font-size: inherit;
-        font-family: inherit;
-        line-height: inherit;
-        letter-spacing: inherit;
-        text-transform: inherit;
-        font-style: inherit;
-        font-weight: inherit;
         text-decoration: none;
         border: 0 none transparent;
         outline-width: 0;
@@ -274,10 +243,47 @@
         width: 100%;
     }
     @media (min-width: 1200px) {
-    .u-sheet {
+        .u-sheet {
         width: 1140px !important;
+        }
     }
-}
+    @media (min-width: 992px) and (max-width: 1199px) {
+        .u-sheet {
+            width: 940px !important;
+        }
+    }
+    @media (min-width: 768px) and (max-width: 991px) {
+        .u-sheet {
+            width: 720px !important;
+        }
+        .u-layout-wrap:not(.u-layout-custom-sm) .u-layout-row > * {
+            min-width: 100%;
+        }
+    }
+    @media (min-width: 576px) and (max-width: 767px) {
+        .u-sheet {
+            width: 540px !important;
+        }
+        .u-layout-wrap:not(.u-layout-custom-sm) .u-layout-row > * {
+            min-width: 100%;
+        }
+    }
+    @media (max-width: 575px) {
+        .u-sheet {
+            width: 340px !important;
+        }
+    }
+    @media (max-width: 767px) {
+        .u-container-layout {
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+    }
+    @media (max-width: 575px) {
+        .u-layout-wrap:not(.u-layout-custom-xs) .u-layout-row > * {
+        min-width: 100%;
+        }
+    }
 </style>
 
 <section class="u-carousel">
@@ -287,17 +293,19 @@
                 <div class="u-clearfix u-expanded-width u-layout-wrap">
                     <div class="u-layout">
                         <div class="u-layout-row">
-                            <div class="u-fimage u-layout-cell u-size-30 u-size-xs-60 u-fimage">
-                                <div class="u-container-layout u-valign-middle dx-asset-featured-image__REF__"></div>
+                            <div class="u-fimage u-layout-cell u-size-30 u-size-xs-60">
+                                <div class="u-container-layout u-valign-middle dx-asset-featured-image__REF__">
+                                    <img src="assets/images/slide-landscape.jpg" alt="" />
+                                </div>
                             </div>
                             <div class="u-layout-cell u-size-30 u-size-xs-60">
                                 <div class="u-container-layout u-valign-middle">
-                                    <div class="u-pimage"></div>
-                                    <ul class="u-tags-list dx-asset-asset-type__REF__">
-                                        <li class="u-tag dx-asset-asset-type__REF__"><img src="assets/icons/document.svg"/> Report</li>
-                                        <li class="u-tag dx-asset-time-to-read__REF__"><img src="assets/icons/clock.svg"/> 16 Min Read</li>
-                                        <li class="u-tag dx-asset-starttimes__REF__"><img src="assets/icons/calendar.svg"/> 26th March 14:00 GMT</li>
-                                        <li class="u-tag dx-asset-duration__REF__"><img src="assets/icons/timer.svg"/> 35 mins</li>
+                                    <img src="assets/images/partner-logo.png" class="u-pimage" alt="" />
+                                    <ul class="u-tags-list">
+                                        <li class="u-tag dx-asset-asset-type__REF__"><img src="assets/icons/document.svg "/> Report</li>
+                                        <li class="u-tag dx-asset-time-to-read__REF__"><img src="assets/icons/clock.svg "/> 16 Min Read</li>
+                                        <li class="u-tag dx-asset-starttimes__REF__"><img src="assets/icons/calendar.svg "/> 26th March 14:00 GMT</li>
+                                        <li class="u-tag dx-asset-duration__REF__"><img src="assets/icons/timer.svg" /> 35 mins</li>
                                     </ul>
                                     <h2 class="u-text u-text-1 dx-asset-title__REF__">2024 Predictions: 10 Trends in eCommerce Marketing</h2>
                                     <p class="u-text">The year 2024 is not just a chapter but a saga in the evolution of eCommerce and digital marketing. Wunderkind is embracing change, driving growth, and revolutionising the way brands connect with consumers. The journey begins now. Are you ready?</p>
@@ -316,8 +324,8 @@
     </ol>
     <a class="u-absolute-vcenter u-carousel-control u-carousel-control-prev" href="#" role="button" data-u-slide="prev">
         <img src="assets/icons/chevron-left.svg"/>
-      </a>
-      <a class="u-absolute-vcenter u-carousel-control u-carousel-control-next" href="#" role="button" data-u-slide="next">
+    </a>
+    <a class="u-absolute-vcenter u-carousel-control u-carousel-control-next" href="#" role="button" data-u-slide="next">
         <img src="assets/icons/chevron-right.svg"/>
-      </a>
+    </a>
 </section>
