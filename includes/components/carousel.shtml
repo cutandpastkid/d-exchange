@@ -203,16 +203,14 @@
     }
     .dx-carousel__btn--prev-next {
         top: 46%;
-        -webkit-transform: translateY(-50%);
-            -ms-transform: translateY(-50%);
-                transform: translateY(-50%);
+        -webkit-transform: translateY(-46%);
+            -ms-transform: translateY(-46%);
+                transform: translateY(-46%);
         -webkit-transition: -webkit-transform 0.1s ease-in-out;
         transition: -webkit-transform 0.1s ease-in-out;
         -o-transition: transform 0.1s ease-in-out;
         transition: transform 0.1s ease-in-out;
         transition: transform 0.1s ease-in-out, -webkit-transform 0.1s ease-in-out;
-        background-repeat: no-repeat;
-        background-position: center center;
     }
     .dx-carousel__btn--prev-next:hover {
         -webkit-transform: translateY(-50%) scale(1.2);
@@ -221,10 +219,37 @@
     }
     .dx-carousel__btn--prev {
         left: var(--dx-carousel-inner-spacing);
-        background-image: url('https://demandexchange-dx-platform.s3.eu-west-2.amazonaws.com/icons/clock.svg');
     }
     .dx-carousel__btn--next {
         right: var(--dx-carousel-inner-spacing);
+    }
+    .dx-carousel__btn--next::after {
+        content: "";
+        display: block;
+        -webkit-box-sizing: border-box;
+                box-sizing: border-box;
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        border-bottom: 2px solid;
+        border-right: 2px solid;
+        -webkit-transform: rotate(-45deg);
+            -ms-transform: rotate(-45deg);
+                transform: rotate(-45deg);
+    }
+    .dx-carousel__btn--prev::after {
+        content: "";
+        display: block;
+        -webkit-box-sizing: border-box;
+                box-sizing: border-box;
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        border-bottom: 2px solid;
+        border-left: 2px solid;
+        -webkit-transform: rotate(45deg);
+            -ms-transform: rotate(45deg);
+                transform: rotate(45deg);
     }
     .dx-carousel__pagination {
         margin-top: calc(var(--dx-carousel-pagination-margin)*2);
@@ -555,20 +580,18 @@ const JSCarousel = ({
     prevBtn = addElement(
       "btn",
       {
-        class: "dx-carousel__btn dx-carousel__btn--prev-next dx-carousel__btn--prev dx-carousel--abspos ",
+        class: "dx-carousel__btn dx-carousel__btn--prev-next dx-carousel__btn--prev dx-carousel--abspos",
         "aria-label": "Previous Slide",
-      },
-      "<"
+      }
     );
     carousel.appendChild(prevBtn);
 
     nextBtn = addElement(
       "btn",
       {
-        class: "dx-carousel__btn dx-carousel__btn--prev-next dx-carousel__btn--next dx-carousel--abspos ",
+        class: "dx-carousel__btn dx-carousel__btn--prev-next dx-carousel__btn--next dx-carousel--abspos",
         "aria-label": "Next Slide",
-      },
-      ">"
+      }
     );
     carousel.appendChild(nextBtn);
 
