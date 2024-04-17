@@ -1,0 +1,76 @@
+<section class="dx-carousel">
+    <div class="dx-carousel-inner">
+        <div class="dx-carousel-item dx-clearfix">
+            <div class="dx-clearfix dx-sheet">
+                <div class="dx-clearfix dx-layout-wrap">
+                    <div class="dx-layout">
+                        <xsl:for-each select="/doc/assets/asset">
+                            <div class="dx-layout-row">
+                                <div class="dx-image dx-layout-cell dx-size-30 dx-size-xs-60">
+                                    <div class="dx-container-layout dx-valign-middle {/doc/thumb-container-class}">
+                                        <img src="{thumb}" srcset="{thumb} 1120w, {thumb} 720w, {thumb}" sizes="(max-width: 640px) 50vw, 100vw" class=" dx-asset-featured-image__REF__" alt="{title}" title="{title}" />
+                                    </div>
+                                </div>
+                                <div class="dx-layout-cell dx-size-30 dx-size-xs-60">
+                                    <div class="dx-container-layout dx-valign-middle">
+                                        <xsl:if test="/doc/show_logo='1'">
+                                            <img src="{partnerlogo}" class="dx-pimage dx-asset-partner-logo__REF__" alt="{partnername}" title="{partnername}" />
+                                        </xsl:if>
+                                        <ul class="dx-tags-list">
+                                            <xsl:if test="/doc/show_asset_type='1'">
+                                                <li class="dx-tag dx-asset-asset-type__REF__"><img src="https://demandexchange-dx-platform.s3.eu-west-2.amazonaws.com/icons/document.svg"/> <xsl:value-of select="displayname"/></li>
+                                            </xsl:if>
+                                            <xsl:if test="/doc/show_starttimes='1'">
+                                                <li class="dx-tag dx-asset-starttimes__REF__"><img src="https://demandexchange-dx-platform.s3.eu-west-2.amazonaws.com/icons/calendar.svg "/> <xsl:value-of select="starttimes"/></li>
+                                            </xsl:if>
+                                            <xsl:if test="/doc/show_duration = '1'">
+                                                <xsl:choose>
+                                                    <xsl:when test="duration != '0'">
+                                                        <li class="dx-tag dx-asset-duration__REF__"><img src="https://demandexchange-dx-platform.s3.eu-west-2.amazonaws.com/icons/timer.svg" /><xsl:value-of select="concat(duration, ' ', duration_type)"/></li>
+                                                    </xsl:when>
+                                                    <xsl:otherwise>
+                                                        <xsl:if test="timetoread != ''">
+                                                            <li class="dx-tag dx-asset-time-to-read__REF__"><img src="https://demandexchange-dx-platform.s3.eu-west-2.amazonaws.com/icons/clock.svg"/>
+                                                                <xsl:choose>
+                                                                    <xsl:when test="timetoread &lt; 5">Quick Read</xsl:when>
+                                                                    <xsl:otherwise>
+                                                                        <xsl:value-of select="timetoread"/> Min Read
+                                                                    </xsl:otherwise>
+                                                                </xsl:choose>
+                                                            </li>
+                                                        </xsl:if>
+                                                    </xsl:otherwise>
+                                                </xsl:choose>
+                                            </xsl:if>
+                                        </ul>
+                                        <h2 class="dx-text dx-text-1 dx-asset-title__REF__">
+                                            <xsl:value-of select="concat('&lt;', /doc/asset_title_tag, '&gt;')" disable-output-escaping="yes"/>
+                                                <xsl:value-of select="title"/>
+                                            <xsl:value-of select="concat('&lt;', /doc/asset_title_tag_end, '&gt;')" disable-output-escaping="yes"/>
+                                        </h2>
+                                        <xsl:if test="/doc/show_summary = '1' and summary != ''">
+                                            <p class="dx-text"><xsl:value-of select="summary" disable-output-escaping="yes"/></p>
+                                        </xsl:if>
+                                        <xsl:if test="/doc/show_cta = '1'">
+                                            <a href="#" class="dx-btn dx-asset-cta__REF__" title="{calltoaction}"><xsl:value-of select="calltoaction"/></a>
+                                        </xsl:if>
+                                    </div>
+                                </div>
+                            </div>
+                        </xsl:for-each>
+                    </div>
+                </div>
+            </div> 
+        </div>
+    </div>
+    <ol class="dx-absolute-hcenter dx-carousel-indicators">
+        <li class="dx-active"></li>
+        <li></li>
+    </ol>
+    <a class="dx-absolute-vcenter dx-carousel-control dx-carousel-control-prev" href="#" role="button">
+        <img src="https://demandexchange-dx-platform.s3.eu-west-2.amazonaws.com/icons/chevron-left.svg"/>
+    </a>
+    <a class="dx-absolute-vcenter dx-carousel-control dx-carousel-control-next" href="#" role="button">
+        <img src="https://demandexchange-dx-platform.s3.eu-west-2.amazonaws.com/icons/chevron-right.svg"/>
+    </a>
+</section>
