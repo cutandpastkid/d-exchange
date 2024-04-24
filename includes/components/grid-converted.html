@@ -1,0 +1,324 @@
+<style>
+:root {
+    --dx-grid-bg: #f1f1f1;
+    --dx-grid-card-bg: #ffffff;
+    --dx-grid-margin: 1rem;
+    --deck_template_columns:'';
+    --deck_template_rows:'';
+    --deck_template_columns_laptop:'';
+    --deck_template_rows_laptop:'';
+    --deck_template_columns_tablet:'';
+    --deck_template_rows_tablet:'';
+    --deck_template_columns_mobile:'';
+    --deck_template_rows_mobile:'';
+    --grid_column_gap: 1.5rem;
+    --grid_row_gap: 1.5rem;
+}
+.dx-responsive-grid,
+.dx-responsive-grid *,
+.dx-responsive-grid *::before,
+.dx-responsive-grid *::after {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    }
+    .dx-responsive-grid {
+    background-color: var(--dx-grid-bg);
+    padding: 2rem;
+}
+.dx-responsive-grid ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+.dx-responsive-grid a {
+    text-decoration: none;
+    color: inherit;
+}
+.dx-grid {
+    font: normal 1rem/140% sans-serif;
+    background-color: var(--dx-grid-bg);
+    display: -ms-grid;
+    display: grid; 
+    grid-auto-flow: row dense; 
+    grid-auto-columns: var(--deck_template_columns); 
+    grid-auto-rows: var(--deck_template_rows); 
+    -ms-grid-columns: 1fr calc(var(--dx-grid-margin)*1.5) 1fr calc(var(--dx-grid-margin)*1.5) 1fr calc(var(--dx-grid-margin)*1.5) 1fr; 
+    grid-template-columns: var(--deck_template_columns); 
+    -ms-grid-rows: var(--deck_template_rows); 
+    grid-template-rows: var(--deck_template_rows); 
+    grid-column-gap: calc(var(--grid_column_gap)*1.5);
+    grid-row-gap: calc(var(--grid_column_gap)*1.5);
+        grid-template-areas: 
+        ". . . ."; 
+}
+.dx-grid--relpos {
+    position: relative;
+}
+.dx-grid--abspos {
+    position: absolute;
+}
+.dx-grid__card {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    background-color: var(--dx-grid-card-bg);
+}
+.dx-grid__row {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+}
+.dx-grid__image {
+    -ms-flex-line-pack: center;
+        align-content: center;
+}     
+.dx-grid__image img {
+    width: 100%;
+    height: 100%;
+    -o-object-fit: contain;
+        object-fit: contain;
+}
+.dx-grid__tag {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -ms-flex-item-align: start;
+        align-self: flex-start;
+    background: #333;
+    color: #fff;
+    padding: calc(var(--dx-grid-margin) / 1.75) var(--dx-grid-margin);
+    margin-bottom: var(--dx-grid-margin);
+}
+.dx-grid__tag img {
+    max-width: 15px;
+    max-height: 15px;
+}
+.dx-grid__tag img + span {
+    font-size: .85rem;
+    margin-left: calc(var(--dx-grid-margin)/2.5);
+}
+.dx-grid__tag--abspos {
+    top: 0;
+    right: 0;
+}
+.dx-grid__caption {
+    padding: 0 calc(var(--dx-grid-margin)*1.5);
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    max-width: 100%;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column; 
+    text-align: left;
+}
+.dx-grid__title {
+    font-size: 1.5rem;
+    margin: var(--dx-grid-margin) 0 var(--dx-grid-margin) 0;
+}
+.dx-grid__summary {
+    margin: 0 0 var(--dx-grid-margin) 0;
+}
+.dx-grid__cta {
+    padding: 0 calc(var(--dx-grid-margin)*1.5);
+}
+.dx-grid__cta-btn {
+    display: block;
+    text-decoration: none;
+    cursor: pointer;
+    color: #fff;
+    background-color: #333;
+    margin: var(--dx-carousel-margin) 0 var(--dx-grid-margin) 0;
+    text-align: center;
+    padding: calc(var(--dx-grid-margin)/1.75) calc(var(--dx-grid-margin) * 1.5);
+    border: none;
+    border-spacing: 0;
+    list-style: none outside none;
+    text-indent: 0;
+    width: 100%;
+}
+.dx-grid__more {
+    text-align: center;
+    padding: calc(var(--dx-grid-margin) * 1.5);
+}
+.dx-grid__more-btn {
+    text-decoration: none;
+    cursor: pointer;
+    color: #fff;
+    background-color: #333;
+    margin: var(--dx-carousel-margin) 0 var(--dx-grid-margin) 0;
+    text-align: center;
+    padding: calc(var(--dx-grid-margin)/1.75) calc(var(--dx-grid-margin) * 1.5);
+    border: none;
+    border-spacing: 0;
+    list-style: none outside none;
+    text-indent: 0;
+}
+@media only screen and (max-width: 575px){
+.dx-grid {
+    grid-template-columns: var(--deck_template_columns_mobile);
+    grid-template-rows: var(--deck_template_rows_mobile);
+    }
+}
+
+@media only screen and (min-width: 576px) and (max-width: 1024px){
+.dx-grid {
+    grid-template-columns: var(--deck_template_columns_tablet);
+    grid-template-rows: var(--deck_template_rows_tablet); 
+    }
+}
+
+@media only screen and (min-width: 1025px) and (max-width: 1280px){
+.dx-grid {
+    grid-template-columns: var(--deck_template_columns_laptop);
+    grid-template-rows: var(--deck_template_rows_laptop); 
+    }
+}
+</style>
+
+<section class="dx-responsive-grid dx-component__REF__">
+    <xsl:if test="/doc/show_component_title='1'">
+        <div class="dx-component-title__REF__">
+            <xsl:value-of select="concat('&lt;', /doc/component_title_tag, '&gt;')" disable-output-escaping="yes"/>
+                <xsl:value-of select="/doc/title"/>
+            <xsl:value-of select="concat('&lt;', /doc/component_title_tag_end, '&gt;')" disable-output-escaping="yes"/>
+        </div>
+    </xsl:if>
+    <xsl:if test="/doc/component/component_intro != ''">
+        <div class="dx-component-intro__REF__">
+            <xsl:value-of select="/doc/component/component_intro" disable-output-escaping="yes"/>        
+        </div>
+    </xsl:if>
+    <ul class="dx-grid dx-deck__REF__" id="dx-deck__REF__" role="list">
+        <xsl:for-each select="/doc/assets/asset">
+            <li class="dx-grid__card {/doc/deck-card-class}" data-id="{id}" role="listitem">
+                <div class="dx-grid__row">
+                    <div class="dx-grid__cell dx-grid--relpos">
+                        <div class="dx-grid__image dx-grid--relpos {/doc/thumb-container-class}">
+                            <xsl:if test="/doc/show_duration = '1'">
+                                <xsl:choose>
+                                    <xsl:when test="duration != '0'">
+                                        <span class="dx-asset-duration__REF__">
+                                            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg>
+                                            <xsl:value-of select="concat(duration, ' ', duration_type)"/>
+                                        </span>
+                                    </xsl:when>
+                                    <xsl:otherwise>
+                                        <xsl:if test="timetoread != ''">
+                                            <span class="dx-duration__REF__">
+                                                <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg>
+                                                <xsl:choose>
+                                                    <xsl:when test="timetoread &lt; 5">Quick Read</xsl:when>
+                                                    <xsl:otherwise>
+                                                        <xsl:value-of select="timetoread"/> Min Read
+                                                    </xsl:otherwise>
+                                                </xsl:choose>
+                                            </span>
+                                        </xsl:if>
+                                    </xsl:otherwise>
+                                </xsl:choose>
+                            </xsl:if>
+                            <div class="dx-asset-content__REF__">
+                                <xsl:if test="/doc/show_asset_type='1'">
+                                    <div class="dx-asset-type__REF__"><img src="{dx_icon}"/><xsl:value-of select="displayname"/></div>
+                                </xsl:if>
+                                <div>
+                                    <div class="dx-asset-title__REF__">
+                                        <xsl:value-of select="concat('&lt;', /doc/asset_title_tag, '&gt;')" disable-output-escaping="yes"/>
+                                            <xsl:value-of select="title"/>
+                                        <xsl:value-of select="concat('&lt;', /doc/asset_title_tag_end, '&gt;')" disable-output-escaping="yes"/>
+                                    </div>
+                                                        
+                                    <xsl:if test="/doc/show_summary = '1' and summary != ''">
+                                        <div class="dx-asset-intro__REF__">
+                                            <xsl:value-of select="summary" disable-output-escaping="yes"/>
+                                        </div>
+                                    </xsl:if>
+                                </div>
+                                <xsl:if test="/doc/show_starttimes = '1' and (asset_type_id = '3' or asset_type_id='5')">
+                                    <div class="dx-asset-starttimes__REF__"><xsl:value-of select="start_date"/> at <xsl:value-of select="concat(starttimes/starttime[1]/time, ' ', starttimes/starttime[1]/timezone)"/></div>
+                                </xsl:if>
+                                <div class="dx-grid__tag dx-grid__tag--abspos dx-grid--abspos dx-asset-time-to-read__REF__">
+                                    <img 
+                                        src="assets/icons/clock-icon-wht.svg" 
+                                        class="dx-grid__icon"
+                                        alt=""
+                                        title="" 
+                                    />
+                                    <span>Read Time</span>
+                                </div>
+                                <a target="_blank" class="dx-asset-link__REF__" href="{dxlink}" title="{title}">
+                                    <img 
+                                        src="assets/images/588x380.svg" 
+                                        srcset="/assets/images/1176x760.svg 1120w, /assets/images/588x380.svg 720w, /assets/images/588x380.svg 400w" 
+                                        sizes="(max-width: 640px) 50vw, 100vw" 
+                                        class="dx-asset-thumb__REF__" 
+                                        alt="{thumb}"
+                                        title="{thumb}"
+                                    />
+                                    <xsl:value-of select="displayname"/>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="dx-grid__caption">
+                            <a target="_blank" class="dx-asset-link__REF__" href="{dxlink}" title="{title}">
+                                <h4 class="dx-grid__title dx-asset-title__REF__">
+                                    <xsl:value-of select="concat('&lt;', /doc/asset_title_tag, '&gt;')" disable-output-escaping="yes"/>
+                                        <xsl:value-of select="title"/>
+                                    <xsl:value-of select="concat('&lt;', /doc/asset_title_tag_end, '&gt;')" disable-output-escaping="yes"/>
+                                </h4>
+                            </a>
+                            <xsl:if test="/doc/show_summary = '1' and summary != ''">
+                                <p class="dx-grid__summary dx-asset-intro__REF__">
+                                    <xsl:value-of select="summary" disable-output-escaping="yes"/>
+                                </p>
+                            </xsl:if>
+                            
+                        </div>
+                        <xsl:if test="/doc/show_logo='1'">
+                            <div class="dx-asset-partner-logo-holder__REF__">
+                                 <img class="dx-asset-partner-logo__REF__" src="{partnerlogo}" alt="{partnername}"/>
+                             </div>        
+                         </xsl:if>
+                    </div>
+                    <div class="dx-grid__cell">
+                        <div class="dx-grid__cta dx-asset-cta-container__REF__">
+                            <button class="dx-grid__cta-btn dx-asset-cta-container__REF__" title=""><xsl:value-of select="calltoaction"/></button>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </xsl:for-each>
+    </ul>
+    <xsl:if test="/doc/paging_mode != 'N'">
+        <div id="dx-deck-more__REF__" class="dx-deck-more__REF__ dx-grid__more">
+            <xsl:choose>
+                <xsl:when test="/doc/paging_mode='B'">
+                    <button type="button" data-page="1" data-mode="{/doc/paging_mode}" data-ref="id__REF__" class="dx-deck-more-button dx-grid__more-btn">More</button>
+                </xsl:when>
+                <xsl:otherwise>
+                    <span data-page="1" data-mode="{/doc/paging_mode}" data-ref="id__REF__" class="dx-deck-more-button dx-grid__more-btn">...</span>
+                </xsl:otherwise>
+            </xsl:choose>
+        </div>
+    </xsl:if>
+</section>

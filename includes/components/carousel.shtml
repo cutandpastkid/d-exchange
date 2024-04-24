@@ -165,9 +165,9 @@
                 flex-direction: column; 
         text-align: left;
     }
-    .dx-carousel__title > * {
+    .dx-carousel__title {
         font-size: 1.5rem;
-        margin: 0 0 var(--dx-carousel-margin) 0;
+        margin: var(--dx-carousel-margin) 0 var(--dx-carousel-margin) 0;
     }
     .dx-carousel__summary {
         margin: 0 0 var(--dx-carousel-margin) 0;
