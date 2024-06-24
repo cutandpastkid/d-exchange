@@ -11,19 +11,18 @@
     --deck_template_rows_tablet:'';
     --deck_template_columns_mobile:'';
     --deck_template_rows_mobile:'';
-    --grid_column_gap: 1.5rem;
-    --grid_row_gap: 1.5rem;
+    --grid_column_gap: .8rem;
+    --grid_row_gap: .8rem;
 }
 .dx-responsive-grid,
 .dx-responsive-grid *,
 .dx-responsive-grid *::before,
 .dx-responsive-grid *::after {
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-    }
-    .dx-responsive-grid {
+-webkit-box-sizing: border-box;
+        box-sizing: border-box;
+}
+.dx-responsive-grid {
     background-color: var(--dx-grid-bg);
-    padding: 2rem;
 }
 .dx-responsive-grid ul {
     padding: 0;
@@ -34,8 +33,14 @@
     text-decoration: none;
     color: inherit;
 }
+.dx-grid__results {
+    background-color: var(--dx-grid-card-bg);
+    padding: var(--dx-grid-margin);
+    margin-bottom: var(--dx-grid-margin);
+}
 .dx-grid {
-    font: normal 1rem/140% sans-serif;
+    font: normal 1rem/100% sans-serif;
+    color: #333;
     background-color: var(--dx-grid-bg);
     display: -ms-grid;
     display: grid; 
@@ -98,19 +103,19 @@
         align-self: flex-start;
     background: #333;
     color: #fff;
-    padding: calc(var(--dx-grid-margin) / 1.75) var(--dx-grid-margin);
+    padding: calc(var(--dx-grid-margin) / 2);
     margin-bottom: var(--dx-grid-margin);
 }
 .dx-grid__tag img {
-    max-width: 15px;
-    max-height: 15px;
+    max-width: 12px;
+    max-height: 12px;
 }
 .dx-grid__tag img + span {
-    font-size: .85rem;
+    font-size: .75rem;
     margin-left: calc(var(--dx-grid-margin)/2.5);
 }
 .dx-grid__tag--abspos {
-    top: 0;
+    top: 1.5rem;
     right: 0;
 }
 .dx-grid__caption {
@@ -132,11 +137,12 @@
     text-align: left;
 }
 .dx-grid__title {
-    font-size: 1.5rem;
+    font-size: 1rem;
     margin: var(--dx-grid-margin) 0 var(--dx-grid-margin) 0;
 }
 .dx-grid__summary {
     margin: 0 0 var(--dx-grid-margin) 0;
+    font-size: .8rem;
 }
 .dx-grid__cta {
     padding: 0 calc(var(--dx-grid-margin)*1.5);
@@ -147,7 +153,7 @@
     cursor: pointer;
     color: #fff;
     background-color: #333;
-    margin: var(--dx-carousel-margin) 0 var(--dx-grid-margin) 0;
+    margin: var(--dx-grid-margin) 0 var(--dx-grid-margin) 0;
     text-align: center;
     padding: calc(var(--dx-grid-margin)/1.75) calc(var(--dx-grid-margin) * 1.5);
     border: none;
@@ -165,7 +171,7 @@
     cursor: pointer;
     color: #fff;
     background-color: #333;
-    margin: var(--dx-carousel-margin) 0 var(--dx-grid-margin) 0;
+    margin: var(--dx-grid-margin) 0 var(--dx-grid-margin) 0;
     text-align: center;
     padding: calc(var(--dx-grid-margin)/1.75) calc(var(--dx-grid-margin) * 1.5);
     border: none;
@@ -250,14 +256,16 @@
                             />
                             <span>Read Time</span>
                         </div>
+                        <a target="_blank" class="dx-asset-link__REF__" href="{dxlink}" title="{title}"></a>
                         <img 
-                            src="assets/images/340x480.svg" 
-                            srcset="/assets/images/680x960.svg 1120w, /assets/images/340x480.svg 720w, /assets/images/340x480.svg 400w" 
+                            src="assets/images/588x380.svg" 
+                            srcset="/assets/images/1176x760.svg 1120w, /assets/images/588x380.svg 720w, /assets/images/588x380.svg 400w" 
                             sizes="(max-width: 640px) 50vw, 100vw" 
-                            class="dx-asset-featured-image__REF__" 
-                            alt="" 
-                            title="" 
+                            class="dx-asset-thumb__REF__" 
+                            alt="{thumb}"
+                            title="{thumb}"
                         />
+                        </a>
                     </div>
                     <div class="dx-grid__caption">
                         <a target="_blank" class="dx-asset-link__REF__" href="{dxlink}" title="{title}">
@@ -324,14 +332,16 @@
                             />
                             <span>Read Time</span>
                         </div>
+                        <a target="_blank" class="dx-asset-link__REF__" href="{dxlink}" title="{title}"></a>
                         <img 
-                            src="assets/images/340x480.svg" 
-                            srcset="/assets/images/680x960.svg 1120w, /assets/images/340x480.svg 720w, /assets/images/340x480.svg 400w" 
+                            src="assets/images/588x380.svg" 
+                            srcset="/assets/images/1176x760.svg 1120w, /assets/images/588x380.svg 720w, /assets/images/588x380.svg 400w" 
                             sizes="(max-width: 640px) 50vw, 100vw" 
-                            class="dx-asset-featured-image__REF__" 
-                            alt="" 
-                            title="" 
+                            class="dx-asset-thumb__REF__" 
+                            alt="{thumb}"
+                            title="{thumb}"
                         />
+                        </a>
                     </div>
                     <div class="dx-grid__caption">
                         <a target="_blank" class="dx-asset-link__REF__" href="{dxlink}" title="{title}">
@@ -360,57 +370,21 @@
                             />
                             <span>Read Time</span>
                         </div>
-                        <img 
-                            src="assets/images/340x480.svg" 
-                            srcset="/assets/images/680x960.svg 1120w, /assets/images/340x480.svg 720w, /assets/images/340x480.svg 400w" 
-                            sizes="(max-width: 640px) 50vw, 100vw" 
-                            class="dx-asset-featured-image__REF__" 
-                            alt="" 
-                            title="" 
-                        />
-                    </div>
-                    <div class="dx-grid__caption">
-                        <a target="_blank" class="dx-asset-link__REF__" href="{dxlink}" title="{title}">
-                            <h4 class="dx-grid__title dx-asset-title__REF__">Lorem ipsum dolor sit amet, consectetur adipiscing</h4>
-                        </a>                       
-                        <p class="dx-grid__summary dx-asset-intro__REF__">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ultricies auctor odio, id posuere urna volutpat nec. Sed varius a massa id tristique. Nam risus sapien, blandit ac quam ut, malesuada ullamcorper nisi. Ut lobortis odio id orci lobortis tempor at.</p>
-                    </div>
-                </div>
-                <div class="dx-grid__cell">
-                    <div class="dx-grid__cta dx-asset-cta-container__REF__">
-                        <button class="dx-grid__cta-btn dx-asset-cta-container__REF__" title="">Download Now</button>
-                    </div>
-                </div>
-            </div>
-        </li>
-        <li class="dx-grid__card {/doc/deck-card-class}" data-id="{id}" role="listitem">
-            <div class="dx-grid__row">
-                <div class="dx-grid__cell dx-grid--relpos">
-                    <div class="dx-grid__image dx-grid--relpos {/doc/thumb-container-class}">
-                        <div class="dx-grid__tag dx-grid__tag--abspos dx-grid--abspos dx-asset-time-to-read__REF__">
+                        <a target="_blank" class="dx-asset-link__REF__" href="{dxlink}" title="{title}"></a>
                             <img 
-                                src="assets/icons/clock-icon-wht.svg" 
-                                class="dx-grid__icon"
-                                alt=""
-                                title="" 
-                            />
-                            <span>Read Time</span>
-                        </div>
-                        <a target="_blank" class="dx-asset-link__REF__" href="{dxlink}" title="{title}">
-                            <img 
-                                src="assets/images/588x380.svg" 
-                                srcset="/assets/images/1176x760.svg 1120w, /assets/images/588x380.svg 720w, /assets/images/588x380.svg 400w" 
+                                src="assets/images/340x480.svg" 
+                                srcset="/assets/images/680x960.svg 1120w, /assets/images/340x480.svg 720w, /assets/images/340x480.svg 400w" 
                                 sizes="(max-width: 640px) 50vw, 100vw" 
-                                class="dx-asset-thumb__REF__" 
-                                alt="{thumb}"
-                                title="{thumb}"
+                                class="dx-asset-featured-image__REF__" 
+                                alt="" 
+                                title="" 
                             />
                         </a>
                     </div>
                     <div class="dx-grid__caption">
                         <a target="_blank" class="dx-asset-link__REF__" href="{dxlink}" title="{title}">
                             <h4 class="dx-grid__title dx-asset-title__REF__">Lorem ipsum dolor sit amet, consectetur adipiscing</h4>
-                        </a>
+                        </a>                       
                         <p class="dx-grid__summary dx-asset-intro__REF__">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ultricies auctor odio, id posuere urna volutpat nec. Sed varius a massa id tristique. Nam risus sapien, blandit ac quam ut, malesuada ullamcorper nisi. Ut lobortis odio id orci lobortis tempor at.</p>
                     </div>
                 </div>
@@ -421,10 +395,10 @@
                 </div>
             </div>
         </li>
-        <li class="dx-grid__card {/doc/deck-card-class}" data-id="{id}" role="listitem">
+        <li class="dx-grid__card" role="listitem">
             <div class="dx-grid__row">
                 <div class="dx-grid__cell dx-grid--relpos">
-                    <div class="dx-grid__image dx-grid--relpos {/doc/thumb-container-class}">
+                    <div class="dx-grid__image dx-grid--relpos">
                         <div class="dx-grid__tag dx-grid__tag--abspos dx-grid--abspos dx-asset-time-to-read__REF__">
                             <img 
                                 src="assets/icons/clock-icon-wht.svg" 
@@ -434,52 +408,54 @@
                             />
                             <span>Read Time</span>
                         </div>
-                        <a target="_blank" class="dx-asset-link__REF__" href="{dxlink}" title="{title}">
+                        <a target="_blank" class="dx-asset-link__REF__" href="{dxlink}" title="{title}"></a>
                             <img 
-                                src="assets/images/588x380.svg" 
-                                srcset="/assets/images/1176x760.svg 1120w, /assets/images/588x380.svg 720w, /assets/images/588x380.svg 400w" 
+                                src="assets/images/340x480.svg" 
+                                srcset="/assets/images/680x960.svg 1120w, /assets/images/340x480.svg 720w, /assets/images/340x480.svg 400w" 
                                 sizes="(max-width: 640px) 50vw, 100vw" 
-                                class="dx-asset-thumb__REF__" 
-                                alt="{thumb}"
-                                title="{thumb}"
+                                class="dx-asset-featured-image__REF__" 
+                                alt="" 
+                                title="" 
                             />
                         </a>
                     </div>
                     <div class="dx-grid__caption">
                         <a target="_blank" class="dx-asset-link__REF__" href="{dxlink}" title="{title}">
                             <h4 class="dx-grid__title dx-asset-title__REF__">Lorem ipsum dolor sit amet, consectetur adipiscing</h4>
+                        </a>                       
+                        <p class="dx-grid__summary dx-asset-intro__REF__">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ultricies auctor odio, id posuere urna volutpat nec. Sed varius a massa id tristique. Nam risus sapien, blandit ac quam ut, malesuada ullamcorper nisi. Ut lobortis odio id orci lobortis tempor at.</p>
+                    </div>
+                </div>
+                <div class="dx-grid__cell">
+                    <div class="dx-grid__cta dx-asset-cta-container__REF__">
+                        <button class="dx-grid__cta-btn dx-asset-cta-container__REF__" title="">Download Now</button>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li class="dx-grid__card" role="listitem">
+            <div class="dx-grid__row">
+                <div class="dx-grid__cell dx-grid--relpos">
+                    <div class="dx-grid__image dx-grid--relpos">
+                        <div class="dx-grid__tag dx-grid__tag--abspos dx-grid--abspos dx-asset-time-to-read__REF__">
+                            <img 
+                                src="assets/icons/clock-icon-wht.svg" 
+                                class="dx-grid__icon"
+                                alt=""
+                                title="" 
+                            />
+                            <span>Read Time</span>
+                        </div>
+                        <a target="_blank" class="dx-asset-link__REF__" href="{dxlink}" title="{title}"></a>
+                            <img 
+                                src="assets/images/340x480.svg" 
+                                srcset="/assets/images/680x960.svg 1120w, /assets/images/340x480.svg 720w, /assets/images/340x480.svg 400w" 
+                                sizes="(max-width: 640px) 50vw, 100vw" 
+                                class="dx-asset-featured-image__REF__" 
+                                alt="" 
+                                title="" 
+                            />
                         </a>
-                        <p class="dx-grid__summary dx-asset-intro__REF__">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ultricies auctor odio, id posuere urna volutpat nec. Sed varius a massa id tristique. Nam risus sapien, blandit ac quam ut, malesuada ullamcorper nisi. Ut lobortis odio id orci lobortis tempor at.</p>
-                    </div>
-                </div>
-                <div class="dx-grid__cell">
-                    <div class="dx-grid__cta dx-asset-cta-container__REF__">
-                        <button class="dx-grid__cta-btn dx-asset-cta-container__REF__" title="">Download Now</button>
-                    </div>
-                </div>
-            </div>
-        </li>
-        <li class="dx-grid__card" role="listitem">
-            <div class="dx-grid__row">
-                <div class="dx-grid__cell dx-grid--relpos">
-                    <div class="dx-grid__image dx-grid--relpos">
-                        <div class="dx-grid__tag dx-grid__tag--abspos dx-grid--abspos dx-asset-time-to-read__REF__">
-                            <img 
-                                src="assets/icons/clock-icon-wht.svg" 
-                                class="dx-grid__icon"
-                                alt=""
-                                title="" 
-                            />
-                            <span>Read Time</span>
-                        </div>
-                        <img 
-                            src="assets/images/340x480.svg" 
-                            srcset="/assets/images/680x960.svg 1120w, /assets/images/340x480.svg 720w, /assets/images/340x480.svg 400w" 
-                            sizes="(max-width: 640px) 50vw, 100vw" 
-                            class="dx-asset-featured-image__REF__" 
-                            alt="" 
-                            title="" 
-                        />
                     </div>
                     <div class="dx-grid__caption">
                         <a target="_blank" class="dx-asset-link__REF__" href="{dxlink}" title="{title}">
@@ -508,122 +484,16 @@
                             />
                             <span>Read Time</span>
                         </div>
-                        <img 
-                            src="assets/images/340x480.svg" 
-                            srcset="/assets/images/680x960.svg 1120w, /assets/images/340x480.svg 720w, /assets/images/340x480.svg 400w" 
-                            sizes="(max-width: 640px) 50vw, 100vw" 
-                            class="dx-asset-featured-image__REF__" 
-                            alt="" 
-                            title="" 
-                        />
-                    </div>
-                    <div class="dx-grid__caption">
-                        <a target="_blank" class="dx-asset-link__REF__" href="{dxlink}" title="{title}">
-                            <h4 class="dx-grid__title dx-asset-title__REF__">Lorem ipsum dolor sit amet, consectetur adipiscing</h4>
-                        </a>                       
-                        <p class="dx-grid__summary dx-asset-intro__REF__">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ultricies auctor odio, id posuere urna volutpat nec. Sed varius a massa id tristique. Nam risus sapien, blandit ac quam ut, malesuada ullamcorper nisi. Ut lobortis odio id orci lobortis tempor at.</p>
-                    </div>
-                </div>
-                <div class="dx-grid__cell">
-                    <div class="dx-grid__cta dx-asset-cta-container__REF__">
-                        <button class="dx-grid__cta-btn dx-asset-cta-container__REF__" title="">Download Now</button>
-                    </div>
-                </div>
-            </div>
-        </li>
-        <li class="dx-grid__card" role="listitem">
-            <div class="dx-grid__row">
-                <div class="dx-grid__cell dx-grid--relpos">
-                    <div class="dx-grid__image dx-grid--relpos">
-                        <div class="dx-grid__tag dx-grid__tag--abspos dx-grid--abspos dx-asset-time-to-read__REF__">
+                        <a target="_blank" class="dx-asset-link__REF__" href="{dxlink}" title="{title}"></a>
                             <img 
-                                src="assets/icons/clock-icon-wht.svg" 
-                                class="dx-grid__icon"
-                                alt=""
+                                src="assets/images/340x480.svg" 
+                                srcset="/assets/images/680x960.svg 1120w, /assets/images/340x480.svg 720w, /assets/images/340x480.svg 400w" 
+                                sizes="(max-width: 640px) 50vw, 100vw" 
+                                class="dx-asset-featured-image__REF__" 
+                                alt="" 
                                 title="" 
                             />
-                            <span>Read Time</span>
-                        </div>
-                        <img 
-                            src="assets/images/340x480.svg" 
-                            srcset="/assets/images/680x960.svg 1120w, /assets/images/340x480.svg 720w, /assets/images/340x480.svg 400w" 
-                            sizes="(max-width: 640px) 50vw, 100vw" 
-                            class="dx-asset-featured-image__REF__" 
-                            alt="" 
-                            title="" 
-                        />
-                    </div>
-                    <div class="dx-grid__caption">
-                        <a target="_blank" class="dx-asset-link__REF__" href="{dxlink}" title="{title}">
-                            <h4 class="dx-grid__title dx-asset-title__REF__">Lorem ipsum dolor sit amet, consectetur adipiscing</h4>
-                        </a>                       
-                        <p class="dx-grid__summary dx-asset-intro__REF__">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ultricies auctor odio, id posuere urna volutpat nec. Sed varius a massa id tristique. Nam risus sapien, blandit ac quam ut, malesuada ullamcorper nisi. Ut lobortis odio id orci lobortis tempor at.</p>
-                    </div>
-                </div>
-                <div class="dx-grid__cell">
-                    <div class="dx-grid__cta dx-asset-cta-container__REF__">
-                        <button class="dx-grid__cta-btn dx-asset-cta-container__REF__" title="">Download Now</button>
-                    </div>
-                </div>
-            </div>
-        </li>
-        <li class="dx-grid__card" role="listitem">
-            <div class="dx-grid__row">
-                <div class="dx-grid__cell dx-grid--relpos">
-                    <div class="dx-grid__image dx-grid--relpos">
-                        <div class="dx-grid__tag dx-grid__tag--abspos dx-grid--abspos dx-asset-time-to-read__REF__">
-                            <img 
-                                src="assets/icons/clock-icon-wht.svg" 
-                                class="dx-grid__icon"
-                                alt=""
-                                title="" 
-                            />
-                            <span>Read Time</span>
-                        </div>
-                        <img 
-                            src="assets/images/340x480.svg" 
-                            srcset="/assets/images/680x960.svg 1120w, /assets/images/340x480.svg 720w, /assets/images/340x480.svg 400w" 
-                            sizes="(max-width: 640px) 50vw, 100vw" 
-                            class="dx-asset-featured-image__REF__" 
-                            alt="" 
-                            title="" 
-                        />
-                    </div>
-                    <div class="dx-grid__caption">
-                        <a target="_blank" class="dx-asset-link__REF__" href="{dxlink}" title="{title}">
-                            <h4 class="dx-grid__title dx-asset-title__REF__">Lorem ipsum dolor sit amet, consectetur adipiscing</h4>
-                        </a>                       
-                        <p class="dx-grid__summary dx-asset-intro__REF__">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ultricies auctor odio, id posuere urna volutpat nec. Sed varius a massa id tristique. Nam risus sapien, blandit ac quam ut, malesuada ullamcorper nisi. Ut lobortis odio id orci lobortis tempor at.</p>
-                    </div>
-                </div>
-                <div class="dx-grid__cell">
-                    <div class="dx-grid__cta dx-asset-cta-container__REF__">
-                        <button class="dx-grid__cta-btn dx-asset-cta-container__REF__" title="">Download Now</button>
-                    </div>
-                </div>
-            </div>
-        </li>
-        <li class="dx-grid__card" role="listitem">
-            <div class="dx-grid__row">
-                <div class="dx-grid__cell dx-grid--relpos">
-                    <div class="dx-grid__image dx-grid--relpos">
-                        <div class="dx-grid__tag dx-grid__tag--abspos dx-grid--abspos dx-asset-time-to-read__REF__">
-                            <img 
-                                src="assets/icons/clock-icon-wht.svg" 
-                                class="dx-grid__icon"
-                                alt=""
-                                title="" 
-                            />
-                            <span>Read Time</span>
-                        </div>
-                        <img 
-                            src="assets/images/340x480.svg" 
-                            srcset="/assets/images/680x960.svg 1120w, /assets/images/340x480.svg 720w, /assets/images/340x480.svg 400w" 
-                            sizes="(max-width: 640px) 50vw, 100vw" 
-                            class="dx-asset-featured-image__REF__" 
-                            alt="" 
-                            title="" 
-                        />
+                        </a>
                     </div>
                     <div class="dx-grid__caption">
                         <a target="_blank" class="dx-asset-link__REF__" href="{dxlink}" title="{title}">

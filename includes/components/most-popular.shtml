@@ -1,0 +1,207 @@
+<style>
+:root {
+    --dx-most-popular-bg: #ffffff;
+    --dx-most-popular-card-bg: #f9f9f9;
+    --dx-most-popular-margin: 1rem;
+}
+.dx-most-popular {
+    font: normal 1rem/100% sans-serif;
+    background-color: #ffffff;
+    margin-bottom: var(--dx-most-popular-margin);
+}
+.dx-most-popular--relpos {
+    position: relative;
+}
+.dx-most-popular--abspos {
+    position: absolute;
+}
+.dx-most-popular--flex {
+    display: flex;
+    display: -webkit-box;
+    display: -ms-flexbox;
+}
+.dx-most-popular__header {
+    width: 100%;
+    margin-bottom: calc(var(--dx-most-popular-margin)/5);
+    background-color: var(--dx-most-popular-bg);
+}
+.dx-most-popular__header-inner {
+    justify-content: space-between;
+    padding: var(--dx-most-popular-margin);
+    font-size: 1.5rem;
+    align-items: center;
+}
+.dx-most-popular__header-title {
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+}
+.dx-most-popular__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    padding-bottom: .5rem;
+    background-color: var(--dx-most-popular-card-bg);
+}
+.dx-most-popular__card {
+    background-color: var(--dx-most-popular-card-bg);
+    padding: .5rem .5rem 0;
+}
+.dx-most-popular__row {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+}
+.dx-most-popular__cell {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: row;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -ms-flex-wrap: wrap;
+    flex-wrap: nowrap;
+}
+.dx-most-popular__cell > div {
+    width: 50%;
+}
+.dx-most-popular__image {
+    -ms-flex-line-pack: center;
+        align-content: center;
+}     
+.dx-most-popular__image img {
+    width: 100%;
+    height: 100%;
+    -o-object-fit: contain;
+        object-fit: contain;
+}
+.dx-most-popular__caption {
+    padding: 0 var(--dx-most-popular-margin);
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    max-width: 100%;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal; 
+        -ms-flex-direction: column;
+            flex-direction: column;  
+    text-align: left;
+}
+.dx-most-popular__caption a {
+    text-decoration: none;
+}
+.dx-most-popular__title {
+    font-size: 0.9rem;
+    margin: 0;
+    color: #333;
+}
+.dx-most-popular__summary {
+    margin: 0 0 var(--dx-most-popular-margin) 0;
+}
+</style>
+
+<section class="dx-most-popular">
+    <div class="dx-most-popular__header">
+        <div class="dx-most-popular__header-inner dx-most-popular--relpos dx-most-popular--flex">
+            <span class="dx-most-popular__header-title">Popular</span>
+        </div>
+    </div>
+    <ul class="dx-most-popular__list">
+        <li class="dx-most-popular__card dx-most-popular--flex">
+            <div class="dx-most-popular__row dx-most-popular--flex">
+                <div class="dx-most-popular__cell">
+                    <div class="dx-most-popular__image">
+                        <a target="_blank" class="dx-asset-link__REF__" href="{dxlink}" title="{title}">
+                            <img src="assets/images/588x380.svg" srcset="/assets/images/1176x760.svg 1120w, /assets/images/588x380.svg 720w, /assets/images/588x380.svg 400w" sizes="(max-width: 640px) 50vw, 100vw" class="dx-asset-thumb__REF__" alt="{thumb}" title="{thumb}">
+                        </a>
+                    </div>
+                    <div class="dx-most-popular__caption">
+                        <a target="_blank" class="dx-asset-link__REF__" href="{dxlink}" title="{title}">
+                            <h4 class="dx-most-popular__title dx-asset-title__REF__">Lorem ipsum dolor sit amet, consectetur adipiscing</h4>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li class="dx-most-popular__card dx-most-popular--flex">
+            <div class="dx-most-popular__row dx-most-popular--flex">
+                <div class="dx-most-popular__cell">
+                    <div class="dx-most-popular__image">
+                        <a target="_blank" class="dx-asset-link__REF__" href="{dxlink}" title="{title}">
+                            <img src="assets/images/588x380.svg" srcset="/assets/images/1176x760.svg 1120w, /assets/images/588x380.svg 720w, /assets/images/588x380.svg 400w" sizes="(max-width: 640px) 50vw, 100vw" class="dx-asset-thumb__REF__" alt="{thumb}" title="{thumb}">
+                        </a>
+                    </div>
+                    <div class="dx-most-popular__caption">
+                        <a target="_blank" class="dx-asset-link__REF__" href="{dxlink}" title="{title}">
+                            <h4 class="dx-most-popular__title dx-asset-title__REF__">Lorem ipsum dolor sit amet, consectetur adipiscing</h4>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li class="dx-most-popular__card dx-most-popular--flex">
+            <div class="dx-most-popular__row dx-most-popular--flex">
+                <div class="dx-most-popular__cell">
+                    <div class="dx-most-popular__image">
+                        <a target="_blank" class="dx-asset-link__REF__" href="{dxlink}" title="{title}">
+                            <img src="assets/images/588x380.svg" srcset="/assets/images/1176x760.svg 1120w, /assets/images/588x380.svg 720w, /assets/images/588x380.svg 400w" sizes="(max-width: 640px) 50vw, 100vw" class="dx-asset-thumb__REF__" alt="{thumb}" title="{thumb}">
+                        </a>
+                    </div>
+                    <div class="dx-most-popular__caption">
+                        <a target="_blank" class="dx-asset-link__REF__" href="{dxlink}" title="{title}">
+                            <h4 class="dx-most-popular__title dx-asset-title__REF__">Lorem ipsum dolor sit amet, consectetur adipiscing</h4>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li class="dx-most-popular__card dx-most-popular--flex">
+            <div class="dx-most-popular__row dx-most-popular--flex">
+                <div class="dx-most-popular__cell">
+                    <div class="dx-most-popular__image">
+                        <a target="_blank" class="dx-asset-link__REF__" href="{dxlink}" title="{title}">
+                            <img src="assets/images/588x380.svg" srcset="/assets/images/1176x760.svg 1120w, /assets/images/588x380.svg 720w, /assets/images/588x380.svg 400w" sizes="(max-width: 640px) 50vw, 100vw" class="dx-asset-thumb__REF__" alt="{thumb}" title="{thumb}">
+                        </a>
+                    </div>
+                    <div class="dx-most-popular__caption">
+                        <a target="_blank" class="dx-asset-link__REF__" href="{dxlink}" title="{title}">
+                            <h4 class="dx-most-popular__title dx-asset-title__REF__">Lorem ipsum dolor sit amet, consectetur adipiscing</h4>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li class="dx-most-popular__card dx-most-popular--flex">
+            <div class="dx-most-popular__row dx-most-popular--flex">
+                <div class="dx-most-popular__cell">
+                    <div class="dx-most-popular__image">
+                        <a target="_blank" class="dx-asset-link__REF__" href="{dxlink}" title="{title}">
+                            <img src="assets/images/588x380.svg" srcset="/assets/images/1176x760.svg 1120w, /assets/images/588x380.svg 720w, /assets/images/588x380.svg 400w" sizes="(max-width: 640px) 50vw, 100vw" class="dx-asset-thumb__REF__" alt="{thumb}" title="{thumb}">
+                        </a>
+                    </div>
+                    <div class="dx-most-popular__caption">
+                        <a target="_blank" class="dx-asset-link__REF__" href="{dxlink}" title="{title}">
+                            <h4 class="dx-most-popular__title dx-asset-title__REF__">Lorem ipsum dolor sit amet, consectetur adipiscing</h4>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </li>
+    </ul>
+</section>

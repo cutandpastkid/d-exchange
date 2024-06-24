@@ -1,0 +1,197 @@
+<style>
+    :root {
+}
+.dx-search {
+    font: normal 1rem/100% sans-serif;
+}
+.dx-search--relpos {
+  position: relative;
+}
+.dx-search--abspos {
+  position: absolute;
+}
+.dx-search--flex {
+  display: flex;
+}
+.dx-search__container {
+    background-color: #ffffff;
+    padding: 1.5rem;
+    display: grid;
+    column-gap: 1.25rem;
+    row-gap: 1.25rem;
+    grid-template-columns: 20rem auto;
+}
+predictive-search {
+    white-space: nowrap;
+}
+.dx-search__smart-filters {
+    margin: 0;
+    padding: 0;
+    list-style: none; 
+    overflow-x: scroll;
+    overflow-y: hidden;
+}
+.dx-search__smart-filter {
+        margin: 0 1rem .5rem 0;
+}
+.dx-search__smart-filter:last-child {
+        margin: 0;
+}
+.dx-search__smart-filter button {
+        /*Reset's every elements apperance*/
+        background: none repeat scroll 0 0 transparent;
+        border: 1px solid #333;
+        border-spacing: 0;
+        font-size: .85rem;
+        font-weight: bold;
+        line-height: 1.42rem;
+        list-style: none outside none;
+        margin: 0;
+        padding: .5rem 1rem;
+        text-align: left;
+        text-decoration: none;
+        text-indent: 0;
+}
+.dx-search__smart-filter-active button {
+        background-color: #ececec;
+        border-color: #ececec;
+    cursor: pointer;
+}
+.dx-search__x {
+  margin-left: 10px;
+}
+.dx-search__smart-filter button:hover {
+    background-color: #333;
+    color: #fff;
+    pointer-events: cursor;
+}
+/* Define the scrollbar style */
+.dx-search__smart-filters::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+/* Define the thumb style */
+.dx-search__smart-filters::-webkit-scrollbar-thumb {
+  background: #333;
+}
+
+/* Define the track style */
+.dx-search__smart-filters::-webkit-scrollbar-track {
+ background-color: #ddd;
+ border: 4px solid #ccc;
+}
+
+/* Style the beginning section of the scrollbar track */
+.dx-search__smart-filters::-webkit-scrollbar-track-piece:vertical:start {
+  background-color: #333;
+}
+
+/* Style the end section of the scrollbar track */
+.dx-search__smart-filters::-webkit-scrollbar-track-piece:vertical:end {
+  background-color: #333;
+}
+
+/* Define the button style */
+.dx-search__smart-filters::-webkit-scrollbar-button:vertical {
+ background-color: #333;
+ background-repeat: no-repeat;   
+ background-size: 50%;
+ background-position: center;
+}
+
+.dx-search__smart-filters::-webkit-scrollbar-button:vertical:decrement {
+ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' fill='%23000000' viewBox='0 0 256 256'%3E%3Cpath d='M213.66,165.66a8,8,0,0,1-11.32,0L128,91.31,53.66,165.66a8,8,0,0,1-11.32-11.32l80-80a8,8,0,0,1,11.32,0l80,80A8,8,0,0,1,213.66,165.66Z'%3E%3C/path%3E%3C/svg%3E");   
+}
+
+.dx-search__smart-filters::-webkit-scrollbar-button:vertical:increment {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' fill='%23000000' viewBox='0 0 256 256'%3E%3Cpath d='M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z'%3E%3C/path%3E%3C/svg%3E"); 
+}
+
+/* Define the button style when being hovered over */
+.dx-search__smart-filters::-webkit-scrollbar-button:hover {
+  background-color: #999999;
+}
+.dx-search__field__input {
+    min-width: 20rem;
+    min-height: 4rem;
+    font-family: var(--font-body-family);
+    font-style: var(--font-body-style);
+    font-size: .8rem;
+    -webkit-appearance: none;
+    appearance: none;
+    color: rgb(var(--color-foreground-title));
+    background-color: rgb(var(--color-background-input));
+    border: .15rem solid #aaaaaa;
+    box-sizing: border-box;
+    transition: border var(--duration-default);
+    overflow: hidden;
+    flex-grow: 1;
+    padding: 1rem 2rem;
+}
+.dx-search__field__input+label {
+    position: absolute;
+    left: 2rem;
+    top: 50%;
+    font-size: .8rem;
+    text-transform: none;
+    color: rgb(var(--color-foreground-secondary));
+    transform: translateY(-50%);
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+}
+predictive-search {
+}
+.dx-search__button {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    padding: 0;
+    padding-right: .8rem;
+    width: 4rem;
+    height: 4rem;
+    transform: translateY(-50%);
+    background-color: transparent;
+    color: rgb(var(--color-button));
+    border: none;
+    cursor: pointer;
+}
+
+.icon-search {
+    width: 2rem;
+    height: 2rem;
+}
+</style>
+
+<section class="dx-search">
+    <div class="dx-search__container">
+        <predictive-search class="search-modal__form dx-search--relpos " data-loading-text="Loading...">
+            <div class="dx-search__field">
+                <input class="dx-search__field__input" id="Search-In-Modal-1" type="search" name="q" value="" placeholder="What are You looking for ..." role="combobox" aria-expanded="false" aria-owns="predictive-search-results-list" aria-controls="predictive-search-results-list" aria-haspopup="listbox" aria-autocomplete="list" autocorrect="off" autocomplete="off" autocapitalize="off" spellcheck="false" aria-activedescendant="" data-gtm-form-interact-field-id="3">
+                <label for="Search-In-Modal-1">What are You looking for ...</label>
+                <input type="hidden" name="options[prefix]" value="last">
+                <button class="dx-search__button" aria-label="Search">
+                    <svg class="icon icon-search" viewBox="0 0 20 21" fill="none">
+                        <path d="M15.0252 14.3475L18.5943 17.9158L17.4152 19.095L13.8469 15.5258C12.5191 16.5902 10.8677 17.1691 9.16602 17.1667C5.02602 17.1667 1.66602 13.8067 1.66602 9.66666C1.66602 5.52666 5.02602 2.16666 9.16602 2.16666C13.306 2.16666 16.666 5.52666 16.666 9.66666C16.6684 11.3683 16.0895 13.0198 15.0252 14.3475ZM13.3535 13.7292C14.4111 12.6416 15.0017 11.1837 14.9993 9.66666C14.9993 6.44332 12.3885 3.83332 9.16602 3.83332C5.94268 3.83332 3.33268 6.44332 3.33268 9.66666C3.33268 12.8892 5.94268 15.5 9.16602 15.5C10.683 15.5024 12.1409 14.9118 13.2285 13.8542L13.3535 13.7292Z" fill="currentColor"></path>
+                    </svg>
+                </button>
+            </div>
+        </predictive-search>
+        <ul class="dx-search__smart-filters dx-search--flex">
+            <li class="dx-search__smart-filter"><button data-type="smart">Customers</button></li>
+            <li class="dx-search__smart-filter"><button data-type="smart">Customers</button></li>
+            <li class="dx-search__smart-filter dx-search__smart-filter-active"><button data-type="smart">Customers<span class="dx-search__x">✕</span></button></li>
+            <li class="dx-search__smart-filter"><button data-type="smart">Customers</button></li>
+            <li class="dx-search__smart-filter"><button data-type="smart">Customers</button></li>
+            <li class="dx-search__smart-filter"><button data-type="smart">Customers</button></li>
+            <li class="dx-search__smart-filter"><button data-type="smart">Customers</button></li>
+            <li class="dx-search__smart-filter"><button data-type="smart">Customers</button></li>
+            <li class="dx-search__smart-filter"><button data-type="smart">Customers</button></li>
+            <li class="dx-search__smart-filter"><button data-type="smart">Customers</button></li>
+            <li class="dx-search__smart-filter"><button data-type="smart">Customers</button></li>
+            <li class="dx-search__smart-filter"><button data-type="smart">Customers</button></li>
+        </ul>
+    </div>
+    <div class="search__modal search__modal--hidden"></div>
+</section>

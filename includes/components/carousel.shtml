@@ -28,7 +28,7 @@
         position: absolute;
     }
     .dx-carousel { 
-        font: normal 1rem/140% sans-serif;
+        font: normal 1rem/100% sans-serif;
         background-color: var(--dx-carousel-bg); 
         width: 100%;
         display: -webkit-box;
@@ -41,7 +41,7 @@
         -webkit-box-pack: center;
             -ms-flex-pack: center;
                 justify-content: center;
-        padding: calc(var(--dx-carousel-margin) *2.5);
+        /* padding: calc(var(--dx-carousel-margin) *2.5); */
         min-width: 320px;
     }
     .dx-carousel__wrap {
@@ -113,7 +113,7 @@
     .dx-carousel__image {
         -ms-flex-line-pack: center;
             align-content: center;
-        max-height: 300px;
+        max-height: 280px;
     }     
     .dx-carousel__image img {
         width: 100%;

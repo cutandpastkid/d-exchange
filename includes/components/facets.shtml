@@ -1,0 +1,377 @@
+<style>
+:root {
+  --dx-facets-bg: #ffffff;
+  --dx-facets-secondary-bg: #ececec;
+  --dx-facets-text-color: #333333;
+  --dx-facets-secondary-text-color: #aaaaaa;
+  --dx-facets-margin: 1rem;
+}
+.dx-facets {
+  font: normal 1rem/100% sans-serif;
+  margin-bottom: var(--dx-facets-margin);
+}
+.dx-facets--relpos {
+  position: relative;
+}
+.dx-facets--abspos {
+  position: absolute;
+}
+.dx-facets--flex {
+  display: flex;
+}
+.dx-facets__container {
+  justify-content: space-between;
+  flex-wrap: wrap;
+  flex: 1;
+  width: 100%;
+}
+.dx-facets__wrapper {
+  flex-wrap: wrap;
+  flex: 1;
+}
+.dx-facets__header {
+  width: 100%;
+  margin-bottom: .2rem;
+  background-color: var(--dx-facets-bg);
+}
+.dx-facets__header-inner {
+  padding: calc(var(--dx-facets-margin)*1.5);
+  font-size: 1.5rem;
+  align-items: center;
+  justify-content: space-between;
+}
+.dx-facets__header-title {
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+}
+.dx-facets__clear {
+  flex-wrap: wrap;
+  padding: 0 calc(var(--dx-facets-margin)*1.5) var(--dx-facets-margin);
+}
+.dx-facets__button {
+  text-decoration: none;
+  color: var(--dx-facets-text-color);
+  min-width: 0;
+  width: auto;
+  margin: 0 10px 10px 0;
+  padding: 6px 10px 6px 10px;
+  font-size: .8rem;
+  text-align: left;
+  background:var(--dx-facets-secondary-bg);
+}
+.dx-facets__x {
+  margin-left: 10px;
+}
+.dx-facets__disclosure {
+  width: 100%;
+  margin-bottom: calc(var(--dx-facets-margin)/5);
+  background-color: var(--dx-facets-bg);
+}
+.dx-facets__summary {
+  padding: var(--dx-facets-margin);
+  font-weight: bold;
+}
+.dx-facets__summary-title {
+  text-transform: uppercase;
+  color: var(--dx-facets-text-color);
+  font-size: .8rem;
+  font-weight: bold;
+  padding-right: var(--dx-facets-margin);
+}
+.dx-facets__summary:after {
+  content: "";
+  display: block;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.dx-facets__summary .dx-facets__icon-caret {
+  height: 1.1rem;
+  right: 0;
+  top: calc(50% - .8rem);
+  color: var(--dx-facets-text-color);
+}
+.dx-facets__summary-inner {
+  align-items: center;
+  justify-content: space-between;
+}
+.dx-facets__summary-inner .dx-count-bubble {
+  font-weight: 400;
+}
+.dx-facets__display {
+  padding-bottom: var(--dx-facets-margin);
+}
+.dx-facets facet-remove {
+  z-index: 4;
+}
+.dx-facets__reset {
+  margin-left: auto;
+  font-size: .8rem;
+  font-weight: bold;
+  text-underline-offset: unset;
+  color: var(--dx-facets-secondary-text-color);
+  cursor: pointer;
+  display: inline-block;
+  border: none;
+  box-shadow: none;
+  text-decoration: underline;
+  text-underline-offset: .3rem;
+}
+.dx-facets__reset:hover {
+  color: var(--dx-facets-text-color);
+}
+.dx-facets__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  flex-direction: column;
+  gap: var(--dx-facets-margin);
+}
+.dx-facets__item {
+  align-items: center;
+  padding: 0 var(--dx-facets-margin);
+}
+.dx-facets__item > input[type=checkbox] {
+  opacity: 1;
+  width: 1.6rem;
+  height: 1.6rem;
+  top: 0rem;
+  left: 1.5rem;
+  z-index: -1;
+  appearance: none;
+}
+.dx-facets__item > input[type=checkbox]:checked + .dx-facets__checkbox .dx-facets__checkbox__label {
+  color: var(--dx-facets-text-color);
+}
+.dx-facets__item > input[type=checkbox]:checked + .dx-facets__checkbox:before {
+  border-color: var(--dx-facets-text-color);
+  background-color: var(--dx-facets-text-color);
+}
+.dx-facets__item > input[type=checkbox]:checked + .dx-facets__checkbox > .dx-facets__icon-checkmark {
+  visibility: visible;
+}
+.dx-facets__checkbox {
+  cursor: pointer;
+  align-items: center;
+  gap: var(--dx-facets-margin);
+  flex-grow: 1;
+  word-break: break-word;
+}
+.dx-facets__checkbox__label {
+  font-size: .9rem;
+}
+.dx-facets__checkbox__count {
+  font-size: .8rem;
+  color: var(--dx-facets-secondary-text-color);
+}
+.dx-facets__checkbox--disabled * {
+  color: rgba(var(--color-foreground), 0.4);
+}
+.dx-facets__checkbox::before {
+  content: "";
+  display: block;
+  flex-shrink: 0;
+  width: 1.6rem;
+  height: 1.6rem;
+  border-radius: 0.1rem;
+  border: 0.1rem solid rgb(213, 220, 231);
+  background-color: rgb(247, 247, 247);
+}
+.dx-facets__checkbox .dx-facets__icon-checkmark {
+  left: 0.5rem;
+  top: calc(50% - 0.3rem);
+  z-index: 5;
+  visibility: hidden;
+  fill: #fff;
+}
+.dx-facets__disclosure[open] .dx-facets__icon-caret {
+  transform: rotate(180deg);
+}
+</style>
+
+<section class="dx-facets">
+    <div class="dx-facets__container dx-facets--flex">
+        <div class="dx-facets__wrapper dx-facets--flex">
+          <div class="dx-facets__header">
+            <div class="dx-facets__header-inner dx-facets--relpos dx-facets--flex">
+                <span class="dx-facets__header-title">Filters</span>
+                <facet-remove><a href="#" class="dx-facets__reset" role="button">Clear Filters</a></facet-remove>
+            </div>
+            <div class="dx-facets__clear dx-facets--flex">
+              <a class="dx-facets__button dx-facets--relpos" href="#" role="button">Test 1 <span class="dx-facets__x">✕</span></a>
+              <a class="dx-facets__button dx-facets--relpos" href="#" role="button">Test 2 <span class="dx-facets__x">✕</span></a>
+              <a class="dx-facets__button dx-facets--relpos" href="#" role="button">Testing 3<span class="dx-facets__x">✕</span></a>
+              <a class="dx-facets__button dx-facets--relpos" href="#" role="button">Testing 4<span class="dx-facets__x">✕</span></a>
+              <a class="dx-facets__button dx-facets--relpos" href="#" role="button">Test 5 <span class="dx-facets__x">✕</span></a>
+              <a class="dx-facets__button dx-facets--relpos" href="#" role="button">Testing 6 <span class="dx-facets__x">✕</span></a>
+            </div>
+          </div>
+          <details class="dx-facets__disclosure" data-index="1" open>
+              <summary class="dx-facets__summary dx-facets--relpos">
+                  <div class="dx-facets__summary-inner dx-facets--flex">
+                      <span class="dx-facets__summary-title dx-facets--relpos">
+                        Read Time
+                        <svg aria-hidden="true" focusable="false" role="presentation" class="dx-facets__icon dx-facets__icon-caret dx-facets--abspos" viewBox="0 0 20 20">
+                          <path d="M9.99996 11.6667L6.66663 8.33333H13.3333L9.99996 11.6667Z" fill="currentColor"></path>
+                        </svg>
+                    </span>
+                    <facet-remove><a href="#" class="dx-facets__reset" role="button">Reset</a></facet-remove>
+                  </div>
+              </summary>
+              <div class="dx-facets__display">
+                  <ul class="dx-facets__list dx-facets--flex">
+                       <li class="dx-facets__item dx-facets--relpos dx-facets--flex">
+                          <input class="dx-facets--abspos" type="checkbox" name="test1" value="" id="test1">
+                          <label for="test1" class="dx-facets__checkbox dx-facets--relpos dx-facets--flex">
+                              <svg class="dx-facets__icon dx-facets__icon-checkmark dx-facets--abspos" width="12" height="9" viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  <path d="M4.66649 6.61451L10.7945 0.48584L11.7378 1.42851L4.66649 8.49984L0.423828 4.25717L1.36649 3.31451L4.66649 6.61451Z"></path>
+                              </svg>
+                              <span class="dx-facets__checkbox__label">
+                                  Quick Read
+                                  <span class="dx-facets__checkbox__count">(0)</span>
+                              </span>
+                          </label>   
+                      </li>
+                       <li class="dx-facets__item dx-facets--relpos dx-facets--flex">
+                          <input class="dx-facets--abspos" type="checkbox" name="test2" value="" id="">
+                          <label for="test2" class="dx-facets__checkbox dx-facets--relpos dx-facets--flex">
+                              <svg class="dx-facets__icon dx-facets__icon-checkmark dx-facets--abspos" width="12" height="9" viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  <path d="M4.66649 6.61451L10.7945 0.48584L11.7378 1.42851L4.66649 8.49984L0.423828 4.25717L1.36649 3.31451L4.66649 6.61451Z"></path>
+                              </svg>
+                              <span class="dx-facets__checkbox__label">
+                                  5 - 10 minutes 
+                                  <span class="dx-facets__checkbox__count">(0)</span>
+                              </span>
+                          </label>   
+                      </li>
+                  </ul>
+              </div>
+          </details>
+          <details class="dx-facets__disclosure" data-index="2">
+              <summary class="dx-facets__summary dx-facets--relpos">
+                  <div class="dx-facets__summary-inner dx-facets--flex">
+                      <span class="dx-facets__summary-title dx-facets--relpos dx-facets--relpos">
+                        Type
+                        <svg aria-hidden="true" focusable="false" role="presentation" class="dx-facets__icon dx-facets__icon-caret dx-facets--abspos" viewBox="0 0 20 20">
+                          <path d="M9.99996 11.6667L6.66663 8.33333H13.3333L9.99996 11.6667Z" fill="currentColor"></path>
+                        </svg>
+                      </span>
+                      <facet-remove><a href="#" class="dx-facets__reset" role="button">Reset</a></facet-remove>
+                  </div>
+              </summary>
+              <div class="dx-facets__display">
+                  <ul class="dx-facets__list dx-facets--flex">
+                       <li class="dx-facets__item dx-facets--relpos dx-facets--flex">
+                          <input class="dx-facets--abspos" type="checkbox" name="" value="" id="">
+                          <label for="" class="dx-facets__checkbox dx-facets--relpos dx-facets--flex">
+                              <svg class="dx-facets__icon dx-facets__icon-checkmark dx-facets--abspos" width="12" height="9" viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  <path d="M4.66649 6.61451L10.7945 0.48584L11.7378 1.42851L4.66649 8.49984L0.423828 4.25717L1.36649 3.31451L4.66649 6.61451Z"></path>
+                              </svg>
+                              <span class="dx-facets__checkbox__label">
+                                  Quick Read
+                                  <span class="dx-facets__checkbox__count">(0)</span>
+                              </span>
+                          </label>   
+                      </li>
+                       <li class="dx-facets__item dx-facets--relpos dx-facets--flex">
+                          <input class="dx-facets--abspos" type="checkbox" name="" value="" id="">
+                          <label for="" class="dx-facets__checkbox dx-facets--relpos dx-facets--flex">
+                              <svg class="dx-facets__icon dx-facets__icon-checkmark dx-facets--abspos" width="12" height="9" viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  <path d="M4.66649 6.61451L10.7945 0.48584L11.7378 1.42851L4.66649 8.49984L0.423828 4.25717L1.36649 3.31451L4.66649 6.61451Z"></path>
+                              </svg>
+                              <span class="dx-facets__checkbox__label">
+                                  5 - 10 minutes 
+                                  <span class="dx-facets__checkbox__count">(0)</span>
+                              </span>
+                          </label>   
+                      </li>
+                  </ul>
+              </div>
+          </details>
+          <details class="dx-facets__disclosure" data-index="3">
+              <summary class="dx-facets__summary dx-facets--relpos">
+                  <div class="dx-facets__summary-inner dx-facets--flex">
+                      <span class="dx-facets__summary-title dx-facets--relpos">
+                        Topic
+                        <svg aria-hidden="true" focusable="false" role="presentation" class="dx-facets__icon dx-facets__icon-caret dx-facets--abspos" viewBox="0 0 20 20">
+                          <path d="M9.99996 11.6667L6.66663 8.33333H13.3333L9.99996 11.6667Z" fill="currentColor"></path>
+                        </svg>
+                      </span>
+                      <facet-remove><a href="#" class="dx-facets__reset" role="button">Reset</a></facet-remove>
+                  </div>
+              </summary>
+              <div class="dx-facets__display">
+                  <ul class="dx-facets__list dx-facets--flex">
+                       <li class="dx-facets__item dx-facets--relpos dx-facets--flex">
+                          <input class="dx-facets--abspos" type="checkbox" name="" value="" id="">
+                          <label for="" class="dx-facets__checkbox dx-facets--relpos dx-facets--flex">
+                              <svg class="dx-facets__icon dx-facets__icon-checkmark dx-facets--abspos" width="12" height="9" viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  <path d="M4.66649 6.61451L10.7945 0.48584L11.7378 1.42851L4.66649 8.49984L0.423828 4.25717L1.36649 3.31451L4.66649 6.61451Z"></path>
+                              </svg>
+                              <span class="dx-facets__checkbox__label">
+                                  Quick Read
+                                  <span class="dx-facets__checkbox__count">(0)</span>
+                              </span>
+                          </label>   
+                      </li>
+                       <li class="dx-facets__item dx-facets--relpos dx-facets--flex">
+                          <input class="dx-facets--abspos" type="checkbox" name="" value="" id="">
+                          <label for="" class="dx-facets__checkbox dx-facets--relpos dx-facets--flex">
+                              <svg class="dx-facets__icon dx-facets__icon-checkmark dx-facets--abspos" width="12" height="9" viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  <path d="M4.66649 6.61451L10.7945 0.48584L11.7378 1.42851L4.66649 8.49984L0.423828 4.25717L1.36649 3.31451L4.66649 6.61451Z"></path>
+                              </svg>
+                              <span class="dx-facets__checkbox__label">
+                                  5 - 10 minutes 
+                                  <span class="dx-facets__checkbox__count">(0)</span>
+                              </span>
+                          </label>   
+                      </li>
+                  </ul>
+              </div>
+          </details>
+          <details class="dx-facets__disclosure" data-index="3">
+              <summary class="dx-facets__summary dx-facets--relpos">
+                  <div class="dx-facets__summary-inner dx-facets--flex">
+                      <span class="dx-facets__summary-title dx-facets--relpos">
+                        Partner
+                        <svg aria-hidden="true" focusable="false" role="presentation" class="dx-facets__icon dx-facets__icon-caret dx-facets--abspos" viewBox="0 0 20 20">
+                          <path d="M9.99996 11.6667L6.66663 8.33333H13.3333L9.99996 11.6667Z" fill="currentColor"></path>
+                        </svg>
+                      </span>
+                      <facet-remove><a href="#" class="dx-facets__reset" role="button">Reset</a></facet-remove>
+                  </div>
+              </summary>
+              <div class="dx-facets__display">
+                  <ul class="dx-facets__list dx-facets--flex">
+                       <li class="dx-facets__item dx-facets--relpos dx-facets--flex">
+                          <input class="dx-facets--abspos" type="checkbox" name="" value="" id="">
+                          <label for="" class="dx-facets__checkbox dx-facets--relpos dx-facets--flex">
+                              <svg class="dx-facets__icon dx-facets__icon-checkmark dx-facets--abspos" width="12" height="9" viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  <path d="M4.66649 6.61451L10.7945 0.48584L11.7378 1.42851L4.66649 8.49984L0.423828 4.25717L1.36649 3.31451L4.66649 6.61451Z"></path>
+                              </svg>
+                              <span class="dx-facets__checkbox__label">
+                                  Quick Read
+                                  <span class="dx-facets__checkbox__count">(0)</span>
+                              </span>
+                          </label>   
+                      </li>
+                       <li class="dx-facets__item dx-facets--relpos dx-facets--flex">
+                          <input class="dx-facets--abspos" type="checkbox" name="" value="" id="">
+                          <label for="" class="dx-facets__checkbox dx-facets--relpos dx-facets--flex">
+                              <svg class="dx-facets__icon dx-facets__icon-checkmark dx-facets--abspos" width="12" height="9" viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  <path d="M4.66649 6.61451L10.7945 0.48584L11.7378 1.42851L4.66649 8.49984L0.423828 4.25717L1.36649 3.31451L4.66649 6.61451Z"></path>
+                              </svg>
+                              <span class="dx-facets__checkbox__label">
+                                  5 - 10 minutes 
+                                  <span class="dx-facets__checkbox__count">(0)</span>
+                              </span>
+                          </label>   
+                      </li>
+                  </ul>
+              </div>
+          </details>
+        </div>
+    </div>
+</section>
