@@ -50,6 +50,7 @@
   padding: 0 calc(var(--dx-facets-margin)*1.5) var(--dx-facets-margin);
 }
 .dx-facets__button {
+  font-weight: bold;
   text-decoration: none;
   color: var(--dx-facets-text-color);
   min-width: 0;
@@ -60,8 +61,10 @@
   text-align: left;
   background:var(--dx-facets-secondary-bg);
 }
-.dx-facets__x {
-  margin-left: 10px;
+.dx-facets__button::after {
+  content: "✕";
+  padding: 0 7px 0 7px;
+  font-weight: normal;
 }
 .dx-facets__disclosure {
   width: 100%;
@@ -101,7 +104,8 @@
   font-weight: 400;
 }
 .dx-facets__display {
-  padding-bottom: var(--dx-facets-margin);
+  background: #f9f9f9;
+  padding: var(--dx-facets-margin) 0;
 }
 .dx-facets facet-remove {
   z-index: 4;
@@ -177,7 +181,7 @@
   height: 1.6rem;
   border-radius: 0.1rem;
   border: 0.1rem solid rgb(213, 220, 231);
-  background-color: rgb(247, 247, 247);
+  background-color: rgb(255, 255, 255);
 }
 .dx-facets__checkbox .dx-facets__icon-checkmark {
   left: 0.5rem;
@@ -200,12 +204,12 @@
                 <facet-remove><a href="#" class="dx-facets__reset" role="button">Clear Filters</a></facet-remove>
             </div>
             <div class="dx-facets__clear dx-facets--flex">
-              <a class="dx-facets__button dx-facets--relpos" href="#" role="button">Test 1 <span class="dx-facets__x">✕</span></a>
-              <a class="dx-facets__button dx-facets--relpos" href="#" role="button">Test 2 <span class="dx-facets__x">✕</span></a>
-              <a class="dx-facets__button dx-facets--relpos" href="#" role="button">Testing 3<span class="dx-facets__x">✕</span></a>
-              <a class="dx-facets__button dx-facets--relpos" href="#" role="button">Testing 4<span class="dx-facets__x">✕</span></a>
-              <a class="dx-facets__button dx-facets--relpos" href="#" role="button">Test 5 <span class="dx-facets__x">✕</span></a>
-              <a class="dx-facets__button dx-facets--relpos" href="#" role="button">Testing 6 <span class="dx-facets__x">✕</span></a>
+              <a class="dx-facets__button dx-facets--relpos" href="#" role="button">Test 1</a>
+              <a class="dx-facets__button dx-facets--relpos" href="#" role="button">Test 2</a>
+              <a class="dx-facets__button dx-facets--relpos" href="#" role="button">Testing 3</a>
+              <a class="dx-facets__button dx-facets--relpos" href="#" role="button">Testing 4</a>
+              <a class="dx-facets__button dx-facets--relpos" href="#" role="button">Test 5</a>
+              <a class="dx-facets__button dx-facets--relpos" href="#" role="button">Testing 6</a>
             </div>
           </div>
           <details class="dx-facets__disclosure" data-index="1" open>

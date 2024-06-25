@@ -3,7 +3,7 @@
     --dx-grid-bg: #f1f1f1;
     --dx-grid-card-bg: #ffffff;
     --dx-grid-margin: 1rem;
-    --deck_template_columns:'';
+    --deck_template_columns:repeat(5, 1fr);
     --deck_template_rows:'';
     --deck_template_columns_laptop:'';
     --deck_template_rows_laptop:'';
@@ -33,10 +33,11 @@
     text-decoration: none;
     color: inherit;
 }
-.dx-grid__results {
-    background-color: var(--dx-grid-card-bg);
-    padding: var(--dx-grid-margin);
-    margin-bottom: var(--dx-grid-margin);
+.dx-grid img {
+    width: 100%;
+    height: 100%;
+    -o-object-fit: contain;
+        object-fit: contain;
 }
 .dx-grid {
     font: normal 1rem/100% sans-serif;
@@ -62,6 +63,11 @@
 .dx-grid--abspos {
     position: absolute;
 }
+.dx-grid--flex {
+    display: flex;
+    display: -webkit-box;
+    display: -ms-flexbox;
+}
 .dx-grid__card {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -85,13 +91,8 @@
 .dx-grid__image {
     -ms-flex-line-pack: center;
         align-content: center;
+    padding: var(--dx-grid-margin);    
 }     
-.dx-grid__image img {
-    width: 100%;
-    height: 100%;
-    -o-object-fit: contain;
-        object-fit: contain;
-}
 .dx-grid__tag {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -103,23 +104,22 @@
         align-self: flex-start;
     background: #333;
     color: #fff;
-    padding: calc(var(--dx-grid-margin) / 2);
-    margin-bottom: var(--dx-grid-margin);
+    padding: calc(var(--dx-grid-margin) / 4.5) calc(var(--dx-grid-margin) / 2.75);
 }
 .dx-grid__tag img {
     max-width: 12px;
     max-height: 12px;
 }
 .dx-grid__tag img + span {
-    font-size: .75rem;
+    font-size: .65rem;
     margin-left: calc(var(--dx-grid-margin)/2.5);
 }
 .dx-grid__tag--abspos {
-    top: 1.5rem;
-    right: 0;
+    top: var(--dx-grid-margin);
+    right: var(--dx-grid-margin);
 }
 .dx-grid__caption {
-    padding: 0 calc(var(--dx-grid-margin)*1.5);
+    padding: 0 var(--dx-grid-margin);
     -webkit-box-flex: 1;
         -ms-flex: 1;
             flex: 1;
@@ -145,7 +145,7 @@
     font-size: .8rem;
 }
 .dx-grid__cta {
-    padding: 0 calc(var(--dx-grid-margin)*1.5);
+    padding: 0 var(--dx-grid-margin);
 }
 .dx-grid__cta-btn {
     display: block;
@@ -179,20 +179,26 @@
     list-style: none outside none;
     text-indent: 0;
 }
+.dx-grid__partner-logo {
+    right: var(--dx-grid-margin);
+    bottom: var(--dx-grid-margin);
+}
+.dx-grid__partner-logo img {
+    max-height: 35px;
+    max-width: 70px;
+}
 @media only screen and (max-width: 575px){
 .dx-grid {
     grid-template-columns: var(--deck_template_columns_mobile);
     grid-template-rows: var(--deck_template_rows_mobile);
     }
 }
-
 @media only screen and (min-width: 576px) and (max-width: 1024px){
 .dx-grid {
     grid-template-columns: var(--deck_template_columns_tablet);
     grid-template-rows: var(--deck_template_rows_tablet); 
     }
 }
-
 @media only screen and (min-width: 1025px) and (max-width: 1280px){
 .dx-grid {
     grid-template-columns: var(--deck_template_columns_laptop);
@@ -209,16 +215,19 @@
             <div class="dx-grid__row">
                 <div class="dx-grid__cell dx-grid--relpos">
                     <div class="dx-grid__image dx-grid--relpos {/doc/thumb-container-class}">
-                        <div class="dx-grid__tag dx-grid__tag--abspos dx-grid--abspos dx-asset-time-to-read__REF__">
-                            <img 
-                                src="assets/icons/clock-icon-wht.svg" 
-                                class="dx-grid__icon"
-                                alt=""
-                                title="" 
-                            />
-                            <span>Read Time</span>
-                        </div>
                         <a target="_blank" class="dx-asset-link__REF__" href="{dxlink}" title="{title}">
+                            <div class="dx-grid__tag dx-grid__tag--abspos dx-grid--abspos dx-asset-time-to-read__REF__">
+                                <img 
+                                    src="assets/icons/clock-icon-wht.svg" 
+                                    class="dx-grid__icon"
+                                    alt=""
+                                    title="" 
+                                />
+                                <span>Read Time</span>
+                            </div>
+                            <div class="dx-grid__partner-logo dx-grid--abspos">
+                                <img src="assets/images/154x54.svg"  class="" alt="" title="">
+                            </div>
                             <img 
                                 src="assets/images/588x380.svg" 
                                 srcset="/assets/images/1176x760.svg 1120w, /assets/images/588x380.svg 720w, /assets/images/588x380.svg 400w" 
@@ -230,47 +239,18 @@
                         </a>
                     </div>
                     <div class="dx-grid__caption">
-                        <a target="_blank" class="dx-asset-link__REF__" href="{dxlink}" title="{title}">
-                            <h4 class="dx-grid__title dx-asset-title__REF__">Lorem ipsum dolor sit amet, consectetur adipiscing</h4>
-                        </a>
-                        <p class="dx-grid__summary dx-asset-intro__REF__">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ultricies auctor odio, id posuere urna volutpat nec. Sed varius a massa id tristique. Nam risus sapien, blandit ac quam ut, malesuada ullamcorper nisi. Ut lobortis odio id orci lobortis tempor at.</p>
-                    </div>
-                </div>
-                <div class="dx-grid__cell">
-                    <div class="dx-grid__cta dx-asset-cta-container__REF__">
-                        <button class="dx-grid__cta-btn dx-asset-cta-container__REF__" title="">Download Now</button>
-                    </div>
-                </div>
-            </div>
-        </li>
-        <li class="dx-grid__card" role="listitem">
-            <div class="dx-grid__row">
-                <div class="dx-grid__cell dx-grid--relpos">
-                    <div class="dx-grid__image dx-grid--relpos">
-                        <div class="dx-grid__tag dx-grid__tag--abspos dx-grid--abspos dx-asset-time-to-read__REF__">
+                        <div class="dx-grid__tag">
                             <img 
-                                src="assets/icons/clock-icon-wht.svg" 
+                                src="assets/icons/pdf-icon-wht.svg" 
                                 class="dx-grid__icon"
                                 alt=""
                                 title="" 
                             />
-                            <span>Read Time</span>
+                            <span>Report</span>
                         </div>
-                        <a target="_blank" class="dx-asset-link__REF__" href="{dxlink}" title="{title}"></a>
-                        <img 
-                            src="assets/images/588x380.svg" 
-                            srcset="/assets/images/1176x760.svg 1120w, /assets/images/588x380.svg 720w, /assets/images/588x380.svg 400w" 
-                            sizes="(max-width: 640px) 50vw, 100vw" 
-                            class="dx-asset-thumb__REF__" 
-                            alt="{thumb}"
-                            title="{thumb}"
-                        />
-                        </a>
-                    </div>
-                    <div class="dx-grid__caption">
                         <a target="_blank" class="dx-asset-link__REF__" href="{dxlink}" title="{title}">
                             <h4 class="dx-grid__title dx-asset-title__REF__">Lorem ipsum dolor sit amet, consectetur adipiscing</h4>
-                        </a>                       
+                        </a>
                         <p class="dx-grid__summary dx-asset-intro__REF__">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ultricies auctor odio, id posuere urna volutpat nec. Sed varius a massa id tristique. Nam risus sapien, blandit ac quam ut, malesuada ullamcorper nisi. Ut lobortis odio id orci lobortis tempor at.</p>
                     </div>
                 </div>
@@ -285,16 +265,19 @@
             <div class="dx-grid__row">
                 <div class="dx-grid__cell dx-grid--relpos">
                     <div class="dx-grid__image dx-grid--relpos {/doc/thumb-container-class}">
-                        <div class="dx-grid__tag dx-grid__tag--abspos dx-grid--abspos dx-asset-time-to-read__REF__">
-                            <img 
-                                src="assets/icons/clock-icon-wht.svg" 
-                                class="dx-grid__icon"
-                                alt=""
-                                title="" 
-                            />
-                            <span>Read Time</span>
-                        </div>
                         <a target="_blank" class="dx-asset-link__REF__" href="{dxlink}" title="{title}">
+                            <div class="dx-grid__tag dx-grid__tag--abspos dx-grid--abspos dx-asset-time-to-read__REF__">
+                                <img 
+                                    src="assets/icons/clock-icon-wht.svg" 
+                                    class="dx-grid__icon"
+                                    alt=""
+                                    title="" 
+                                />
+                                <span>Read Time</span>
+                            </div>
+                            <div class="dx-grid__partner-logo dx-grid--abspos">
+                                <img src="assets/images/154x54.svg"  class="" alt="" title="">
+                            </div>
                             <img 
                                 src="assets/images/588x380.svg" 
                                 srcset="/assets/images/1176x760.svg 1120w, /assets/images/588x380.svg 720w, /assets/images/588x380.svg 400w" 
@@ -306,6 +289,165 @@
                         </a>
                     </div>
                     <div class="dx-grid__caption">
+                        <div class="dx-grid__tag">
+                            <img 
+                                src="assets/icons/pdf-icon-wht.svg" 
+                                class="dx-grid__icon"
+                                alt=""
+                                title="" 
+                            />
+                            <span>Report</span>
+                        </div>
+                        <a target="_blank" class="dx-asset-link__REF__" href="{dxlink}" title="{title}">
+                            <h4 class="dx-grid__title dx-asset-title__REF__">Lorem ipsum dolor sit amet, consectetur adipiscing</h4>
+                        </a>
+                        <p class="dx-grid__summary dx-asset-intro__REF__">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ultricies auctor odio, id posuere urna volutpat nec. Sed varius a massa id tristique. Nam risus sapien, blandit ac quam ut, malesuada ullamcorper nisi. Ut lobortis odio id orci lobortis tempor at.</p>
+                    </div>
+                </div>
+                <div class="dx-grid__cell">
+                    <div class="dx-grid__cta dx-asset-cta-container__REF__">
+                        <button class="dx-grid__cta-btn dx-asset-cta-container__REF__" title="">Download Now</button>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li class="dx-grid__card {/doc/deck-card-class}" data-id="{id}" role="listitem">
+            <div class="dx-grid__row">
+                <div class="dx-grid__cell dx-grid--relpos">
+                    <div class="dx-grid__image dx-grid--relpos {/doc/thumb-container-class}">
+                        <a target="_blank" class="dx-asset-link__REF__" href="{dxlink}" title="{title}">
+                            <div class="dx-grid__tag dx-grid__tag--abspos dx-grid--abspos dx-asset-time-to-read__REF__">
+                                <img 
+                                    src="assets/icons/clock-icon-wht.svg" 
+                                    class="dx-grid__icon"
+                                    alt=""
+                                    title="" 
+                                />
+                                <span>Read Time</span>
+                            </div>
+                            <div class="dx-grid__partner-logo dx-grid--abspos">
+                                <img src="assets/images/154x54.svg"  class="" alt="" title="">
+                            </div>
+                            <img 
+                                src="assets/images/588x380.svg" 
+                                srcset="/assets/images/1176x760.svg 1120w, /assets/images/588x380.svg 720w, /assets/images/588x380.svg 400w" 
+                                sizes="(max-width: 640px) 50vw, 100vw" 
+                                class="dx-asset-thumb__REF__" 
+                                alt="{thumb}"
+                                title="{thumb}"
+                            />
+                        </a>
+                    </div>
+                    <div class="dx-grid__caption">
+                        <div class="dx-grid__tag">
+                            <img 
+                                src="assets/icons/pdf-icon-wht.svg" 
+                                class="dx-grid__icon"
+                                alt=""
+                                title="" 
+                            />
+                            <span>Report</span>
+                        </div>
+                        <a target="_blank" class="dx-asset-link__REF__" href="{dxlink}" title="{title}">
+                            <h4 class="dx-grid__title dx-asset-title__REF__">Lorem ipsum dolor sit amet, consectetur adipiscing</h4>
+                        </a>
+                        <p class="dx-grid__summary dx-asset-intro__REF__">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ultricies auctor odio, id posuere urna volutpat nec. Sed varius a massa id tristique. Nam risus sapien, blandit ac quam ut, malesuada ullamcorper nisi. Ut lobortis odio id orci lobortis tempor at.</p>
+                    </div>
+                </div>
+                <div class="dx-grid__cell">
+                    <div class="dx-grid__cta dx-asset-cta-container__REF__">
+                        <button class="dx-grid__cta-btn dx-asset-cta-container__REF__" title="">Download Now</button>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li class="dx-grid__card {/doc/deck-card-class}" data-id="{id}" role="listitem">
+            <div class="dx-grid__row">
+                <div class="dx-grid__cell dx-grid--relpos">
+                    <div class="dx-grid__image dx-grid--relpos {/doc/thumb-container-class}">
+                        <a target="_blank" class="dx-asset-link__REF__" href="{dxlink}" title="{title}">
+                            <div class="dx-grid__tag dx-grid__tag--abspos dx-grid--abspos dx-asset-time-to-read__REF__">
+                                <img 
+                                    src="assets/icons/clock-icon-wht.svg" 
+                                    class="dx-grid__icon"
+                                    alt=""
+                                    title="" 
+                                />
+                                <span>Read Time</span>
+                            </div>
+                            <div class="dx-grid__partner-logo dx-grid--abspos">
+                                <img src="assets/images/154x54.svg"  class="" alt="" title="">
+                            </div>
+                            <img 
+                                src="assets/images/588x380.svg" 
+                                srcset="/assets/images/1176x760.svg 1120w, /assets/images/588x380.svg 720w, /assets/images/588x380.svg 400w" 
+                                sizes="(max-width: 640px) 50vw, 100vw" 
+                                class="dx-asset-thumb__REF__" 
+                                alt="{thumb}"
+                                title="{thumb}"
+                            />
+                        </a>
+                    </div>
+                    <div class="dx-grid__caption">
+                        <div class="dx-grid__tag">
+                            <img 
+                                src="assets/icons/pdf-icon-wht.svg" 
+                                class="dx-grid__icon"
+                                alt=""
+                                title="" 
+                            />
+                            <span>Report</span>
+                        </div>
+                        <a target="_blank" class="dx-asset-link__REF__" href="{dxlink}" title="{title}">
+                            <h4 class="dx-grid__title dx-asset-title__REF__">Lorem ipsum dolor sit amet, consectetur adipiscing</h4>
+                        </a>
+                        <p class="dx-grid__summary dx-asset-intro__REF__">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ultricies auctor odio, id posuere urna volutpat nec. Sed varius a massa id tristique. Nam risus sapien, blandit ac quam ut, malesuada ullamcorper nisi. Ut lobortis odio id orci lobortis tempor at.</p>
+                    </div>
+                </div>
+                <div class="dx-grid__cell">
+                    <div class="dx-grid__cta dx-asset-cta-container__REF__">
+                        <button class="dx-grid__cta-btn dx-asset-cta-container__REF__" title="">Download Now</button>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li class="dx-grid__card {/doc/deck-card-class}" data-id="{id}" role="listitem">
+            <div class="dx-grid__row">
+                <div class="dx-grid__cell dx-grid--relpos">
+                    <div class="dx-grid__image dx-grid--relpos {/doc/thumb-container-class}">
+                        <a target="_blank" class="dx-asset-link__REF__" href="{dxlink}" title="{title}">
+                            <div class="dx-grid__tag dx-grid__tag--abspos dx-grid--abspos dx-asset-time-to-read__REF__">
+                                <img 
+                                    src="assets/icons/clock-icon-wht.svg" 
+                                    class="dx-grid__icon"
+                                    alt=""
+                                    title="" 
+                                />
+                                <span>Read Time</span>
+                            </div>
+                            <div class="dx-grid__partner-logo dx-grid--abspos">
+                                <img src="assets/images/154x54.svg"  class="" alt="" title="">
+                            </div>
+                            <img 
+                                src="assets/images/588x380.svg" 
+                                srcset="/assets/images/1176x760.svg 1120w, /assets/images/588x380.svg 720w, /assets/images/588x380.svg 400w" 
+                                sizes="(max-width: 640px) 50vw, 100vw" 
+                                class="dx-asset-thumb__REF__" 
+                                alt="{thumb}"
+                                title="{thumb}"
+                            />
+                        </a>
+                    </div>
+                    <div class="dx-grid__caption">
+                        <div class="dx-grid__tag">
+                            <img 
+                                src="assets/icons/pdf-icon-wht.svg" 
+                                class="dx-grid__icon"
+                                alt=""
+                                title="" 
+                            />
+                            <span>Report</span>
+                        </div>
                         <a target="_blank" class="dx-asset-link__REF__" href="{dxlink}" title="{title}">
                             <h4 class="dx-grid__title dx-asset-title__REF__">Lorem ipsum dolor sit amet, consectetur adipiscing</h4>
                         </a>
@@ -323,27 +465,39 @@
             <div class="dx-grid__row">
                 <div class="dx-grid__cell dx-grid--relpos">
                     <div class="dx-grid__image dx-grid--relpos">
-                        <div class="dx-grid__tag dx-grid__tag--abspos dx-grid--abspos dx-asset-time-to-read__REF__">
+                        <a target="_blank" class="dx-asset-link__REF__" href="{dxlink}" title="{title}">
+                            <div class="dx-grid__tag dx-grid__tag--abspos dx-grid--abspos dx-asset-time-to-read__REF__">
+                                <img 
+                                    src="assets/icons/clock-icon-wht.svg" 
+                                    class="dx-grid__icon"
+                                    alt=""
+                                    title="" 
+                                />
+                                <span>Read Time</span>
+                            </div>
+                            <div class="dx-grid__partner-logo dx-grid--abspos">
+                                <img src="assets/images/154x54.svg"  class="" alt="" title="">
+                            </div>
                             <img 
-                                src="assets/icons/clock-icon-wht.svg" 
+                                src="assets/images/340x480.svg" 
+                                srcset="/assets/images/680x960.svg 1120w, /assets/images/340x480.svg 720w, /assets/images/340x480.svg 400w" 
+                                sizes="(max-width: 640px) 50vw, 100vw" 
+                                class="dx-asset-featured-image__REF__" 
+                                alt="" 
+                                title="" 
+                            />
+                        </a>
+                    </div>
+                    <div class="dx-grid__caption">
+                        <div class="dx-grid__tag">
+                            <img 
+                                src="assets/icons/pdf-icon-wht.svg" 
                                 class="dx-grid__icon"
                                 alt=""
                                 title="" 
                             />
-                            <span>Read Time</span>
+                            <span>Report</span>
                         </div>
-                        <a target="_blank" class="dx-asset-link__REF__" href="{dxlink}" title="{title}"></a>
-                        <img 
-                            src="assets/images/588x380.svg" 
-                            srcset="/assets/images/1176x760.svg 1120w, /assets/images/588x380.svg 720w, /assets/images/588x380.svg 400w" 
-                            sizes="(max-width: 640px) 50vw, 100vw" 
-                            class="dx-asset-thumb__REF__" 
-                            alt="{thumb}"
-                            title="{thumb}"
-                        />
-                        </a>
-                    </div>
-                    <div class="dx-grid__caption">
                         <a target="_blank" class="dx-asset-link__REF__" href="{dxlink}" title="{title}">
                             <h4 class="dx-grid__title dx-asset-title__REF__">Lorem ipsum dolor sit amet, consectetur adipiscing</h4>
                         </a>                       
@@ -361,16 +515,19 @@
             <div class="dx-grid__row">
                 <div class="dx-grid__cell dx-grid--relpos">
                     <div class="dx-grid__image dx-grid--relpos">
-                        <div class="dx-grid__tag dx-grid__tag--abspos dx-grid--abspos dx-asset-time-to-read__REF__">
-                            <img 
-                                src="assets/icons/clock-icon-wht.svg" 
-                                class="dx-grid__icon"
-                                alt=""
-                                title="" 
-                            />
-                            <span>Read Time</span>
-                        </div>
-                        <a target="_blank" class="dx-asset-link__REF__" href="{dxlink}" title="{title}"></a>
+                        <a target="_blank" class="dx-asset-link__REF__" href="{dxlink}" title="{title}">
+                            <div class="dx-grid__tag dx-grid__tag--abspos dx-grid--abspos dx-asset-time-to-read__REF__">
+                                <img 
+                                    src="assets/icons/clock-icon-wht.svg" 
+                                    class="dx-grid__icon"
+                                    alt=""
+                                    title="" 
+                                />
+                                <span>Read Time</span>
+                            </div>
+                            <div class="dx-grid__partner-logo dx-grid--abspos">
+                                <img src="assets/images/154x54.svg"  class="" alt="" title="">
+                            </div>
                             <img 
                                 src="assets/images/340x480.svg" 
                                 srcset="/assets/images/680x960.svg 1120w, /assets/images/340x480.svg 720w, /assets/images/340x480.svg 400w" 
@@ -382,6 +539,15 @@
                         </a>
                     </div>
                     <div class="dx-grid__caption">
+                        <div class="dx-grid__tag">
+                            <img 
+                                src="assets/icons/pdf-icon-wht.svg" 
+                                class="dx-grid__icon"
+                                alt=""
+                                title="" 
+                            />
+                            <span>Report</span>
+                        </div>
                         <a target="_blank" class="dx-asset-link__REF__" href="{dxlink}" title="{title}">
                             <h4 class="dx-grid__title dx-asset-title__REF__">Lorem ipsum dolor sit amet, consectetur adipiscing</h4>
                         </a>                       
@@ -399,16 +565,20 @@
             <div class="dx-grid__row">
                 <div class="dx-grid__cell dx-grid--relpos">
                     <div class="dx-grid__image dx-grid--relpos">
-                        <div class="dx-grid__tag dx-grid__tag--abspos dx-grid--abspos dx-asset-time-to-read__REF__">
-                            <img 
-                                src="assets/icons/clock-icon-wht.svg" 
-                                class="dx-grid__icon"
-                                alt=""
-                                title="" 
-                            />
-                            <span>Read Time</span>
-                        </div>
-                        <a target="_blank" class="dx-asset-link__REF__" href="{dxlink}" title="{title}"></a>
+                        <a target="_blank" class="dx-asset-link__REF__" href="{dxlink}" title="{title}">
+                            <div class="dx-grid__tag dx-grid__tag--abspos dx-grid--abspos dx-asset-time-to-read__REF__">
+                                <img 
+                                    src="assets/icons/clock-icon-wht.svg" 
+                                    class="dx-grid__icon"
+                                    alt=""
+                                    title="" 
+                                />
+                                <span>Read Time</span>
+                            </div>
+                            <div class="dx-grid__partner-logo dx-grid--abspos">
+                                <img src="assets/images/154x54.svg"  class="" alt="" title="">
+                            </div>
+                        
                             <img 
                                 src="assets/images/340x480.svg" 
                                 srcset="/assets/images/680x960.svg 1120w, /assets/images/340x480.svg 720w, /assets/images/340x480.svg 400w" 
@@ -420,6 +590,15 @@
                         </a>
                     </div>
                     <div class="dx-grid__caption">
+                        <div class="dx-grid__tag">
+                            <img 
+                                src="assets/icons/pdf-icon-wht.svg" 
+                                class="dx-grid__icon"
+                                alt=""
+                                title="" 
+                            />
+                            <span>Report</span>
+                        </div>
                         <a target="_blank" class="dx-asset-link__REF__" href="{dxlink}" title="{title}">
                             <h4 class="dx-grid__title dx-asset-title__REF__">Lorem ipsum dolor sit amet, consectetur adipiscing</h4>
                         </a>                       
@@ -437,16 +616,19 @@
             <div class="dx-grid__row">
                 <div class="dx-grid__cell dx-grid--relpos">
                     <div class="dx-grid__image dx-grid--relpos">
-                        <div class="dx-grid__tag dx-grid__tag--abspos dx-grid--abspos dx-asset-time-to-read__REF__">
-                            <img 
-                                src="assets/icons/clock-icon-wht.svg" 
-                                class="dx-grid__icon"
-                                alt=""
-                                title="" 
-                            />
-                            <span>Read Time</span>
-                        </div>
-                        <a target="_blank" class="dx-asset-link__REF__" href="{dxlink}" title="{title}"></a>
+                        <a target="_blank" class="dx-asset-link__REF__" href="{dxlink}" title="{title}">
+                            <div class="dx-grid__tag dx-grid__tag--abspos dx-grid--abspos dx-asset-time-to-read__REF__">
+                                <img 
+                                    src="assets/icons/clock-icon-wht.svg" 
+                                    class="dx-grid__icon"
+                                    alt=""
+                                    title="" 
+                                />
+                                <span>Read Time</span>
+                            </div>
+                            <div class="dx-grid__partner-logo dx-grid--abspos">
+                                <img src="assets/images/154x54.svg"  class="" alt="" title="">
+                            </div>
                             <img 
                                 src="assets/images/340x480.svg" 
                                 srcset="/assets/images/680x960.svg 1120w, /assets/images/340x480.svg 720w, /assets/images/340x480.svg 400w" 
@@ -458,6 +640,15 @@
                         </a>
                     </div>
                     <div class="dx-grid__caption">
+                        <div class="dx-grid__tag">
+                            <img 
+                                src="assets/icons/pdf-icon-wht.svg" 
+                                class="dx-grid__icon"
+                                alt=""
+                                title="" 
+                            />
+                            <span>Report</span>
+                        </div>
                         <a target="_blank" class="dx-asset-link__REF__" href="{dxlink}" title="{title}">
                             <h4 class="dx-grid__title dx-asset-title__REF__">Lorem ipsum dolor sit amet, consectetur adipiscing</h4>
                         </a>                       
@@ -475,16 +666,19 @@
             <div class="dx-grid__row">
                 <div class="dx-grid__cell dx-grid--relpos">
                     <div class="dx-grid__image dx-grid--relpos">
-                        <div class="dx-grid__tag dx-grid__tag--abspos dx-grid--abspos dx-asset-time-to-read__REF__">
-                            <img 
-                                src="assets/icons/clock-icon-wht.svg" 
-                                class="dx-grid__icon"
-                                alt=""
-                                title="" 
-                            />
-                            <span>Read Time</span>
-                        </div>
-                        <a target="_blank" class="dx-asset-link__REF__" href="{dxlink}" title="{title}"></a>
+                        <a target="_blank" class="dx-asset-link__REF__" href="{dxlink}" title="{title}">
+                            <div class="dx-grid__tag dx-grid__tag--abspos dx-grid--abspos dx-asset-time-to-read__REF__">
+                                <img 
+                                    src="assets/icons/clock-icon-wht.svg" 
+                                    class="dx-grid__icon"
+                                    alt=""
+                                    title="" 
+                                />
+                                <span>Read Time</span>
+                            </div>
+                            <div class="dx-grid__partner-logo dx-grid--abspos">
+                                <img src="assets/images/154x54.svg"  class="" alt="" title="">
+                            </div>
                             <img 
                                 src="assets/images/340x480.svg" 
                                 srcset="/assets/images/680x960.svg 1120w, /assets/images/340x480.svg 720w, /assets/images/340x480.svg 400w" 
@@ -496,6 +690,15 @@
                         </a>
                     </div>
                     <div class="dx-grid__caption">
+                        <div class="dx-grid__tag">
+                            <img 
+                                src="assets/icons/pdf-icon-wht.svg" 
+                                class="dx-grid__icon"
+                                alt=""
+                                title="" 
+                            />
+                            <span>Report</span>
+                        </div>
                         <a target="_blank" class="dx-asset-link__REF__" href="{dxlink}" title="{title}">
                             <h4 class="dx-grid__title dx-asset-title__REF__">Lorem ipsum dolor sit amet, consectetur adipiscing</h4>
                         </a>                       
@@ -513,4 +716,4 @@
     <div id="dx-deck-more__REF__" class="dx-deck-more__REF__ dx-grid__more">
         <button type="button" data-page="1" data-mode="{/doc/paging_mode}" data-ref="id__REF__" class="dx-deck-more-button dx-grid__more-btn">More</button>
     </div>
-</section>
+</section> 

@@ -1,5 +1,5 @@
 <style>
-    :root {
+:root {
 }
 .dx-search {
     font: normal 1rem/100% sans-serif;
@@ -38,30 +38,35 @@ predictive-search {
         margin: 0;
 }
 .dx-search__smart-filter button {
-        /*Reset's every elements apperance*/
-        background: none repeat scroll 0 0 transparent;
-        border: 1px solid #333;
-        border-spacing: 0;
-        font-size: .85rem;
-        font-weight: bold;
-        line-height: 1.42rem;
-        list-style: none outside none;
-        margin: 0;
-        padding: .5rem 1rem;
-        text-align: left;
-        text-decoration: none;
-        text-indent: 0;
-}
-.dx-search__smart-filter-active button {
-        background-color: #ececec;
-        border-color: #ececec;
+    /*Reset's every elements apperance*/
+    background: none repeat scroll 0 0 transparent;
+    border: 1px solid #aaaaaa;
+    border-spacing: 0;
+    font-size: .85rem;
+    font-weight: bold;
+    line-height: 1.42rem;
+    list-style: none outside none;
+    margin: 0;
+    padding: .5rem 1rem;
+    text-align: left;
+    text-decoration: none;
+    text-indent: 0;
+    white-space: nowrap;
     cursor: pointer;
 }
-.dx-search__x {
-  margin-left: 10px;
+.dx-search__smart-filter-active button {
+    background-color: #ececec;
+    border-color: #ececec;
+    cursor: pointer;
+}
+.dx-search__smart-filter-active button::after {
+  content: "✕";
+  padding: 0 7px 0 7px;
+  font-weight: normal;
 }
 .dx-search__smart-filter button:hover {
     background-color: #333;
+    border-color: #333;
     color: #fff;
     pointer-events: cursor;
 }
@@ -122,7 +127,7 @@ predictive-search {
     appearance: none;
     color: rgb(var(--color-foreground-title));
     background-color: rgb(var(--color-background-input));
-    border: .15rem solid #aaaaaa;
+    border: .1rem solid #aaaaaa;
     box-sizing: border-box;
     transition: border var(--duration-default);
     overflow: hidden;
@@ -179,18 +184,18 @@ predictive-search {
             </div>
         </predictive-search>
         <ul class="dx-search__smart-filters dx-search--flex">
-            <li class="dx-search__smart-filter"><button data-type="smart">Customers</button></li>
-            <li class="dx-search__smart-filter"><button data-type="smart">Customers</button></li>
-            <li class="dx-search__smart-filter dx-search__smart-filter-active"><button data-type="smart">Customers<span class="dx-search__x">✕</span></button></li>
-            <li class="dx-search__smart-filter"><button data-type="smart">Customers</button></li>
-            <li class="dx-search__smart-filter"><button data-type="smart">Customers</button></li>
-            <li class="dx-search__smart-filter"><button data-type="smart">Customers</button></li>
-            <li class="dx-search__smart-filter"><button data-type="smart">Customers</button></li>
-            <li class="dx-search__smart-filter"><button data-type="smart">Customers</button></li>
-            <li class="dx-search__smart-filter"><button data-type="smart">Customers</button></li>
-            <li class="dx-search__smart-filter"><button data-type="smart">Customers</button></li>
-            <li class="dx-search__smart-filter"><button data-type="smart">Customers</button></li>
-            <li class="dx-search__smart-filter"><button data-type="smart">Customers</button></li>
+            <li class="dx-search__smart-filter"><button data-type="smart">Test 1</button></li>
+            <li class="dx-search__smart-filter"><button data-type="smart">Test 2</button></li>
+            <li class="dx-search__smart-filter dx-search__smart-filter-active"><button data-type="smart">Testing 3</button></li>
+            <li class="dx-search__smart-filter"><button data-type="smart">Testing 4</button></li>
+            <li class="dx-search__smart-filter"><button data-type="smart">Test 5</button></li>
+            <li class="dx-search__smart-filter"><button data-type="smart">Testing 6</button></li>
+            <li class="dx-search__smart-filter"><button data-type="smart">Test 7</button></li>
+            <li class="dx-search__smart-filter"><button data-type="smart">Test 8</button></li>
+            <li class="dx-search__smart-filter"><button data-type="smart">Test 9</button></li>
+            <li class="dx-search__smart-filter"><button data-type="smart">Test 10</button></li>
+            <li class="dx-search__smart-filter"><button data-type="smart">Test 11</button></li>
+            <li class="dx-search__smart-filter"><button data-type="smart">Test 12</button></li>
         </ul>
     </div>
     <div class="search__modal search__modal--hidden"></div>
