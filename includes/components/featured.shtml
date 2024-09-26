@@ -1,0 +1,218 @@
+<style>
+:root {
+    --dx-featured-bg: #ffffff;
+    --dx-featured-secondary-bg: #333333;
+    --dx-featured-text-color: #333333;
+     --dx-featured-secondary-text-color: #ffffff;
+    --dx-featured-card-bg: #f9f9f9;
+    --dx-featured-margin: 1rem;
+}
+.dx-featured {
+    font: normal 1rem/100% sans-serif;
+    background-color: var(--dx-featured-bg);
+    margin-bottom: var(--dx-featured-margin);
+}
+.dx-featured img {
+    width: 100%;
+    height: auto;
+    -o-object-fit: contain;
+        object-fit: contain;
+}
+.dx-featured--relpos {
+    position: relative;
+}
+.dx-featured--abspos {
+    position: absolute;
+}
+.dx-featured--flex {
+    display: flex;
+    display: -webkit-box;
+    display: -ms-flexbox;
+}
+.dx-featured__header {
+    width: 100%;
+    margin-bottom: calc(var(--dx-featured-margin)/5);
+    background-color: var(--dx-featured-bg);
+}
+.dx-featured__header-inner {
+    justify-content: space-between;
+    padding: var(--dx-featured-margin);
+    font-size: 1.5rem;
+    align-items: center;
+}
+.dx-featured__header-title {
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+}
+.dx-featured__summary {
+    margin: 0 0 var(--dx-featured-margin) 0;
+    font-size: .8rem;
+}
+.dx-featured__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    padding-bottom: .5rem;
+    background-color: var(--dx-featured-card-bg);
+}
+.dx-featured__card {
+    background-color: var(--dx-featured-card-bg);
+    padding: .5rem .5rem 0;
+}
+.dx-featured__row {
+    background-color: var(--dx-featured-bg);
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+}
+.dx-featured__cell {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -ms-flex-wrap: wrap;
+    flex-wrap: nowrap;
+}
+.dx-featured__image {
+    -ms-flex-line-pack: center;
+        align-content: center;
+}     
+.dx-featured__partner-logo {
+    right: 0;
+    bottom: 0;
+}
+.dx-featured__partner-logo img {
+    max-height: 35px;
+    max-width: 70px;
+}
+.dx-featured__caption {
+    padding: 0 var(--dx-featured-margin);
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    max-width: 100%;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal; 
+        -ms-flex-direction: column;
+            flex-direction: column;  
+    text-align: left;
+}
+.dx-featured__caption a {
+    text-decoration: none;
+}
+.dx-featured__title {
+    font-size: 0.9rem;
+    color: var(--dx-featured-text-color);
+    margin: calc(var(--dx-featured-margin)/2) 0;
+}
+.dx-featured__summary {
+    margin: 0 0 var(--dx-featured-margin) 0;
+}
+.dx-featured__cta {
+    padding: 0 var(--dx-featured-margin);
+}
+.dx-featured__cta-btn {
+    display: block;
+    text-decoration: none;
+    cursor: pointer;
+    color: var(--dx-featured-secondary-text-color);
+    background-color: var(--dx-featured-secondary-bg);
+    margin: 0 0 var(--dx-featured-margin) 0;
+    text-align: center;
+    padding: calc(var(--dx-featured-margin)/1.75) calc(var(--dx-featured-margin) * 1.5);
+    border: none;
+    border-spacing: 0;
+    list-style: none outside none;
+    text-indent: 0;
+    width: 100%;
+}
+.dx-featured__tag {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -ms-flex-item-align: start;
+        align-self: flex-start;
+    background-color: var(--dx-featured-secondary-bg);
+    color: var( --dx-featured-secondary-text-color);
+    padding: calc(var(--dx-featured-margin) / 4.5) calc(var(--dx-featured-margin) / 2.75);
+    margin: calc(var(--dx-featured-margin) / 2) 0; 
+    white-space: nowrap;
+}
+.dx-featured__tag img {
+    max-width: 12px;
+    max-height: 12px;
+}
+.dx-featured__tag img + span {
+    font-size: .65rem;
+    margin-left: calc(var(--dx-featured-margin)/2.5);
+}
+@media (max-width: 1024px) {
+    .dx-featured {
+        display: none;
+    }
+}
+</style>
+
+<section class="dx-featured">
+  <div class="dx-featured__header">
+      <div class="dx-featured__header-inner dx-featured--relpos dx-featured--flex">
+          <span class="dx-featured__header-title">Featured</span>
+      </div>
+  </div>
+  <ul class="dx-featured__list">
+      <li class="dx-featured__card dx-featured--flex">
+          <div class="dx-featured__row dx-featured--relpos">
+              <div class="dx-featured__cell dx-featured--flex">
+                  <div class="dx-featured__image dx-featured--relpos">
+                      <div class="dx-featured__partner-logo dx-featured--abspos">
+                          <img src="assets/images/155x55.svg"  class="" alt="" title="">
+                      </div>
+                      <a target="_blank" class="dx-asset-link__REF__" href="{dxlink}" title="{title}">
+                          <img src="assets/images/588x380.svg" srcset="/assets/images/1176x760.svg 1120w, /assets/images/588x380.svg 720w, /assets/images/588x380.svg 400w" sizes="(max-width: 640px) 50vw, 100vw" class="dx-asset-thumb__REF__" alt="{thumb}" title="{thumb}">
+                      </a>
+                  </div>
+                  <div class="dx-featured__caption">
+                      <div class="dx-featured__tag">
+                          <img 
+                              src="assets/icons/icon-wht.svg" 
+                              class="dx-featured__icon"
+                              alt=""
+                              title="" 
+                          />
+                          <span>Report</span>
+                      </div>
+                      <a target="_blank" class="dx-asset-link__REF__" href="{dxlink}" title="{title}">
+                          <h4 class="dx-featured__title dx-asset-title__REF__">Lorem ipsum dolor sit amet, consectetur adipiscing</h4>
+                      </a>
+                      <p class="dx-featured__summary dx-asset-intro__REF__">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ultricies auctor odio, id posuere urna volutpat nec. Sed varius a massa id tristique. Nam risus sapien, blandit ac quam ut, malesuada ullamcorper nisi. Ut lobortis odio id orci lobortis tempor at.</p>
+                  </div>
+                  <div class="dx-featured__cta dx-asset-cta-container__REF__">
+                    <button class="dx-featured__cta-btn dx-asset-cta-container__REF__" title="">Download Now</button>
+                </div>
+              </div>
+          </div>
+      </li>
+  </ul>
+</section>

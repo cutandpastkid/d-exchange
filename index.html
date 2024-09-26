@@ -21,10 +21,10 @@
         article, aside, details, figcaption, figure, footer, header, main, menu, nav, section, summary {
             display: block;
         }
-        .container {
+        .wrapper {
           padding: 2rem;
         }
-        .wrapper {
+        .container {
           padding: 1.5rem 0 1.5rem 0;
           position: relative;
           display: grid;
@@ -32,15 +32,26 @@
           row-gap: 1.25rem;
           grid-template-columns: 20rem auto;
         }
+        @media (max-width: 1024px) {
+          @media (max-width: 1024px) {
+              .container {
+                  grid-template-columns: 1fr; 
+              }
+              .dx-search {
+                  grid-template-columns: 1fr; 
+              }
+          }
+        }
     </style>
   </head>
   <body>
-    <div class="container">
+    <div class="wrapper">
         <!--#include file="includes/components/carousel.shtml" -->
+        <br>
         <!--#include file="includes/components/search.shtml" -->
-      <div class="wrapper">
+      <div class="container">
         <!--#include file="includes/components/left.shtml" -->
-        <!--#include file="includes/components/grid.shtml" -->
+        <!--#include file="includes/components/right.shtml" -->
       </div>
     </div>
   </body>

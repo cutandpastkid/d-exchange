@@ -2,7 +2,10 @@
 :root {
   --dx-facets-bg: #ffffff;
   --dx-facets-secondary-bg: #ececec;
+  --dx-facets-alternate-bg: #f9f9f9;
+  --dx-facets-dark-bg: #333333;
   --dx-facets-text-color: #333333;
+  --dx-facets-light-text-color: #ffffff;
   --dx-facets-secondary-text-color: #aaaaaa;
   --dx-facets-margin: 1rem;
 }
@@ -17,17 +20,27 @@
   position: absolute;
 }
 .dx-facets--flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
 .dx-facets__container {
-  justify-content: space-between;
-  flex-wrap: wrap;
-  flex: 1;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
   width: 100%;
 }
 .dx-facets__wrapper {
-  flex-wrap: wrap;
-  flex: 1;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
 }
 .dx-facets__header {
   width: 100%;
@@ -37,8 +50,12 @@
 .dx-facets__header-inner {
   padding: calc(var(--dx-facets-margin)*1.5);
   font-size: 1.5rem;
-  align-items: center;
-  justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 .dx-facets__header-title {
   font-weight: bold;
@@ -46,7 +63,8 @@
   font-size: 0.8rem;
 }
 .dx-facets__clear {
-  flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   padding: 0 calc(var(--dx-facets-margin)*1.5) var(--dx-facets-margin);
 }
 .dx-facets__button {
@@ -59,12 +77,17 @@
   padding: 6px 10px 6px 10px;
   font-size: .8rem;
   text-align: left;
-  background:var(--dx-facets-secondary-bg);
+  background-color:var(--dx-facets-secondary-bg);
 }
 .dx-facets__button::after {
-  content: "✕";
+  content: "\00D7	";
   padding: 0 7px 0 7px;
   font-weight: normal;
+}
+.dx-facets__button:hover {
+    background-color: var(--dx-facets-dark-bg);
+    color: var(--dx-facets-secondary-text-color);
+    pointer-events: cursor;
 }
 .dx-facets__disclosure {
   width: 100%;
@@ -97,14 +120,15 @@
   color: var(--dx-facets-text-color);
 }
 .dx-facets__summary-inner {
-  align-items: center;
-  justify-content: space-between;
-}
-.dx-facets__summary-inner .dx-count-bubble {
-  font-weight: 400;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 .dx-facets__display {
-  background: #f9f9f9;
+  background-color: var(--dx-facets-alternate-bg);
   padding: var(--dx-facets-margin) 0;
 }
 .dx-facets facet-remove {
@@ -119,7 +143,8 @@
   cursor: pointer;
   display: inline-block;
   border: none;
-  box-shadow: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
   text-decoration: underline;
   text-underline-offset: .3rem;
 }
@@ -130,11 +155,16 @@
   margin: 0;
   padding: 0;
   list-style: none;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   gap: var(--dx-facets-margin);
 }
 .dx-facets__item {
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   padding: 0 var(--dx-facets-margin);
 }
 .dx-facets__item > input[type=checkbox] {
@@ -144,7 +174,9 @@
   top: 0rem;
   left: 1.5rem;
   z-index: -1;
-  appearance: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
 }
 .dx-facets__item > input[type=checkbox]:checked + .dx-facets__checkbox .dx-facets__checkbox__label {
   color: var(--dx-facets-text-color);
@@ -158,13 +190,17 @@
 }
 .dx-facets__checkbox {
   cursor: pointer;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   gap: var(--dx-facets-margin);
-  flex-grow: 1;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
   word-break: break-word;
 }
 .dx-facets__checkbox__label {
-  font-size: .9rem;
+  font-size: .85rem;
 }
 .dx-facets__checkbox__count {
   font-size: .8rem;
@@ -176,7 +212,8 @@
 .dx-facets__checkbox::before {
   content: "";
   display: block;
-  flex-shrink: 0;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
   width: 1.6rem;
   height: 1.6rem;
   border-radius: 0.1rem;
@@ -188,10 +225,17 @@
   top: calc(50% - 0.3rem);
   z-index: 5;
   visibility: hidden;
-  fill: #fff;
+  fill: var(--dx-facets-light-text-color);
 }
 .dx-facets__disclosure[open] .dx-facets__icon-caret {
-  transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+      -ms-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+@media (max-width: 1024px) {
+    .dx-facets {
+        display: none;
+    }
 }
 </style>
 
@@ -239,7 +283,7 @@
                           </label>   
                       </li>
                        <li class="dx-facets__item dx-facets--relpos dx-facets--flex">
-                          <input class="dx-facets--abspos" type="checkbox" name="test2" value="" id="">
+                          <input class="dx-facets--abspos" type="checkbox" name="test2" value="" id="test2">
                           <label for="test2" class="dx-facets__checkbox dx-facets--relpos dx-facets--flex">
                               <svg class="dx-facets__icon dx-facets__icon-checkmark dx-facets--abspos" width="12" height="9" viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
                                   <path d="M4.66649 6.61451L10.7945 0.48584L11.7378 1.42851L4.66649 8.49984L0.423828 4.25717L1.36649 3.31451L4.66649 6.61451Z"></path>
@@ -268,8 +312,8 @@
               <div class="dx-facets__display">
                   <ul class="dx-facets__list dx-facets--flex">
                        <li class="dx-facets__item dx-facets--relpos dx-facets--flex">
-                          <input class="dx-facets--abspos" type="checkbox" name="" value="" id="">
-                          <label for="" class="dx-facets__checkbox dx-facets--relpos dx-facets--flex">
+                          <input class="dx-facets--abspos" type="checkbox" name="test3" value="" id="test3">
+                          <label for="test3" class="dx-facets__checkbox dx-facets--relpos dx-facets--flex">
                               <svg class="dx-facets__icon dx-facets__icon-checkmark dx-facets--abspos" width="12" height="9" viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
                                   <path d="M4.66649 6.61451L10.7945 0.48584L11.7378 1.42851L4.66649 8.49984L0.423828 4.25717L1.36649 3.31451L4.66649 6.61451Z"></path>
                               </svg>
@@ -280,8 +324,8 @@
                           </label>   
                       </li>
                        <li class="dx-facets__item dx-facets--relpos dx-facets--flex">
-                          <input class="dx-facets--abspos" type="checkbox" name="" value="" id="">
-                          <label for="" class="dx-facets__checkbox dx-facets--relpos dx-facets--flex">
+                          <input class="dx-facets--abspos" type="checkbox" name="test4" value="" id="test4">
+                          <label for="test4" class="dx-facets__checkbox dx-facets--relpos dx-facets--flex">
                               <svg class="dx-facets__icon dx-facets__icon-checkmark dx-facets--abspos" width="12" height="9" viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
                                   <path d="M4.66649 6.61451L10.7945 0.48584L11.7378 1.42851L4.66649 8.49984L0.423828 4.25717L1.36649 3.31451L4.66649 6.61451Z"></path>
                               </svg>
@@ -309,8 +353,8 @@
               <div class="dx-facets__display">
                   <ul class="dx-facets__list dx-facets--flex">
                        <li class="dx-facets__item dx-facets--relpos dx-facets--flex">
-                          <input class="dx-facets--abspos" type="checkbox" name="" value="" id="">
-                          <label for="" class="dx-facets__checkbox dx-facets--relpos dx-facets--flex">
+                          <input class="dx-facets--abspos" type="checkbox" name="test5" value="" id="test5">
+                          <label for="test5" class="dx-facets__checkbox dx-facets--relpos dx-facets--flex">
                               <svg class="dx-facets__icon dx-facets__icon-checkmark dx-facets--abspos" width="12" height="9" viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
                                   <path d="M4.66649 6.61451L10.7945 0.48584L11.7378 1.42851L4.66649 8.49984L0.423828 4.25717L1.36649 3.31451L4.66649 6.61451Z"></path>
                               </svg>
@@ -321,8 +365,8 @@
                           </label>   
                       </li>
                        <li class="dx-facets__item dx-facets--relpos dx-facets--flex">
-                          <input class="dx-facets--abspos" type="checkbox" name="" value="" id="">
-                          <label for="" class="dx-facets__checkbox dx-facets--relpos dx-facets--flex">
+                          <input class="dx-facets--abspos" type="checkbox" name="test6" value="" id="test6">
+                          <label for="test6" class="dx-facets__checkbox dx-facets--relpos dx-facets--flex">
                               <svg class="dx-facets__icon dx-facets__icon-checkmark dx-facets--abspos" width="12" height="9" viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
                                   <path d="M4.66649 6.61451L10.7945 0.48584L11.7378 1.42851L4.66649 8.49984L0.423828 4.25717L1.36649 3.31451L4.66649 6.61451Z"></path>
                               </svg>
@@ -350,8 +394,8 @@
               <div class="dx-facets__display">
                   <ul class="dx-facets__list dx-facets--flex">
                        <li class="dx-facets__item dx-facets--relpos dx-facets--flex">
-                          <input class="dx-facets--abspos" type="checkbox" name="" value="" id="">
-                          <label for="" class="dx-facets__checkbox dx-facets--relpos dx-facets--flex">
+                          <input class="dx-facets--abspos" type="checkbox" name="test7" value="" id="test7">
+                          <label for="test7" class="dx-facets__checkbox dx-facets--relpos dx-facets--flex">
                               <svg class="dx-facets__icon dx-facets__icon-checkmark dx-facets--abspos" width="12" height="9" viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
                                   <path d="M4.66649 6.61451L10.7945 0.48584L11.7378 1.42851L4.66649 8.49984L0.423828 4.25717L1.36649 3.31451L4.66649 6.61451Z"></path>
                               </svg>
@@ -362,8 +406,8 @@
                           </label>   
                       </li>
                        <li class="dx-facets__item dx-facets--relpos dx-facets--flex">
-                          <input class="dx-facets--abspos" type="checkbox" name="" value="" id="">
-                          <label for="" class="dx-facets__checkbox dx-facets--relpos dx-facets--flex">
+                          <input class="dx-facets--abspos" type="checkbox" name="test8" value="" id="test8">
+                          <label for="test8" class="dx-facets__checkbox dx-facets--relpos dx-facets--flex">
                               <svg class="dx-facets__icon dx-facets__icon-checkmark dx-facets--abspos" width="12" height="9" viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
                                   <path d="M4.66649 6.61451L10.7945 0.48584L11.7378 1.42851L4.66649 8.49984L0.423828 4.25717L1.36649 3.31451L4.66649 6.61451Z"></path>
                               </svg>

@@ -1,12 +1,15 @@
 <style>
 :root {
     --dx-popular-bg: #ffffff;
+    --dx-popular-secondary-bg: #333333;
+    --dx-popular-text-color: #333333;
+    --dx-popular-text-secondary-color: #ffffff;
     --dx-popular-card-bg: #f9f9f9;
     --dx-popular-margin: 1rem;
 }
 .dx-popular {
     font: normal 1rem/100% sans-serif;
-    background-color: #ffffff;
+    background-color: var(--dx-popular-bg);
     margin-bottom: var(--dx-popular-margin);
 }
 .dx-popular img {
@@ -20,9 +23,6 @@
 }
 .dx-popular--abspos {
     position: absolute;
-}
-.dx-popular--d-none {
-    display: none;
 }
 .dx-popular--flex {
     display: flex;
@@ -91,7 +91,7 @@
 }     
 .dx-popular__partner-logo {
     right: 0;
-    top: 0;
+    bottom: 0;
 }
 .dx-popular__partner-logo img {
     max-height: 35px;
@@ -120,9 +120,8 @@
 }
 .dx-popular__title {
     font-size: 0.9rem;
-    margin: 0;
-    color: #333;
-    margin-bottom: calc(var(--dx-popular-margin)/2);
+    color: var(--dx-popular-text-color);
+    margin: calc(var(--dx-popular-margin)/2) 0;
 }
 .dx-popular__summary {
     margin: 0 0 var(--dx-popular-margin) 0;
@@ -136,7 +135,10 @@
             align-items: center;
     -ms-flex-item-align: start;
         align-self: flex-start;
-    color: #333;
+    background-color: var(--dx-popular-secondary-bg);
+    color: var(--dx-popular-text-secondary-color);
+    padding: calc(var(--dx-popular-margin) / 4.5) calc(var(--dx-popular-margin) / 2.75);
+    white-space: nowrap;
 }
 .dx-popular__tag img {
     max-width: 12px;
@@ -144,10 +146,12 @@
 }
 .dx-popular__tag img + span {
     font-size: .65rem;
+    margin-left: calc(var(--dx-popular-margin)/2.5);
 }
-.dx-popular__tag + .dx-popular__tag::before {
-    content: "\2022";
-    padding: 0 7px 0 7px;
+@media (max-width: 1024px) {
+    .dx-popular {
+        display: none;
+    }
 }
 </style>
 
@@ -159,40 +163,29 @@
     </div>
     <ul class="dx-popular__list">
         <li class="dx-popular__card dx-popular--flex">
-            <div class="dx-popular__row dx-popular--flex">
-                <div class="dx-popular__cell dx-popular--relpos">
-                    <div class="dx-popular__image">
+            <div class="dx-popular__row dx-popular--relpos">
+                <div class="dx-popular__cell dx-popular--flex">
+                    <div class="dx-popular__image dx-popular--relpos">
+                        <div class="dx-popular__partner-logo dx-popular--abspos">
+                            <img src="assets/images/155x55.svg"  class="" alt="" title="">
+                        </div>
                         <a target="_blank" class="dx-asset-link__REF__" href="{dxlink}" title="{title}">
                             <img src="assets/images/340x480.svg" srcset="/assets/images/680x960.svg 1120w, /assets/images/340x480.svg 720w, /assets/images/340x480.svg 400w" sizes="(max-width: 640px) 50vw, 100vw" class="dx-asset-thumb__REF__" alt="{thumb}" title="{thumb}">
                         </a>
                     </div>
                     <div class="dx-popular__caption">
+                        <div class="dx-popular__tag">
+                            <img 
+                                src="assets/icons/icon-wht.svg" 
+                                class="dx-popular__icon"
+                                alt=""
+                                title="" 
+                            />
+                            <span>Report</span>
+                        </div>
                         <a target="_blank" class="dx-asset-link__REF__" href="{dxlink}" title="{title}">
                             <h4 class="dx-popular__title dx-asset-title__REF__">Lorem ipsum dolor sit amet, consectetur adipiscing</h4>
                         </a>
-                        <div class="dx-popular--flex">
-                            <div class="dx-popular__tag">
-                                <img 
-                                    src="assets/icons/clock-icon-wht.svg" 
-                                    class="dx-popular__icon dx-popular--d-none"
-                                    alt=""
-                                    title="" 
-                                />
-                                <span>Read Time</span>
-                            </div>
-                            <div class="dx-popular__tag">
-                                <img 
-                                    src="assets/icons/pdf-icon-wht.svg" 
-                                    class="dx-popular__icon dx-popular--d-none"
-                                    alt=""
-                                    title="" 
-                                />
-                                <span>Report</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="dx-popular__partner-logo dx-popular--abspos">
-                        <img src="assets/images/154x54.svg"  class="" alt="" title="">
                     </div>
                 </div>
             </div>
@@ -200,38 +193,27 @@
         <li class="dx-popular__card dx-popular--flex">
             <div class="dx-popular__row dx-popular--flex">
                 <div class="dx-popular__cell dx-popular--relpos">
-                    <div class="dx-popular__image">
+                    <div class="dx-popular__image dx-popular--relpos">
+                        <div class="dx-popular__partner-logo dx-popular--abspos">
+                            <img src="assets/images/155x55.svg"  class="" alt="" title="">
+                        </div>
                         <a target="_blank" class="dx-asset-link__REF__" href="{dxlink}" title="{title}">
                             <img src="assets/images/340x480.svg" srcset="/assets/images/680x960.svg 1120w, /assets/images/340x480.svg 720w, /assets/images/340x480.svg 400w" sizes="(max-width: 640px) 50vw, 100vw" class="dx-asset-thumb__REF__" alt="{thumb}" title="{thumb}">
                         </a>
                     </div>
                     <div class="dx-popular__caption">
+                        <div class="dx-popular__tag">
+                            <img 
+                                src="assets/icons/icon-wht.svg" 
+                                class="dx-popular__icon"
+                                alt=""
+                                title="" 
+                            />
+                            <span>Report</span>
+                        </div>
                         <a target="_blank" class="dx-asset-link__REF__" href="{dxlink}" title="{title}">
                             <h4 class="dx-popular__title dx-asset-title__REF__">Lorem ipsum dolor sit amet, consectetur adipiscing</h4>
                         </a>
-                        <div class="dx-popular--flex">
-                            <div class="dx-popular__tag">
-                                <img 
-                                    src="assets/icons/clock-icon-wht.svg" 
-                                    class="dx-popular__icon dx-popular--d-none"
-                                    alt=""
-                                    title="" 
-                                />
-                                <span>Read Time</span>
-                            </div>
-                            <div class="dx-popular__tag">
-                                <img 
-                                    src="assets/icons/pdf-icon-wht.svg" 
-                                    class="dx-popular__icon dx-popular--d-none"
-                                    alt=""
-                                    title="" 
-                                />
-                                <span>Report</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="dx-popular__partner-logo dx-popular--abspos">
-                        <img src="assets/images/154x54.svg"  class="" alt="" title="">
                     </div>
                 </div>
             </div>
@@ -239,38 +221,27 @@
         <li class="dx-popular__card dx-popular--flex">
             <div class="dx-popular__row dx-popular--flex">
                 <div class="dx-popular__cell dx-popular--relpos">
-                    <div class="dx-popular__image">
+                    <div class="dx-popular__image dx-popular--relpos">
+                        <div class="dx-popular__partner-logo dx-popular--abspos">
+                            <img src="assets/images/155x55.svg"  class="" alt="" title="">
+                        </div>
                         <a target="_blank" class="dx-asset-link__REF__" href="{dxlink}" title="{title}">
                             <img src="assets/images/340x480.svg" srcset="/assets/images/680x960.svg 1120w, /assets/images/340x480.svg 720w, /assets/images/340x480.svg 400w" sizes="(max-width: 640px) 50vw, 100vw" class="dx-asset-thumb__REF__" alt="{thumb}" title="{thumb}">
                         </a>
                     </div>
                     <div class="dx-popular__caption">
+                        <div class="dx-popular__tag">
+                            <img 
+                                src="assets/icons/icon-wht.svg" 
+                                class="dx-popular__icon"
+                                alt=""
+                                title="" 
+                            />
+                            <span>Report</span>
+                        </div>
                         <a target="_blank" class="dx-asset-link__REF__" href="{dxlink}" title="{title}">
                             <h4 class="dx-popular__title dx-asset-title__REF__">Lorem ipsum dolor sit amet, consectetur adipiscing</h4>
                         </a>
-                        <div class="dx-popular--flex">
-                            <div class="dx-popular__tag">
-                                <img 
-                                    src="assets/icons/clock-icon-wht.svg" 
-                                    class="dx-popular__icon dx-popular--d-none"
-                                    alt=""
-                                    title="" 
-                                />
-                                <span>Read Time</span>
-                            </div>
-                            <div class="dx-popular__tag">
-                                <img 
-                                    src="assets/icons/pdf-icon-wht.svg" 
-                                    class="dx-popular__icon dx-popular--d-none"
-                                    alt=""
-                                    title="" 
-                                />
-                                <span>Report</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="dx-popular__partner-logo dx-popular--abspos">
-                        <img src="assets/images/154x54.svg"  class="" alt="" title="">
                     </div>
                 </div>
             </div>
@@ -278,38 +249,27 @@
         <li class="dx-popular__card dx-popular--flex">
             <div class="dx-popular__row dx-popular--flex">
                 <div class="dx-popular__cell dx-popular--relpos">
-                    <div class="dx-popular__image">
+                    <div class="dx-popular__image dx-popular--relpos">
+                        <div class="dx-popular__partner-logo dx-popular--abspos">
+                            <img src="assets/images/155x55.svg"  class="" alt="" title="">
+                        </div>
                         <a target="_blank" class="dx-asset-link__REF__" href="{dxlink}" title="{title}">
                             <img src="assets/images/340x480.svg" srcset="/assets/images/680x960.svg 1120w, /assets/images/340x480.svg 720w, /assets/images/340x480.svg 400w" sizes="(max-width: 640px) 50vw, 100vw" class="dx-asset-thumb__REF__" alt="{thumb}" title="{thumb}">
                         </a>
                     </div>
                     <div class="dx-popular__caption">
+                        <div class="dx-popular__tag">
+                            <img 
+                                src="assets/icons/icon-wht.svg" 
+                                class="dx-popular__icon"
+                                alt=""
+                                title="" 
+                            />
+                            <span>Report</span>
+                        </div>
                         <a target="_blank" class="dx-asset-link__REF__" href="{dxlink}" title="{title}">
                             <h4 class="dx-popular__title dx-asset-title__REF__">Lorem ipsum dolor sit amet, consectetur adipiscing</h4>
                         </a>
-                        <div class="dx-popular--flex">
-                            <div class="dx-popular__tag">
-                                <img 
-                                    src="assets/icons/clock-icon-wht.svg" 
-                                    class="dx-popular__icon dx-popular--d-none"
-                                    alt=""
-                                    title="" 
-                                />
-                                <span>Read Time</span>
-                            </div>
-                            <div class="dx-popular__tag">
-                                <img 
-                                    src="assets/icons/pdf-icon-wht.svg" 
-                                    class="dx-popular__icon dx-popular--d-none"
-                                    alt=""
-                                    title="" 
-                                />
-                                <span>Report</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="dx-popular__partner-logo dx-popular--abspos">
-                        <img src="assets/images/154x54.svg"  class="" alt="" title="">
                     </div>
                 </div>
             </div>
@@ -317,38 +277,27 @@
         <li class="dx-popular__card dx-popular--flex">
             <div class="dx-popular__row dx-popular--flex">
                 <div class="dx-popular__cell dx-popular--relpos">
-                    <div class="dx-popular__image">
+                    <div class="dx-popular__image dx-popular--relpos">
+                        <div class="dx-popular__partner-logo dx-popular--abspos">
+                            <img src="assets/images/155x55.svg"  class="" alt="" title="">
+                        </div>
                         <a target="_blank" class="dx-asset-link__REF__" href="{dxlink}" title="{title}">
                             <img src="assets/images/340x480.svg" srcset="/assets/images/680x960.svg 1120w, /assets/images/340x480.svg 720w, /assets/images/340x480.svg 400w" sizes="(max-width: 640px) 50vw, 100vw" class="dx-asset-thumb__REF__" alt="{thumb}" title="{thumb}">
                         </a>
                     </div>
                     <div class="dx-popular__caption">
+                        <div class="dx-popular__tag">
+                            <img 
+                                src="assets/icons/icon-wht.svg" 
+                                class="dx-popular__icon"
+                                alt=""
+                                title="" 
+                            />
+                            <span>Report</span>
+                        </div>
                         <a target="_blank" class="dx-asset-link__REF__" href="{dxlink}" title="{title}">
                             <h4 class="dx-popular__title dx-asset-title__REF__">Lorem ipsum dolor sit amet, consectetur adipiscing</h4>
                         </a>
-                        <div class="dx-popular--flex">
-                            <div class="dx-popular__tag">
-                                <img 
-                                    src="assets/icons/clock-icon-wht.svg" 
-                                    class="dx-popular__icon dx-popular--d-none"
-                                    alt=""
-                                    title="" 
-                                />
-                                <span>Read Time</span>
-                            </div>
-                            <div class="dx-popular__tag">
-                                <img 
-                                    src="assets/icons/pdf-icon-wht.svg" 
-                                    class="dx-popular__icon dx-popular--d-none"
-                                    alt=""
-                                    title="" 
-                                />
-                                <span>Report</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="dx-popular__partner-logo dx-popular--abspos">
-                        <img src="assets/images/154x54.svg"  class="" alt="" title="">
                     </div>
                 </div>
             </div>

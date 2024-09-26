@@ -1,0 +1,124 @@
+<style>
+:root {
+  --dx-keyword-search-bg: #ffffff;
+  --dx-keyword-search-dark-bg: #333333;
+  --dx-keyword-search-border-color: #aaaaaa;
+  --dx-keyword-search-dark-border-color: #333333;
+  --dx-keyword-search-text-color: #333333;
+  --dx-keyword-search-margin: 1rem;
+}
+.dx-keyword-search {
+    font: normal 1rem/100% sans-serif;
+    background-color: var(--dx-keyword-search-bg);
+}
+.dx-keyword-search--relpos {
+    position: relative;
+}
+.dx-keyword-search--abspos {
+    position: absolute;
+}
+.dx-keyword-search--flex {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+.dx-keyword-search__field__input {
+    min-width: 100%;
+    min-height: 3.4rem;
+    font-size: .8rem;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+         appearance: none;
+    color: rgb(var(--color-foreground-title));
+    background-color: rgb(var(--color-background-input));
+    border: .1rem solid var(--dx-keyword-search-border-color);
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    overflow: hidden;
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+    padding: var(--dx-keyword-search-margin) calc(var(--dx-keyword-search-margin)*2);
+}
+.dx-keyword-search__field__input+label {
+    position: absolute;
+    left: 2rem;
+    top: 50%;
+    font-size: .8rem;
+    text-transform: none;
+    -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+            transform: translateY(-50%);
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+}
+.dx-keyword-search__button {
+    right: 0;
+    top: 50%;
+    padding: 0;
+    padding-right: .8rem;
+    width: 4rem;
+    height: 3.4rem;
+    -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+            transform: translateY(-50%);
+    background-color: transparent;
+    color: var(--dx-keyword-search-text-color);
+    border: none;
+    cursor: pointer;
+}
+.icon-search {
+    width: 2rem;
+    height: 2rem;
+}
+.dx-keyword-search__powered-by {
+    bottom: .4rem;
+    left: 2rem;
+    font-weight: bold;
+    color: #002f61;
+    font-size: .55rem;
+}
+.dx-keyword-search__powered-by span {
+    color: #fe7370;
+}
+.dx-keyword-search__mobile-toggle {
+    display: none;
+    -webkit-box-ordinal-group: 4;
+        -ms-flex-order: 3;
+            order: 3;
+}
+@media (max-width: 1024px) {
+  .dx-keyword-search__mobile-toggle {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      color: var(--dx-keyword-search-secondary-text-color);
+      background-color: var(--dx-keyword-search-dark-bg);
+      cursor: pointer;
+      -webkit-box-align: center;
+          -ms-flex-align: center;
+              align-items: center;
+      -webkit-box-pack: center;
+          -ms-flex-pack: center;
+              justify-content: center;
+      -webkit-box-ordinal-group: 3;
+          -ms-flex-order: 2;
+              order: 2;
+  }
+}
+</style>
+
+<div class="dx-keyword-search" id="dx-keyword-search-container-ch">
+  <div class="dx-keyword-search__field dx-keyword-search--relpos">
+      <input class="dx-keyword-search__field__input" id="dx-keyword-search-input-ch" type="search" name="keyword-search" value="" placeholder="Search resources ..." role="combobox" aria-expanded="false" aria-owns="predictive-search-results-list" aria-controls="predictive-search-results-list" aria-haspopup="listbox" aria-autocomplete="list" autocorrect="off" autocomplete="off" autocapitalize="off" spellcheck="false" aria-activedescendant=""/>
+      <label for="keyword-search">Search resources ...</label>
+      <button class="dx-keyword-search-button-ch dx-keyword-search__button dx-keyword-search--abspos" aria-label="Search">
+          <svg class="icon icon-search" viewBox="0 0 20 21" fill="none">
+              <path d="M15.0252 14.3475L18.5943 17.9158L17.4152 19.095L13.8469 15.5258C12.5191 16.5902 10.8677 17.1691 9.16602 17.1667C5.02602 17.1667 1.66602 13.8067 1.66602 9.66666C1.66602 5.52666 5.02602 2.16666 9.16602 2.16666C13.306 2.16666 16.666 5.52666 16.666 9.66666C16.6684 11.3683 16.0895 13.0198 15.0252 14.3475ZM13.3535 13.7292C14.4111 12.6416 15.0017 11.1837 14.9993 9.66666C14.9993 6.44332 12.3885 3.83332 9.16602 3.83332C5.94268 3.83332 3.33268 6.44332 3.33268 9.66666C3.33268 12.8892 5.94268 15.5 9.16602 15.5C10.683 15.5024 12.1409 14.9118 13.2285 13.8542L13.3535 13.7292Z" fill="currentColor"></path>
+          </svg>
+      </button>
+      <div class="dx-keyword-search__powered-by dx-keyword-search--abspos">Powered by D<span>X</span></div>
+  </div>
+  <div id="dx-keyword-search__mobile-menu" class="dx-keyword-search__mobile-toggle">Filters</div>
+</div>

@@ -1,3 +1,5 @@
-<div><!--#include file="facets.shtml" -->
+<div>
+<!--#include file="facets.shtml" -->
 <!--#include file="popular.shtml" -->
+<!--#include file="featured.shtml" -->
 </div>

@@ -1,0 +1,4 @@
+<div>
+  <!--#include file="results-banner.shtml" -->
+  <!--#include file="grid.shtml" -->
+</div>

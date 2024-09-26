@@ -1,0 +1,197 @@
+<style>
+:root {
+  --dx-smart-search-bg: #ffffff;
+  --dx-smart-search-secondary-bg: #ececec;
+  --dx-smart-search-dark-bg: #333333;
+  --dx-smart-search-border-color: #aaaaaa;
+  --dx-smart-search-secondary-border-color: #ececec;
+  --dx-smart-search-dark-border-color: #333333;
+  --dx-smart-search-text-color: #333333;
+  --dx-smart-search-secondary-text-color: #fff;
+  --dx-smart-search-scrollbar-bg: #dddddd;
+  --dx-smart-search-scrollbar-border: #cccccc;
+  --dx-smart-search-scrollbar-hover: #999999;
+  --dx-smart-search-margin: 1rem;
+}
+.dx-smart-search {
+    font: normal 1rem/100% sans-serif;
+    background-color: var(--dx-smart-search-bg);
+}
+.dx-smart-search--relpos {
+    position: relative;
+}
+.dx-smart-search--abspos {
+    position: absolute;
+}
+.dx-smart-search--flex {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+.dx-smart-search__container {
+    background-color: var(--dx-smart-search-bg);
+    padding: calc(var(--dx-smart-search-margin)*1.5);
+    display: -ms-grid;
+    display: grid;
+    -webkit-column-gap: calc(var(--dx-smart-search-margin)*1.25);
+       -moz-column-gap: calc(var(--dx-smart-search-margin)*1.25);
+            column-gap: calc(var(--dx-smart-search-margin)*1.25);
+    row-gap: calc(var(--dx-smart-search-margin)*1.25);
+    -ms-grid-columns: calc(var(--dx-smart-search-margin)*20) calc(var(--dx-smart-search-margin)*1.25) auto;
+    grid-template-columns: calc(var(--dx-smart-search-margin)*20) auto;
+}
+.dx-smart-search__smart-filters {
+    margin: 0;
+    padding: 0;
+    list-style: none; 
+    overflow-x: scroll;
+    overflow-y: hidden;
+    -webkit-box-ordinal-group: 3;
+        -ms-flex-order: 2;
+            order: 2;
+}
+.dx-smart-search__smart-filter {
+    margin: 0 1rem .5rem 0;
+}
+.dx-smart-search__smart-filter button {
+    /*Reset's every elements apperance*/
+    background: none repeat scroll 0 0 transparent;
+    border: 1px solid var(--dx-smart-search-border-color);
+    border-spacing: 0;
+    font-size: .85rem;
+    font-weight: bold;
+    line-height: 1.42rem;
+    list-style: none outside none;
+    margin: 0;
+    padding: calc(var(--dx-smart-search-margin)/2) var(--dx-smart-search-margin);
+    text-align: left;
+    text-decoration: none;
+    text-indent: 0;
+    white-space: nowrap;
+    cursor: pointer;
+}
+.dx-smart-search__smart-filter button::after {
+    content: "+";
+    padding: 0 0 0 7px;
+    font-size: .75rem;
+}
+.dx-smart-search__smart-filter-active button {
+    background-color: var(--dx-smart-search-secondary-bg);
+    border-color: var(--dx-smart-search-secondary-border-color);
+    cursor: pointer;
+}
+.dx-smart-search__smart-filter-active button::after {
+  content: "\00D7	";
+  padding: 0 0 0 7px;
+  font-weight: normal;
+}
+.dx-smart-search__smart-filter button:hover {
+    background-color: var(--dx-smart-search-dark-bg);
+    border-color: var(--dx-smart-search-dark-border-color);
+    color: var(--dx-smart-search-secondary-text-color);
+    pointer-events: cursor;
+}
+.dx-smart-search__smart-filter button:hover::after {
+    color: var(--dx-smart-search-secondary-text-color);
+}
+/* Define the scrollbar style */
+.dx-smart-search__smart-filters::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+/* Define the thumb style */
+.dx-smart-search__smart-filters::-webkit-scrollbar-thumb {
+  background: var(--dx-smart-search-dark-bg);
+}
+/* Define the track style */
+.dx-smart-search__smart-filters::-webkit-scrollbar-track {
+ background-color: var(--dx-smart-search-scrollbar-bg);
+ border: 4px solid var(--dx-smart-search-scrollbar-border);
+}
+/* Style the beginning section of the scrollbar track */
+.dx-smart-search__smart-filters::-webkit-scrollbar-track-piece:vertical:start {
+  background-color: var(--dx-smart-search-dark-bg);
+}
+/* Style the end section of the scrollbar track */
+.dx-smart-search__smart-filters::-webkit-scrollbar-track-piece:vertical:end {
+  background-color: var(--dx-smart-search-dark-bg);
+}
+/* Define the button style */
+.dx-smart-search__smart-filters::-webkit-scrollbar-button:vertical {
+ background-color: var(--dx-smart-search-dark-bg);
+ background-repeat: no-repeat;   
+ background-size: 50%;
+ background-position: center;
+}
+.dx-smart-search__smart-filters::-webkit-scrollbar-button:vertical:decrement {
+ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' fill='%23000000' viewBox='0 0 256 256'%3E%3Cpath d='M213.66,165.66a8,8,0,0,1-11.32,0L128,91.31,53.66,165.66a8,8,0,0,1-11.32-11.32l80-80a8,8,0,0,1,11.32,0l80,80A8,8,0,0,1,213.66,165.66Z'%3E%3C/path%3E%3C/svg%3E");   
+}
+.dx-smart-search__smart-filters::-webkit-scrollbar-button:vertical:increment {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' fill='%23000000' viewBox='0 0 256 256'%3E%3Cpath d='M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z'%3E%3C/path%3E%3C/svg%3E"); 
+}
+/* Define the button style when being hovered over */
+.dx-smart-search__smart-filters::-webkit-scrollbar-button:hover {
+  background-color: var(  --dx-smart-search-scrollbar-hover);
+}
+.dx-smart-search::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: auto;
+    right: -1rem;
+    height: 2.75rem;
+    padding-left: 1.5rem;
+    padding-right: .75rem;
+    background: -webkit-gradient(linear, right top, left top, color-stop(50%, #ffffff), to(rgba(255, 255, 255, 0)));
+    background: -o-linear-gradient(right, #ffffff 50%, rgba(255, 255, 255, 0) 100%);
+    background: linear-gradient(270deg, #ffffff 50%, rgba(255, 255, 255, 0) 100%);
+}
+@media (max-width: 1024px) {
+  .dx-smart-search__mobile-toggle {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      color: var(--dx-smart-search-secondary-text-color);
+      background-color: var(--dx-smart-search-dark-bg);
+      cursor: pointer;
+      -webkit-box-align: center;
+          -ms-flex-align: center;
+              align-items: center;
+      -webkit-box-pack: center;
+          -ms-flex-pack: center;
+              justify-content: center;
+      -webkit-box-ordinal-group: 3;
+          -ms-flex-order: 2;
+              order: 2;
+  }
+    .dx-smart-search__smart-filters {
+      -webkit-box-ordinal-group: 4;
+          -ms-flex-order: 3;
+              order: 3;
+  }
+  .dx-smart-search__smart-filters {
+      -ms-grid-column-span: 2;
+      grid-column: span 2;
+  }
+}
+</style>
+
+<div class="dx-smart-search dx-smart-search--relpos">
+    <ul class="dx-smart-search__smart-filters dx-smart-search--flex">
+        <li class="dx-smart-search__smart-filter"><button data-type="smart">Customer Experience</button></li>
+        <li class="dx-smart-search__smart-filter dx-smart-search__smart-filter-active"><button data-type="smart">Social Media</button></li>
+        <li class="dx-smart-search__smart-filter"><button data-type="smart">Customer Experience</button></li>
+        <li class="dx-smart-search__smart-filter"><button data-type="smart">Customer Experience</button></li>
+        <li class="dx-smart-search__smart-filter"><button data-type="smart">Customer Experience</button></li>
+        <li class="dx-smart-search__smart-filter"><button data-type="smart">Customer Experience</button></li>
+        <li class="dx-smart-search__smart-filter"><button data-type="smart">Customer Experience</button></li>
+        <li class="dx-smart-search__smart-filter"><button data-type="smart">Customer Experience</button></li>
+        <li class="dx-smart-search__smart-filter"><button data-type="smart">Customer Experience</button></li>
+        <li class="dx-smart-search__smart-filter"><button data-type="smart">Customer Experience</button></li>
+        <li class="dx-smart-search__smart-filter"><button data-type="smart">Customer Experience</button></li>
+        <li class="dx-smart-search__smart-filter"><button data-type="smart">Customer Experience</button></li>
+        <li class="dx-smart-search__smart-filter"><button data-type="smart">Customer Experience</button></li>
+        <li class="dx-smart-search__smart-filter"><button data-type="smart">Customer Experience</button></li>
+        <li class="dx-smart-search__smart-filter"><button data-type="smart">Customer Experience</button></li>
+    </ul>
+</div>

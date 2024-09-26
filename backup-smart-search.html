@@ -1,0 +1,24 @@
+<xsl:template name="SmartSearchBar">	
+    <div id="dx-smart-search-row">
+        <div id="dx-smart-search-banner">
+            <div id="dx-smart-search-text">Smart Search</div>
+            <xsl:for-each select="/doc/filters/filter">
+                <div  class="dx-smart-search-inner">
+                    <button data-type="smart">
+                        <xsl:choose>
+                            <xsl:when test="active='true'"><xsl:attribute name="class">dx-smart-search btn-success</xsl:attribute></xsl:when>
+                            <xsl:otherwise><xsl:attribute name="class">dx-smart-search</xsl:attribute></xsl:otherwise>
+                        </xsl:choose>
+        
+                        <xsl:value-of select="text"/><xsl:text> </xsl:text>
+                        
+                        <xsl:choose>
+                            <xsl:when test="active='true'"><i class="fa fa-times" aria-hidden="true"></i></xsl:when>
+                            <xsl:otherwise><i class="fa fa-plus" aria-hidden="true"></i></xsl:otherwise>
+                        </xsl:choose>
+                    </button>
+                </div>
+            </xsl:for-each>
+        </div>
+    </div>
+</xsl:template>

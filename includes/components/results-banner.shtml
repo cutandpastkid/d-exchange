@@ -1,0 +1,52 @@
+<style>
+:root {
+    --dx-results-banner-bg: #fff;
+    --dx-results-banner-margin: 1rem;
+    --dx-results-banner-text-color: #333333;
+    --dx-results-banner-secondary-text-color: #aaaaaa;
+}
+.dx-results-banner {
+    font: normal 1rem/100% sans-serif;
+}
+.dx-results-banner--relpos {
+    position: relative;
+}
+.dx-results-banner--abspos {
+    position: absolute;
+}
+.dx-results-banner--flex {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+
+}
+.dx-results-banner__container {
+    font-size: .8rem;
+    font-weight: bold;
+    color: var(--dx-results-banner-text-color);
+    background-color: var(--dx-results-banner-bg);
+    justify-content: space-between;
+    padding: calc(var(--dx-results-banner-margin)* 1.5);
+    margin-bottom: var(--dx-results-banner-margin);
+}
+.dx-results-banner__reset {
+    margin-left: auto;
+    text-underline-offset: unset;
+    color: var(--dx-results-banner-secondary-text-color);
+    cursor: pointer;
+    display: inline-block;
+    border: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    text-decoration: underline;
+    text-underline-offset: .3rem;
+    margin: 0;
+    background: transparent;
+}
+</style>
+
+<section id="dx-results-banner" class="dx-results-banner">
+    <div id="dx-results-banner-container" class="dx-results-banner__container dx-results-banner--flex">
+        Results: 0 <a href="#" class="dx-results-banner__reset" role="button">Clear Filters</a>
+    </div>
+</section>
