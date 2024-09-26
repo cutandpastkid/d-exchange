@@ -1,6 +1,7 @@
 <style> 
     :root {
-        --dx-carousel-bg: #f1f1f1;
+        --dx-carousel-bg: #ffffff;
+        --dx-carousel-light-bg: #ffffff;
         --dx-carousel-height: 350px;
         --dx-carousel-margin: 1rem;
         --dx-carousel-slide-bg: #fff;
@@ -41,7 +42,7 @@
         -webkit-box-pack: center;
             -ms-flex-pack: center;
                 justify-content: center;
-        /* padding: calc(var(--dx-carousel-margin) *2.5); */
+        padding: calc(var(--dx-carousel-margin) *1.5);
         min-width: 320px;
     }
     .dx-carousel__wrap {
@@ -60,7 +61,7 @@
         -ms-flex-line-pack: center;
             align-content: center;
         background-color: var(--dx-carousel-slide-bg);
-        padding: calc(var(--dx-carousel-margin)*2);
+        padding: calc(var(--dx-carousel-margin)*1.5);
     }
     .dx-carousel__row {
         -webkit-box-flex: 1;
@@ -121,7 +122,18 @@
         -o-object-fit: contain;
            object-fit: contain;
     }
-    .dx-carousel__tag {
+    .dx-carousel__partner-logo {
+        display: flex;
+        right: 0;
+        bottom: 0;
+        background-color: var(--dx-carousel-light-bg);
+        padding: calc(var(--dx-carousel-margin) / 2);
+    }
+    .dx-carousel__partner-logo img {
+        max-height: 35px;
+        max-width: 70px;
+    }
+    .dx-carousel__tag-type {
         display: -webkit-box;
         display: -ms-flexbox;
         display: flex;
@@ -132,18 +144,18 @@
             align-self: flex-start;
         background: #333;
         color: #fff;
-        padding: calc(var(--dx-carousel-margin) / 1.75) var(--dx-carousel-margin);
-        margin-bottom: var(--dx-carousel-margin);
+        padding: calc(var(--dx-grid-margin) / 4.5) calc(var(--dx-grid-margin) / 2.75);
+        white-space: nowrap;
     }
-    .dx-carousel__tag img {
+    .dx-carousel__tag-type img {
         max-width: 15px;
         max-height: 15px;
     }
-    .dx-carousel__tag img + span {
-        font-size: .85rem;
+    .dx-carousel__tag-type img + span {
+        font-size: .65rem;
         margin-left: calc(var(--dx-carousel-margin)/2.5);
     }
-    .dx-carousel__tag--abspos {
+    .dx-carousel__tag-type--abspos {
         top: 0;
         right: 0;
     }
@@ -218,11 +230,11 @@
                 transform: translateY(-50%) scale(1.2);
     }
     .dx-carousel__btn--prev {
-        left: var(--dx-carousel-inner-spacing);
-    }
-    .dx-carousel__btn--next {
-        right: var(--dx-carousel-inner-spacing);
-    }
+            left: -1.5rem;
+        }
+        .dx-carousel__btn--next {
+            right: -1.5rem;
+        }
     .dx-carousel__btn--next::after {
         content: "";
         display: block;
@@ -343,6 +355,9 @@
         .dx-carousel__summary {
             font: .95rem/140% sans-serif;
         }
+        .dx-carousel__tag-type {
+            align-self: center;
+        }
     }
     @media (max-width: 767px) {
         .dx-container-layout {
@@ -362,8 +377,6 @@
             padding: 0;
         }
         .dx-carousel__btn--prev-next {
-            top: unset;
-            bottom: 15px;
             -webkit-transform: unset;
                 -ms-transform: unset;
                     transform: unset;
@@ -376,20 +389,23 @@
     }
 </style>
 
-<section id="dx-carousel" class="dx-carousel dx-carousel--relpos" role="region">
+<section id="dx-carousel-internal" class="dx-carousel dx-carousel--relpos" role="region">
     <div class="dx-carousel__slide dx-carousel--abspos" role="tabpanel" aria-labelledby="dx-carousel-slide-1-title">
         <div class="dx-carousel__card">
             <div class="dx-carousel__row">
                 <div class="dx-carousel__cell dx-carousel--relpos">
                     <div class="dx-carousel__image dx-carousel--relpos">
-                        <div class="dx-carousel__tag dx-carousel__tag--abspos dx-carousel--abspos dx-asset-time-to-read__REF__">
+                        <div class="dx-carousel__tag-type dx-carousel__tag-type--abspos dx-carousel--abspos dx-asset-time-to-read__REF__">
                             <img 
-                                src="assets/icons/clock-icon-wht.svg" 
+                                src="assets/icons/icon-wht.svg" 
                                 class="dx-carousel__icon"
                                 alt=""
                                 title="" 
                             /> 
                             <span>Read Time</span>
+                        </div>
+                        <div class="dx-carousel__partner-logo dx-carousel--abspos">
+                            <img src="assets/images/155x55.svg"  class="" alt="" title="">
                         </div>
                         <img 
                             src="assets/images/340x480.svg" 
@@ -403,6 +419,16 @@
                 </div>
                 <div class="dx-carousel__cell dx-carousel--relpos"> 
                     <div class="dx-carousel__caption dx-carousel--relpos">
+                        <div class="dx-carousel__tag-type">
+                            <img 
+                                src="assets/icons/icon-wht.svg" 
+                                class="dx-carousel__icon"
+                                alt=""
+                                title="" 
+                            />
+                            <span>Live Webinar</span>
+                        </div>
+                        <div class="dx-grid__tag-start-times">28th June at</div>
                         <h4 class="dx-carousel__title dx-asset-title__REF__" id="dx-carousel-slide-1-title">Lorem ipsum dolor sit amet, consectetur adipiscing</h4>
                         <p class="dx-carousel__summary dx-asset-intro__REF__">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ultricies auctor odio, id posuere urna volutpat nec. Sed varius a massa id tristique. Nam risus sapien, blandit ac quam ut, malesuada ullamcorper nisi. Ut lobortis odio id orci lobortis tempor at.</p>
                         <a href="#" class="dx-carousel__cta dx-asset-cta__REF__" title="">Download Now</a>
@@ -416,14 +442,17 @@
             <div class="dx-carousel__row">
                 <div class="dx-carousel__cell dx-carousel--relpos">
                     <div class="dx-carousel__image dx-carousel--relpos">
-                        <div class="dx-carousel__tag dx-carousel__tag--abspos dx-carousel--abspos dx-asset-time-to-read__REF__">
+                        <div class="dx-carousel__tag-type dx-carousel__tag-type--abspos dx-carousel--abspos dx-asset-time-to-read__REF__">
                             <img 
-                                src="assets/icons/clock-icon-wht.svg" 
+                                src="assets/icons/icon-wht.svg" 
                                 class="dx-carousel__icon"
                                 alt=""
                                 title="" 
                             />
                             <span>Read Time</span>
+                        </div>
+                        <div class="dx-carousel__partner-logo dx-carousel--abspos">
+                            <img src="assets/images/155x55.svg"  class="" alt="" title="">
                         </div>
                         <img 
                             src="assets/images/588x380.svg" 
@@ -437,6 +466,15 @@
                 </div>
                 <div class="dx-carousel__cell dx-carousel--relpos">
                     <div class="dx-carousel__caption dx-carousel--relpos">
+                        <div class="dx-carousel__tag-type">
+                            <img 
+                                src="assets/icons/icon-wht.svg" 
+                                class="dx-carousel__icon"
+                                alt=""
+                                title="" 
+                            />
+                            <span>On-Demand Webinar</span>
+                        </div>
                         <h4 class="dx-carousel__title dx-asset-title__REF__" id="dx-carousel-slide-2-title">Lorem ipsum dolor sit amet, consectetur adipiscing</h4>
                         <p class="dx-carousel__summary dx-asset-intro__REF__">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ultricies auctor odio, id posuere urna volutpat nec. Sed varius a massa id tristique. Nam risus sapien, blandit ac quam ut, malesuada ullamcorper nisi. Ut lobortis odio id orci lobortis tempor at.</p>
                         <a href="#" class="dx-carousel__cta dx-asset-cta__REF__" title="">Download Now</a>
@@ -450,14 +488,17 @@
             <div class="dx-carousel__row">
                 <div class="dx-carousel__cell dx-carousel--relpos">
                     <div class="dx-carousel__image dx-carousel--relpos">
-                        <div class="dx-carousel__tag dx-carousel__tag--abspos dx-carousel--abspos dx-asset-time-to-read__REF__">
+                        <div class="dx-carousel__tag-type dx-carousel__tag-type--abspos dx-carousel--abspos dx-asset-time-to-read__REF__">
                             <img 
-                                src="assets/icons/clock-icon-wht.svg" 
+                                src="assets/icons/icon-wht.svg" 
                                 class="dx-carousel__icon"
                                 alt=""
                                 title="" 
                             />
                             <span>Read Time</span>
+                        </div>
+                        <div class="dx-carousel__partner-logo dx-carousel--abspos">
+                            <img src="assets/images/155x55.svg"  class="" alt="" title="">
                         </div>
                         <img 
                             src="assets/images/340x480.svg" 
@@ -471,6 +512,16 @@
                 </div>
                 <div class="dx-carousel__cell dx-carousel--relpos">
                     <div class="dx-carousel__caption dx-carousel--relpos">
+                        <div class="dx-carousel__tag-type">
+                            <img 
+                                src="assets/icons/icon-wht.svg" 
+                                class="dx-carousel__icon"
+                                alt=""
+                                title="" 
+                            />
+                            <span>Live Webinar</span>
+                        </div>
+                        <div class="dx-grid__tag-start-times">28th June at</div>
                         <h4 class="dx-carousel__title dx-asset-title__REF__" id="dx-carousel-slide-3-title">Lorem ipsum dolor sit amet, consectetur adipiscing</h4>
                         <p class="dx-carousel__summary dx-asset-intro__REF__">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ultricies auctor odio, id posuere urna volutpat nec. Sed varius a massa id tristique. Nam risus sapien, blandit ac quam ut, malesuada ullamcorper nisi. Ut lobortis odio id orci lobortis tempor at.</p>
                         <a href="#" class="dx-carousel__cta dx-asset-cta__REF__" title="">Download Now</a>
@@ -717,7 +768,7 @@ const JSCarousel = ({
 
 
     const carousel = JSCarousel({
-    carouselSelector: "#dx-carousel",
+    carouselSelector: "#dx-carousel-internal",
     slideSelector: ".dx-carousel__slide",
     enablePagination: true,
     enableAutoplay: false,
