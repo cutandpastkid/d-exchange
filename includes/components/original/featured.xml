@@ -1,0 +1,21 @@
+<div class="dx-featured-component__REF__">
+    <div class="dx-featured-asset-card__REF__">
+        <div class="dx-featured-header__REF__">Featured</div>
+        <div class="dx-featured-asset-card-body__REF__">
+            <div class="dx-featured-asset-card-image-container__REF__">
+                <a class="dx-featured-asset-stretched-link__REF__ stretched-link" href ="{/doc/assets/asset/dxlink}" title="Link to {/doc/assets/asset/title}">
+                    <img class="dx-featured-asset__card-image__REF__" src="{/doc/assets/asset/featured_image}" alt="{/doc/title}"/>
+                    <div class="dx-call-to-action-icon">
+                        <img src="https://demandexchange-cdn.s3.eu-west-2.amazonaws.com/sites/demandexchangenew/images/dx-download-icon.png" alt="{/doc/assets/asset/calltoaction}"/>
+                    </div>
+                </a>
+            </div>
+            <div class="dx-featured-content__REF__">
+                <h2 class="dx-featured-asset-title__REF__"><xsl:value-of select="/doc/assets/asset/title"/></h2>
+                <div class="dx-featured-asset-summary__REF__">
+                    <xsl:value-of select="/doc/assets/asset/featured_text" disable-output-escaping="yes"/>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

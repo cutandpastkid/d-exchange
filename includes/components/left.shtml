@@ -1,4 +1,4 @@
-<div>
+<div class="left">
 <!--#include file="facets.shtml" -->
 <!--#include file="popular.shtml" -->
 <!--#include file="featured.shtml" -->

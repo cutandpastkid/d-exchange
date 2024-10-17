@@ -1,0 +1,197 @@
+<div class="dx-filter-panel">
+    <div id="dx-desktop-filter-container-ch">
+        <h5><strong>Filter Resources</strong></h5>
+        <div class="dx-filter-panel-grid">
+            <div class="dx-filter-panel-item">
+                <span class="dx-filter-text">By Read Time</span>
+                <select class="dx-smart-filter-select" id="dx-smart-filter-by-time">
+                    <option value="">(Select a read time)</option>
+                    <option value="5"><xsl:if test="/doc/selectedreadtime='5'"><xsl:attribute name="selected">selected></xsl:attribute></xsl:if>Quick Read</option>
+                    <option value="10"><xsl:if test="/doc/selectedreadtime='10'"><xsl:attribute name="selected">selected></xsl:attribute></xsl:if>5 - 10 minutes</option>
+                    <option value="15"><xsl:if test="/doc/selectedreadtime='15'"><xsl:attribute name="selected">selected></xsl:attribute></xsl:if>10 - 15 minutes</option>
+                    <option value="20"><xsl:if test="/doc/selectedreadtime='20'"><xsl:attribute name="selected">selected></xsl:attribute></xsl:if>15 - 20 minutes</option>
+                    <option value="9999"><xsl:if test="/doc/selectedreadtime='9999'"><xsl:attribute name="selected">selected></xsl:attribute></xsl:if>&gt; 20 minutes</option>
+                </select>
+            </div>
+            <div class="dx-filter-panel-item">
+                <span class="dx-filter-text">By Content Type</span>
+                <select class="dx-smart-filter-select" id="dx-smart-filter-by-type">
+                    <option value="">(Select a Type)</option>
+                    <xsl:for-each select="/doc/types/type">
+                        <xsl:sort select="description"/>
+                        <option value="{id}">
+                            <xsl:if test="/doc/selectedtype=id"><xsl:attribute name="selected">selected></xsl:attribute></xsl:if>
+                            <xsl:value-of select="description"/>
+                        </option>
+                    </xsl:for-each>
+                </select>
+            </div>
+            <div class="dx-filter-panel-item">
+                <span class="dx-filter-text">By Topic</span>
+                <select class="dx-smart-filter-select" id="dx-smart-filter-by-topic">
+                    <option value="">(Select a Topic)</option>
+                    <xsl:for-each select="/doc/keywords/keyword">
+                        <option data-type="topic" value="{text}">
+                            <xsl:if test="/doc/selectedtopic=id"><xsl:attribute name="selected">selected></xsl:attribute></xsl:if>
+                            <xsl:value-of select="text"/>
+                        </option>
+                    </xsl:for-each>
+                </select>
+            </div>
+            <div class="dx-filter-panel-item">
+                <span class="dx-filter-text">By Partner</span>
+                <select class="dx-smart-filter-select" id="dx-smart-filter-by-partner">
+                    <option value="">(Select a Partner)</option>
+                    <xsl:for-each select="/doc/partners/partner">
+                        <xsl:sort select="translate(partnername, 'abcdefghijklmnopqrstuvwxyz','ABCDEFGHIJKLMNOPQRSTUVWXYZ')" order="ascending" />
+                        <option value="{id}">
+                            <xsl:if test="/doc/selectedpartner=id"><xsl:attribute name="selected">selected></xsl:attribute></xsl:if>
+                            <xsl:value-of select="partnername"/>
+                        </option>
+                    </xsl:for-each>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div id="dx-mobile-filter-container-ch">
+        <div class="dx-mobile-filter-outer-ch">
+            <div id="dx-mobile-main-filter-ch">
+                <div class="dx-mobile-filter-header-ch dx-mobile-filter-style-ch">
+                    <span></span>
+                    <div class="dx-mobile-filter-title-ch">Content Filters</div>
+                    <span class="dx-mobile-filter-close-ch">X</span>
+                </div>
+                <div class="dx-mobile-filter-cats-content-ch">
+                    <ul class="dx-mobile-filter-cats-ch">
+                        <li class="dx-mobile-filter-style-ch" data-target="dx-mobile-sub-filter-time-ch">
+                            <div class="dx-mobile-filter-icon-ch dx-mobile-time-ch">Read Time</div>
+                            <div class="dx-mobile-filter-selected-ch" id="dx-mobile-filter-selected-time-ch"></div>
+                            &gt;
+                        </li>
+                        <li class="dx-mobile-filter-style-ch" data-target="dx-mobile-sub-filter-topic-ch">
+                            <div class="dx-mobile-filter-icon-ch dx-mobile-topic-ch">Topic</div>
+                            <div class="dx-mobile-filter-selected-ch" id="dx-mobile-filter-selected-topic-ch"></div>
+                            &gt;
+                        </li>
+                        <li class="dx-mobile-filter-style-ch" data-target="dx-mobile-sub-filter-type-ch">
+                            <div class="dx-mobile-filter-icon dx-mobile-type-ch">Content Type</div>
+                            <div class="dx-mobile-filter-selected-ch" id="dx-mobile-filter-selected-type-ch"></div>
+                            &gt;
+                        </li>
+                        <li class="dx-mobile-filter-style-ch" data-target="dx-mobile-sub-filter-partner-ch">
+                            <div class="dx-mobile-filter-icon-ch dx-mobile-partner-ch">Partner</div>
+                            <div class="dx-mobile-filter-selected-ch" id="dx-mobile-filter-selected-partner-ch"></div>
+                            &gt;
+                        </li>
+                    </ul>
+    
+                    <div id="dx-mobile-search-header-ch" class="dx-mobile-search-header-ch">
+                        <div class="dx-mobile-filter-title-ch">Smart Search</div>
+                    </div>
+    
+                    <ul class="dx-mobile-filter-search-ch">
+                        <xsl:for-each select="/doc/keywords/keyword">
+                            <li class="dx-mobile-filter-style-ch">
+                                <div><xsl:value-of select="text"/><xsl:if test="count &gt; 0"><span>(<xsl:value-of select="count"/>)</span></xsl:if></div>
+                                <div class="fas fa-check-square"></div>
+                            </li>
+                        </xsl:for-each>
+    
+                    </ul>
+                </div>
+                <div class="dx-mobile-filter-footer-ch">
+                    <button type="button" id="dx-mobile-filter-clear-all-button-ch">Clear All</button>
+                    <button type="button" id="dx-mobile-filter-apply-button-ch">Apply</button>
+                </div>
+    
+            </div>
+    
+            <div id="dx-mobile-sub-filter-time-ch" data-value="" class="dx-mobile-sub-filter-ch">
+                <div class="dx-mobile-filter-header-ch dx-mobile-filter-style-ch">
+                    <span class="dx-mobile-sub-filter-back-ch">&lt; Back</span>
+                    <div class="dx-mobile-filter-title-ch">Time</div>
+                    <strong>X</strong>
+                </div>
+    
+                <ul class="dx-mobile-filter-search-ch">
+    
+                    <li class="dx-mobile-filter-style-ch" data-value="5" data-category="time">
+                        <div>Quick Read</div>
+                        <div class="fas fa-circle"></div>
+                    </li>						
+                    <li class="dx-mobile-filter-style-ch" data-value="10" data-category="time">
+                        <div>5 - 10 minutes</div>
+                        <div class="fas fa-circle"></div>
+                    </li>						
+                    <li class="dx-mobile-filter-style-ch" data-value="15" data-category="time">
+                        <div>10 - 15 minutes</div>
+                        <div class="fas fa-circle"></div>
+                    </li>						
+                    <li class="dx-mobile-filter-style-ch" data-value="20" data-category="time">
+                        <div>15 - 20 minutes</div>
+                        <div class="fas fa-circle"></div>
+                    </li>						
+                    <li class="dx-mobile-filter-style-ch" data-value="999" data-category="time">
+                        <div>&gt; 20 minutes</div>
+                        <div class="fas fa-circle"></div>
+                    </li>						
+    
+                </ul>
+            </div>
+    
+            <div id="dx-mobile-sub-filter-topic-ch" data-value="" class="dx-mobile-sub-filter-ch">
+                <div class="dx-mobile-filter-header-ch dx-mobile-filter-style-ch">
+                    <span class="dx-mobile-sub-filter-back-ch">&lt; Back</span>
+                    <div class="dx-mobile-filter-title-ch">Topic</div>
+                    <i class="fas fa-times dx-mobile-filter-close-ch" aria-hidden="true"></i>
+                </div>
+    
+                <ul class="dx-mobile-filter-search-ch">
+                    <xsl:for-each select="/doc/keywords/keyword">
+                        <xsl:sort select="text"/>
+                        <li class="dx-mobile-filter-style-ch" data-value="{text}" data-category="topic">
+                            <div><xsl:value-of select="text"/></div>
+                            <div class="fas fa-circle"></div>
+                        </li>
+                    </xsl:for-each>
+                </ul>
+            </div>
+    
+            <div id="dx-mobile-sub-filter-type-ch" data-value="" class="dx-mobile-sub-filter-ch">
+                <div class="dx-mobile-filter-header-ch dx-mobile-filter-style-ch">
+                    <span class="dx-mobile-sub-filter-back-ch">&lt; Back</span>
+                    <div class="dx-mobile-filter-title-ch">Type</div>
+                    <i class="fas fa-times dx-mobile-filter-close-ch" aria-hidden="true"></i>
+                </div>
+    
+                <ul class="dx-mobile-filter-search-ch">
+                    <xsl:for-each select="/doc/types/type">
+                        <xsl:sort select="description"/>
+                        <li class="dx-mobile-filter-style-ch" data-value="{description}" data-category="type">
+                            <div><xsl:value-of select="description"/></div>
+                            <div class="fas fa-circle"></div>
+                        </li>
+                    </xsl:for-each>
+                </ul>
+            </div>
+    
+            <div id="dx-mobile-sub-filter-partner-ch" data-value="" class="dx-mobile-sub-filter-ch">
+                <div class="dx-mobile-filter-header-ch dx-mobile-filter-style-ch">
+                    <span class="dx-mobile-sub-filter-back-ch">&lt; Back</span>
+                    <div class="dx-mobile-filter-title-ch">Partner</div>
+                    <i class="fas fa-times dx-mobile-filter-close-ch" aria-hidden="true"></i>
+                </div>
+    
+                <ul class="dx-mobile-filter-search-ch">
+                    <xsl:for-each select="/doc/partners/partner">
+                        <xsl:sort select="translate(partnername, 'abcdefghijklmnopqrstuvwxyz','ABCDEFGHIJKLMNOPQRSTUVWXYZ')" order="ascending" />
+                        <li class="dx-mobile-filter-style-ch" data-value="{partner}" data-category="partner">
+                            <div><xsl:value-of select="partnername"/></div>
+                            <div class="fas fa-circle"></div>
+                        </li>
+                    </xsl:for-each>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,20 @@
+<div id="dx-smart-search-row">
+    <div id="dx-smart-search-banner">
+<!--    	<div id="dx-smart-search-text">Smart Search</div> -->
+	    <xsl:for-each select="/doc/searchpills/searchpill">
+	        <xsl:sort select="sequence"  data-type="number" order="descending"/>
+	        <xsl:sort select="count" data-type="number" order="descending"/>
+	        
+	        <div class="dx-smart-search-inner">
+		        <button data-type="smart" class="dx-smart-search-button-ch">
+		            <xsl:if test="sequence = '1'"><xsl:attribute name="class">dx-smart-search-button-ch dx-smart-search-active</xsl:attribute></xsl:if>
+		            <xsl:value-of select="text"/>
+                    <svg  aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                        <path class="plus" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14m-7 7V5"/>
+                        <path class="minus" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14"/>
+                    </svg>
+                </button>
+	        </div>
+	    </xsl:for-each>
+    </div>
+</div>

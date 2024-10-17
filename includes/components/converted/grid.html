@@ -1,0 +1,105 @@
+<section class="dx-responsive-grid__REF__ dx-component__REF__">
+    <xsl:if test="/doc/show_component_title='1'">
+        <div class="dx-grid__header__REF__">
+            <div class="dx-grid__title__REF__ dx-component-title__REF__">
+                <xsl:value-of select="concat('&lt;', /doc/component_title_tag, '&gt;')" disable-output-escaping="yes"/>
+                    <xsl:value-of select="/doc/title"/>
+                <xsl:value-of select="concat('&lt;', /doc/component_title_tag_end, '&gt;')" disable-output-escaping="yes"/>
+            </div>
+            <xsl:if test="/doc/component/component_intro != ''">
+              <div class="dx-grid__intro__REF__ dx-component-intro__REF__">
+                  <xsl:value-of select="/doc/component/component_intro" disable-output-escaping="yes"/>
+              </div>
+            </xsl:if>
+        </div>
+    </xsl:if>
+    <ul class="dx-grid__REF__ dx-deck__REF__" id="dx-deck__REF__" role="list">
+        <xsl:for-each select="/doc/assets/asset">
+            <li class="dx-grid__card__REF__ {/doc/deck-card-class}" data-id="{asset_id}" role="listitem">
+                <a target="_blank" class="dx-grid--flex dx-asset-link__REF__" href="{dxlink}" title="{title}">
+                    <div class="dx-grid__row__REF__">
+                        <div class="dx-grid__cell__REF__ dx-grid--relpos">
+                            <div class="dx-grid__image__REF__ dx-grid--relpos {/doc/thumb-container-class}">
+                                <xsl:if test="/doc/show_duration = '1'">
+                                    <xsl:choose>
+                                        <xsl:when test="duration != '0'">
+                                            <div class="dx-carousel__tag-type__REF__ dx-carousel__tag-type--abspos dx-carousel--flex dx-carousel--abspos dx-asset-duration__REF__">
+                                              <span><xsl:value-of select="concat(duration, ' ', duration_type)"/></span>
+                                            </div>
+                                        </xsl:when>
+                                        <xsl:otherwise>
+                                            <xsl:if test="timetoread != ''">
+                                                <div class="dx-carousel__tag-type__REF__ dx-carousel__tag-type--abspos dx-carousel--flex dx-carousel--abspos dx-asset-time-to-read__REF__">
+                                                    <xsl:choose>
+                                                        <xsl:when test="timetoread &lt; 5"><span>Quick Read</span></xsl:when>
+                                                        <xsl:otherwise>
+                                                            <span><xsl:value-of select="timetoread"/> Min Read</span>
+                                                        </xsl:otherwise>
+                                                    </xsl:choose>
+                                                </div>
+                                            </xsl:if>
+                                        </xsl:otherwise>
+                                    </xsl:choose>
+                                </xsl:if>
+                                <img 
+                                    src="{thumb}" 
+                                    srcset="{thumb} 1120w, {thumb} 720w, {thumb} 400w" 
+                                    sizes="(max-width: 640px) 50vw, 100vw" 
+                                    class="dx-asset-thumb__REF__" 
+                                    alt="{title}"
+                                    title="{title}"
+                                />
+                            </div>
+                            <div class="dx-grid__caption__REF__ dx-asset-content__REF__">
+                                <xsl:if test="/doc/show_logo='1'">
+                                  <div class="dx-grid__partner-logo__REF__ dx-asset-partner-logo-holder__REF__">
+                                      <img class="dx-asset-partner-logo__REF__" src="{partnerlogo}" alt="{partnername}"/>
+                                  </div>
+                                </xsl:if>
+                                <div class="dx-grid__tag__REF__ dx-grid--flex">
+                                  <xsl:if test="/doc/show_asset_type='1'">
+                                    <div class="dx-grid__tag-type__REF__ dx-grid--flex">
+                                      <span class="dx-asset-type__REF__ dx_asset_type_id_{asset_type_id}__REF__"><xsl:value-of select="/doc/asset/dx_icon" disable-output-escaping="yes"/><xsl:value-of select="displayname"/></span>
+                                    </div>
+                                  </xsl:if>
+                                  <xsl:if test="/doc/show_starttimes = '1' and (asset_type_id = '3' or asset_type_id='5')">
+                                    <div class="dx-grid__tag-start-times__REF__ dx-asset-starttimes__REF__"><xsl:value-of select="start_date"/> at <xsl:value-of select="concat(starttimes/starttime[1]/time, ' ', starttimes/starttime[1]/timezone)"/></div>
+                                  </xsl:if>
+                                </div>
+                                <div class="dx-grid__caption--title__REF__ dx-asset-title__REF__">
+                                  <xsl:value-of select="concat('&lt;', /doc/asset_title_tag, '&gt;')" disable-output-escaping="yes"/>
+                                    <xsl:value-of select="title"/>
+                                  <xsl:value-of select="concat('&lt;', /doc/asset_title_tag_end, '&gt;')" disable-output-escaping="yes"/>
+                                </div>
+                                <xsl:if test="/doc/show_summary = '1' and summary != ''">
+                                  <div class="dx-grid__summary__REF__ dx-asset-intro__REF__">
+                                      <xsl:value-of select="summary" disable-output-escaping="yes"/>
+                                  </div>
+                                </xsl:if>
+                            </div>
+                        </div>
+                        <xsl:if test="/doc/show_cta = '1' and calltoaction != ''">
+                          <div class="dx-grid__cell__REF__">
+                            <div class="dx-grid__cta__REF__ dx-asset-cta-container__REF__">
+                                <button class="dx-grid__cta-btn__REF__ dx-asset-cta__REF__"><xsl:value-of select="calltoaction"/></button>
+                            </div>
+                          </div>
+                        </xsl:if>
+                    </div>
+                </a>
+            </li>
+        </xsl:for-each>
+    </ul>
+    <xsl:if test="/doc/paging_mode != 'N'">
+        <div id="dx-deck-more__REF__" class=" dx-grid__more__REF__ dx-deck-more__REF__">
+            <xsl:choose>
+                <xsl:when test="/doc/paging_mode='B'">
+                    <button type="button" data-page="1" data-mode="{/doc/paging_mode}" data-ref="id__REF__" class="dx-deck-more-button dx-grid__more-btn__REF__">More</button>
+                </xsl:when>
+                <xsl:otherwise>
+                    <span data-page="1" data-mode="{/doc/paging_mode}" data-ref="id__REF__" class="dx-deck-more-button dx-grid__more-btn__REF__">...</span>
+                </xsl:otherwise>
+            </xsl:choose>
+        </div>
+    </xsl:if>
+</section> 

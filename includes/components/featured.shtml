@@ -6,13 +6,13 @@
      --dx-featured-secondary-text-color: #ffffff;
     --dx-featured-card-bg: #f9f9f9;
     --dx-featured-margin: 1rem;
+    --dx-featured-tag-bg: #aaa;
 }
-.dx-featured {
-    font: normal 1rem/100% sans-serif;
+.dx-featured__REF__ {
     background-color: var(--dx-featured-bg);
     margin-bottom: var(--dx-featured-margin);
 }
-.dx-featured img {
+.dx-featured__REF__ img {
     width: 100%;
     height: auto;
     -o-object-fit: contain;
@@ -29,38 +29,37 @@
     display: -webkit-box;
     display: -ms-flexbox;
 }
-.dx-featured__header {
+.dx-featured__header__REF__ {
     width: 100%;
     margin-bottom: calc(var(--dx-featured-margin)/5);
     background-color: var(--dx-featured-bg);
 }
-.dx-featured__header-inner {
+.dx-featured__header-inner__REF__ {
     justify-content: space-between;
     padding: var(--dx-featured-margin);
     font-size: 1.5rem;
     align-items: center;
 }
-.dx-featured__header-title {
+.dx-featured__header-title__REF__ {
     font-weight: bold;
     text-transform: uppercase;
     font-size: 0.8rem;
 }
-.dx-featured__summary {
+.dx-featured__summary__REF__ {
     margin: 0 0 var(--dx-featured-margin) 0;
-    font-size: .8rem;
 }
-.dx-featured__list {
+.dx-featured__list__REF__ {
     margin: 0;
     padding: 0;
     list-style: none;
     padding-bottom: .5rem;
     background-color: var(--dx-featured-card-bg);
 }
-.dx-featured__card {
+.dx-featured__card__REF__ {
     background-color: var(--dx-featured-card-bg);
     padding: .5rem .5rem 0;
 }
-.dx-featured__row {
+.dx-featured__row__REF__ {
     background-color: var(--dx-featured-bg);
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -72,7 +71,7 @@
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
 }
-.dx-featured__cell {
+.dx-featured__cell__REF__ {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -86,20 +85,17 @@
     -ms-flex-wrap: wrap;
     flex-wrap: nowrap;
 }
-.dx-featured__image {
+.dx-featured__image__REF__ {
     -ms-flex-line-pack: center;
         align-content: center;
+    margin-bottom: var(--dx-featured-margin);
 }     
-.dx-featured__partner-logo {
-    right: 0;
-    bottom: 0;
-}
-.dx-featured__partner-logo img {
+.dx-featured__partner-logo__REF__ img {
     max-height: 35px;
     max-width: 70px;
 }
-.dx-featured__caption {
-    padding: 0 var(--dx-featured-margin);
+.dx-featured__caption__REF__ {
+    padding: 0 calc(var(--dx-featured-margin)*1.5);
     -webkit-box-flex: 1;
         -ms-flex: 1;
             flex: 1;
@@ -116,21 +112,17 @@
             flex-direction: column;  
     text-align: left;
 }
-.dx-featured__caption a {
+.dx-featured__caption__REF__ a {
     text-decoration: none;
 }
-.dx-featured__title {
-    font-size: 0.9rem;
+.dx-featured__title__REF__ {
     color: var(--dx-featured-text-color);
     margin: calc(var(--dx-featured-margin)/2) 0;
 }
-.dx-featured__summary {
+.dx-featured__summary__REF__ {
     margin: 0 0 var(--dx-featured-margin) 0;
 }
-.dx-featured__cta {
-    padding: 0 var(--dx-featured-margin);
-}
-.dx-featured__cta-btn {
+.dx-featured__cta-btn__REF__ {
     display: block;
     text-decoration: none;
     cursor: pointer;
@@ -145,74 +137,151 @@
     text-indent: 0;
     width: 100%;
 }
-.dx-featured__tag {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
+.dx-featured__tag__REF__ {
+    margin: 0 0 var(--dx-featured-margin) 0;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column; 
+}
+.dx-featured__tag-type__REF__ {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
     -ms-flex-item-align: start;
         align-self: flex-start;
-    background-color: var(--dx-featured-secondary-bg);
-    color: var( --dx-featured-secondary-text-color);
+    -ms-flex-line-pack: center;
+    align-content: center;
+    background: var(--dx-featured-tag-bg);
+    color: #fff;
     padding: calc(var(--dx-featured-margin) / 4.5) calc(var(--dx-featured-margin) / 2.75);
-    margin: calc(var(--dx-featured-margin) / 2) 0; 
     white-space: nowrap;
-}
-.dx-featured__tag img {
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    margin-bottom: 0;
+}    
+.dx-featured__tag-type__REF__ img {
     max-width: 12px;
     max-height: 12px;
 }
-.dx-featured__tag img + span {
-    font-size: .65rem;
+.dx-featured__tag-type__REF__ img + span {
     margin-left: calc(var(--dx-featured-margin)/2.5);
 }
-@media (max-width: 1024px) {
-    .dx-featured {
-        display: none;
+.dx-featured__tag-type__REF__ span {
+    color: var(--dx-featured-secondary-text-color);
+    font-size: .65rem;
+}
+.dx-featured__tag-type--abspos {
+    top: calc(var(--dx-featured-margin) / 2);
+    right: calc(var(--dx-featured-margin) / -2);
+}
+.dx-featured__tag-start-times__REF__ {
+    font-size: .65rem;
+}
+@media only screen and (max-width: 1024px) {
+    .dx-featured__row__REF__ {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    }
+    .dx-featured__cell__REF__ {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: row;
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        -ms-flex-wrap: wrap;
+        flex-wrap: nowrap;
+        padding: var(--dx-featured-margin);
+    }
+    .dx-featured__cell__REF__ > div:first-child {
+        width: 33%;
+    }
+    .dx-featured__cta-btn__REF__ {
+        margin: 0 auto;
+    }
+}
+@media only screen and (max-width: 767px) {
+    .dx-featured__row__REF__ {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    }
+    .dx-featured__cell__REF__ {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        -ms-flex-wrap: wrap;
+        flex-wrap: nowrap;
+        padding: 0;
+    }
+    .dx-featured__cell__REF__ > div:first-child {
+        width: 100%;
+    }
+    .dx-featured__cta-btn__REF__ {
+        margin: 0 auto var(--dx-featured-margin);
     }
 }
 </style>
 
-<section class="dx-featured">
-  <div class="dx-featured__header">
-      <div class="dx-featured__header-inner dx-featured--relpos dx-featured--flex">
-          <span class="dx-featured__header-title">Featured</span>
-      </div>
-  </div>
-  <ul class="dx-featured__list">
-      <li class="dx-featured__card dx-featured--flex">
-          <div class="dx-featured__row dx-featured--relpos">
-              <div class="dx-featured__cell dx-featured--flex">
-                  <div class="dx-featured__image dx-featured--relpos">
-                      <div class="dx-featured__partner-logo dx-featured--abspos">
-                          <img src="assets/images/155x55.svg"  class="" alt="" title="">
-                      </div>
-                      <a target="_blank" class="dx-asset-link__REF__" href="{dxlink}" title="{title}">
-                          <img src="assets/images/588x380.svg" srcset="/assets/images/1176x760.svg 1120w, /assets/images/588x380.svg 720w, /assets/images/588x380.svg 400w" sizes="(max-width: 640px) 50vw, 100vw" class="dx-asset-thumb__REF__" alt="{thumb}" title="{thumb}">
-                      </a>
-                  </div>
-                  <div class="dx-featured__caption">
-                      <div class="dx-featured__tag">
-                          <img 
-                              src="assets/icons/icon-wht.svg" 
-                              class="dx-featured__icon"
-                              alt=""
-                              title="" 
-                          />
-                          <span>Report</span>
-                      </div>
-                      <a target="_blank" class="dx-asset-link__REF__" href="{dxlink}" title="{title}">
-                          <h4 class="dx-featured__title dx-asset-title__REF__">Lorem ipsum dolor sit amet, consectetur adipiscing</h4>
-                      </a>
-                      <p class="dx-featured__summary dx-asset-intro__REF__">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ultricies auctor odio, id posuere urna volutpat nec. Sed varius a massa id tristique. Nam risus sapien, blandit ac quam ut, malesuada ullamcorper nisi. Ut lobortis odio id orci lobortis tempor at.</p>
-                  </div>
-                  <div class="dx-featured__cta dx-asset-cta-container__REF__">
-                    <button class="dx-featured__cta-btn dx-asset-cta-container__REF__" title="">Download Now</button>
+<section class="dx-featured__REF__">
+    <div class="dx-featured__header__REF__">
+        <div class="dx-featured__header-inner__REF__ dx-featured--relpos dx-featured--flex">
+            <span class="dx-featured__header-title__REF__">Featured</span>
+        </div>
+    </div>
+    <ul class="dx-featured__list__REF__">
+        <li class="dx-featured__card__REF__ dx-featured--flex">
+            <div class="dx-featured__row__REF__ dx-featured--relpos">
+                <div class="dx-featured__cell__REF__ dx-featured--flex">
+                    <div class="dx-featured__image__REF__ dx-featured-asset-card-image-container__REF__ dx-featured--relpos">
+                        <div class="dx-featured__tag-type__REF__ dx-featured__tag-type--abspos dx-featured--abspos dx-featured--flex dx-asset-time-to-read__REF__">
+                            <img src="assets/icons/icon-wht.svg" class="dx-featured__icon" alt="" title="">
+                            <span>Read Time</span>
+                        </div>
+                        <a target="_blank" class="dx-asset-link__REF__" href="{dxlink}" title="{title}">
+                            <img src="assets/images/588x380.svg" srcset="/assets/images/1176x760.svg 1120w, /assets/images/588x380.svg 720w, /assets/images/588x380.svg 400w" sizes="(max-width: 640px) 50vw, 100vw" class="dx-asset-thumb__REF__" alt="{thumb}" title="{thumb}">
+                        </a>
+                    </div>
+                    <div class="dx-featured__caption__REF__">
+                        <div class="dx-featured__partner-logo__REF__">
+                            <img src="assets/images/155x55.svg"  class="" alt="" title="">
+                        </div>
+                        <div class="dx-featured__title__REF__ dx-asset-title__REF__">
+                            <a target="_blank" class="dx-asset-link__REF__" href="{dxlink}" title="{title}">Lorem ipsum dolor sit amet, consectetur adipiscing</a>
+                        </div>
+                        <div class="dx-featured__summary__REF__ dx-asset-intro__REF__">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ultricies auctor odio, id posuere urna volutpat nec. Sed varius a massa id tristique. Nam risus sapien, blandit ac quam ut, malesuada ullamcorper nisi. Ut lobortis odio id orci lobortis tempor at.</div>
+                        <div class="dx-featured__cta__REF__ dx-asset-cta-container__REF__">
+                            <a href="" class="dx-featured__cta-btn__REF__ dx-asset-cta-container__REF__" title="">Download Now</a>
+                        </div>
+                    </div>
                 </div>
-              </div>
-          </div>
-      </li>
-  </ul>
+            </div>
+        </li>
+    </ul>
 </section>

@@ -1,0 +1,5 @@
+<div id="dx-results-bar-container">
+    <div id="dx-results-banner">Results: <xsl:value-of select="/doc/results"/>
+        <xsl:if test="/doc/results != /doc/totalresults"> of <xsl:value-of select="/doc/totalresults"/><button class="dx-clear-filters-ch" id="dx-clear-filters">Clear Filters</button></xsl:if>
+    </div>
+</div>

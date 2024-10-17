@@ -1,0 +1,197 @@
+<section id="dx-facets" class="dx-facets__REF__">
+  <a href="javascript:void(0)" class="dx-facets--closebtn__REF__" onclick="closeFiltersNav()">&times;</a>
+  <div class="dx-facets__container__REF__ dx-facets--flex">
+      <div class="dx-facets__wrapper__REF__ dx-facets--flex">
+        <div class="dx-facets__header__REF__">
+          <div class="dx-facets__header-inner__REF__ dx-facets--relpos dx-facets--flex">
+              <span class="dx-facets__header-title__REF__">Filters</span>
+              <facet-remove><a href="#" class="dx-facets__reset__REF__" role="button">Clear Filters</a></facet-remove>
+          </div>
+          <div class="dx-facets__clear__REF__ dx-facets--flex">
+            <a class="dx-facets__button__REF__ dx-facets--relpos" href="#" role="button">Test 1</a>
+          </div>
+        </div>
+        <details class="dx-facets__disclosure__REF__" data-index="1" open="open">
+            <summary class="dx-facets__summary__REF__ dx-facets--relpos">
+                <div class="dx-facets__summary-inner__REF__ dx-facets--flex">
+                    <span class="dx-facets__summary-title__REF__ dx-facets--relpos">
+                      Read Time
+                      <svg aria-hidden="true" focusable="false" role="presentation" class="dx-facets__icon__REF__ dx-facets__icon-caret__REF__ dx-facets--abspos" viewBox="0 0 20 20">
+                        <path d="M9.99996 11.6667L6.66663 8.33333H13.3333L9.99996 11.6667Z" fill="currentColor"></path>
+                      </svg>
+                  </span>
+                  <facet-remove><a href="#" class="dx-facets__reset__REF__" role="button">Reset</a></facet-remove>
+                </div>
+            </summary>
+            <div class="dx-facets__display__REF__">
+                <ul class="dx-facets__list__REF__ dx-facets--flex" id="dx-smart-filter-by-time">
+                    <li class="dx-facets__item__REF__ dx-facets--relpos dx-facets--flex">
+                        <input class="dx-facets--abspos" type="checkbox" name="dx-smart-filter-by-time-5" value="5" id="dx-smart-filter-by-time-5" />
+                        <xsl:if test="/doc/selectedreadtime='5'"><xsl:attribute name="checked">checked</xsl:attribute></xsl:if>
+                        <label for="dx-smart-filter-by-time-5" class="dx-facets__checkbox__REF__ dx-facets--relpos dx-facets--flex">
+                            <svg class="dx-facets__icon__REF__ dx-facets__icon-checkmark__REF__ dx-facets--abspos" width="12" height="9" viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4.66649 6.61451L10.7945 0.48584L11.7378 1.42851L4.66649 8.49984L0.423828 4.25717L1.36649 3.31451L4.66649 6.61451Z"></path>
+                            </svg>
+                            <span class="dx-facets__checkbox__label__REF__">
+                                Quick Read
+                                <span class="dx-facets__checkbox__count__REF__">(0)</span>
+                            </span>
+                        </label>   
+                    </li>
+                    <li class="dx-facets__item__REF__ dx-facets--relpos dx-facets--flex">
+                      <input class="dx-facets--abspos" type="checkbox" name="dx-smart-filter-by-time-10" value="10" id="dx-smart-filter-by-time-10" />
+                      <xsl:if test="/doc/selectedreadtime='10'"><xsl:attribute name="checked">checked</xsl:attribute></xsl:if>
+                      <label for="dx-smart-filter-by-time-10" class="dx-facets__checkbox__REF__ dx-facets--relpos dx-facets--flex">
+                            <svg class="dx-facets__icon__REF__ dx-facets__icon-checkmark__REF__ dx-facets--abspos" width="12" height="9" viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4.66649 6.61451L10.7945 0.48584L11.7378 1.42851L4.66649 8.49984L0.423828 4.25717L1.36649 3.31451L4.66649 6.61451Z"></path>
+                            </svg>
+                            <span class="dx-facets__checkbox__label__REF__">
+                                5 - 10 minutes 
+                                <span class="dx-facets__checkbox__count__REF__">(0)</span>
+                            </span>
+                        </label>   
+                    </li>
+                    <li class="dx-facets__item__REF__ dx-facets--relpos dx-facets--flex">
+                      <input class="dx-facets--abspos" type="checkbox" name="dx-smart-filter-by-time-15" value="15" id="dx-smart-filter-by-time-15" />
+                      <xsl:if test="/doc/selectedreadtime='15'"><xsl:attribute name="checked">checked</xsl:attribute></xsl:if>
+                      <label for="dx-smart-filter-by-time-15" class="dx-facets__checkbox__REF__ dx-facets--relpos dx-facets--flex">
+                            <svg class="dx-facets__icon__REF__ dx-facets__icon-checkmark__REF__ dx-facets--abspos" width="12" height="9" viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4.66649 6.61451L10.7945 0.48584L11.7378 1.42851L4.66649 8.49984L0.423828 4.25717L1.36649 3.31451L4.66649 6.61451Z"></path>
+                            </svg>
+                            <span class="dx-facets__checkbox__label__REF__">
+                                10 - 15 minutes
+                                <span class="dx-facets__checkbox__count__REF__">(0)</span>
+                            </span>
+                        </label>   
+                    </li>
+                    <li class="dx-facets__item__REF__ dx-facets--relpos dx-facets--flex">
+                      <input class="dx-facets--abspos" type="checkbox" name="dx-smart-filter-by-time-20" value="20" id="dx-smart-filter-by-time-20" />
+                      <xsl:if test="/doc/selectedreadtime='20'"><xsl:attribute name="checked">checked</xsl:attribute></xsl:if>
+                      <label for="dx-smart-filter-by-time-20" class="dx-facets__checkbox__REF__ dx-facets--relpos dx-facets--flex">
+                            <svg class="dx-facets__icon__REF__ dx-facets__icon-checkmark__REF__ dx-facets--abspos" width="12" height="9" viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4.66649 6.61451L10.7945 0.48584L11.7378 1.42851L4.66649 8.49984L0.423828 4.25717L1.36649 3.31451L4.66649 6.61451Z"></path>
+                            </svg>
+                            <span class="dx-facets__checkbox__label__REF__">
+                                15 - 20 minutes
+                                <span class="dx-facets__checkbox__count__REF__">(0)</span>
+                            </span>
+                        </label>   
+                    </li>
+                    <li class="dx-facets__item__REF__ dx-facets--relpos dx-facets--flex">
+                      <input class="dx-facets--abspos" type="checkbox" name="dx-smart-filter-by-time-9999" value="9999" id="dx-smart-filter-by-time-9999" />
+                      <xsl:if test="/doc/selectedreadtime='9999'"><xsl:attribute name="checked">checked</xsl:attribute></xsl:if>
+                      <label for="dx-smart-filter-by-time-9999" class="dx-facets__checkbox__REF__ dx-facets--relpos dx-facets--flex">
+                            <svg class="dx-facets__icon__REF__ dx-facets__icon-checkmark__REF__ dx-facets--abspos" width="12" height="9" viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4.66649 6.61451L10.7945 0.48584L11.7378 1.42851L4.66649 8.49984L0.423828 4.25717L1.36649 3.31451L4.66649 6.61451Z"></path>
+                            </svg>
+                            <span class="dx-facets__checkbox__label__REF__">
+                                &gt; 20 minutes
+                                <span class="dx-facets__checkbox__count__REF__">(0)</span>
+                            </span>
+                        </label>   
+                    </li>
+                </ul>
+            </div>
+        </details>
+        <details class="dx-facets__disclosure__REF__" data-index="2">
+            <summary class="dx-facets__summary__REF__ dx-facets--relpos">
+                <div class="dx-facets__summary-inner__REF__ dx-facets--flex">
+                    <span class="dx-facets__summary-title__REF__ dx-facets--relpos dx-facets--relpos">
+                      Type
+                      <svg aria-hidden="true" focusable="false" role="presentation" class="dx-facets__icon__REF__ dx-facets__icon-caret__REF__ dx-facets--abspos" viewBox="0 0 20 20">
+                        <path d="M9.99996 11.6667L6.66663 8.33333H13.3333L9.99996 11.6667Z" fill="currentColor"></path>
+                      </svg>
+                    </span>
+                    <facet-remove><a href="#" class="dx-facets__reset__REF__" role="button">Reset</a></facet-remove>
+                </div>
+            </summary>
+            <div class="dx-facets__display__REF__">
+                <ul class="dx-facets__list__REF__ dx-facets--flex" id="dx-smart-filter-by-type">
+                  <xsl:for-each select="/doc/types/type">
+                      <xsl:sort select="description"/>
+                      <li class="dx-facets__item__REF__ dx-facets--relpos dx-facets--flex">
+                          <input class="dx-facets--abspos" type="checkbox" name="dx-smart-filter-by-type-{id}" value="{id}" id="dx-smart-filter-by-type-{id}">
+                          <xsl:if test="/doc/selectedtype=id"><xsl:attribute name="checked">checked</xsl:attribute></xsl:if>
+                          <label for="dx-smart-filter-by-type-{id}" class="dx-facets__checkbox__REF__ dx-facets--relpos dx-facets--flex">
+                              <svg class="dx-facets__icon__REF__ dx-facets__icon-checkmark__REF__ dx-facets--abspos" width="12" height="9" viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  <path d="M4.66649 6.61451L10.7945 0.48584L11.7378 1.42851L4.66649 8.49984L0.423828 4.25717L1.36649 3.31451L4.66649 6.61451Z"></path>
+                              </svg>
+                              <span class="dx-facets__checkbox__label__REF__">
+                                  <xsl:value-of select="description"/>
+                                  <span class="dx-facets__checkbox__count__REF__">(0)</span>
+                              </span>
+                          </label>   
+                      </li>
+                  </xsl:for-each>   
+                </ul>
+            </div>
+        </details>
+        <details class="dx-facets__disclosure__REF__" data-index="3">
+            <summary class="dx-facets__summary__REF__ dx-facets--relpos">
+                <div class="dx-facets__summary-inner__REF__ dx-facets--flex">
+                    <span class="dx-facets__summary-title__REF__ dx-facets--relpos">
+                      Topic
+                      <svg aria-hidden="true" focusable="false" role="presentation" class="dx-facets__icon__REF__ dx-facets__icon-caret__REF__ dx-facets--abspos" viewBox="0 0 20 20">
+                        <path d="M9.99996 11.6667L6.66663 8.33333H13.3333L9.99996 11.6667Z" fill="currentColor"></path>
+                      </svg>
+                    </span>
+                    <facet-remove><a href="#" class="dx-facets__reset__REF__" role="button">Reset</a></facet-remove>
+                </div>
+            </summary>
+            <div class="dx-facets__display__REF__">
+              <ul class="dx-facets__list__REF__ dx-facets--flex" id="dx-smart-filter-by-topic">
+                <xsl:for-each select="/doc/keywords/keyword">
+                    <li class="dx-facets__item__REF__ dx-facets--relpos dx-facets--flex">
+                        <input class="dx-facets--abspos" type="checkbox" name="dx-smart-filter-by-topic-{text}" value="{text}" id="dx-smart-filter-by-topic-{text}">
+                        <xsl:if test="/doc/selectedtopic=id"><xsl:attribute name="checked">checked</xsl:attribute></xsl:if>
+                        <label for="dx-smart-filter-by-topic-{text}" class="dx-facets__checkbox__REF__ dx-facets--relpos dx-facets--flex">
+                            <svg class="dx-facets__icon__REF__ dx-facets__icon-checkmark__REF__ dx-facets--abspos" width="12" height="9" viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4.66649 6.61451L10.7945 0.48584L11.7378 1.42851L4.66649 8.49984L0.423828 4.25717L1.36649 3.31451L4.66649 6.61451Z"></path>
+                            </svg>
+                            <span class="dx-facets__checkbox__label__REF__">
+                                <xsl:value-of select="text"/>
+                                <span class="dx-facets__checkbox__count__REF__">(0)</span>
+                            </span>
+                        </label>   
+                    </li>
+                </xsl:for-each>   
+              </ul>
+          </div>
+        </details>
+        <details class="dx-facets__disclosure__REF__" data-index="3">
+            <summary class="dx-facets__summary__REF__ dx-facets--relpos">
+                <div class="dx-facets__summary-inner__REF__ dx-facets--flex">
+                    <span class="dx-facets__summary-title__REF__ dx-facets--relpos">
+                      Partner
+                      <svg aria-hidden="true" focusable="false" role="presentation" class="dx-facets__icon__REF__ dx-facets__icon-caret__REF__ dx-facets--abspos" viewBox="0 0 20 20">
+                        <path d="M9.99996 11.6667L6.66663 8.33333H13.3333L9.99996 11.6667Z" fill="currentColor"></path>
+                      </svg>
+                    </span>
+                    <facet-remove><a href="#" class="dx-facets__reset__REF__" role="button">Reset</a></facet-remove>
+                </div>
+            </summary>
+            <div class="dx-facets__display__REF__">
+              <ul class="dx-facets__list__REF__ dx-facets--flex" id="dx-smart-filter-by-partner">
+                <xsl:for-each select="/doc/partners/partner">
+                  <xsl:sort select="translate(partnername, 'abcdefghijklmnopqrstuvwxyz','ABCDEFGHIJKLMNOPQRSTUVWXYZ')" order="ascending" />
+                    <li class="dx-facets__item__REF__ dx-facets--relpos dx-facets--flex">
+                        <input class="dx-facets--abspos" type="checkbox" name="dx-smart-filter-by-partner-{id}" value="{id}" id="dx-smart-filter-by-partner-{id}">
+                        <xsl:if test="/doc/selectedpartner=id"><xsl:attribute name="checked">checked</xsl:attribute></xsl:if>
+                        <label for="dx-smart-filter-by-partner-{id}" class="dx-facets__checkbox__REF__ dx-facets--relpos dx-facets--flex">
+                            <svg class="dx-facets__icon__REF__ dx-facets__icon-checkmark__REF__ dx-facets--abspos" width="12" height="9" viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4.66649 6.61451L10.7945 0.48584L11.7378 1.42851L4.66649 8.49984L0.423828 4.25717L1.36649 3.31451L4.66649 6.61451Z"></path>
+                            </svg>
+                            <span class="dx-facets__checkbox__label__REF__">
+                                <xsl:value-of select="partnername"/>
+                                <span class="dx-facets__checkbox__count__REF__">(0)</span>
+                            </span>
+                        </label>   
+                    </li>
+                </xsl:for-each>   
+              </ul>
+            </div>
+        </details>
+      </div>
+  </div>
+</section>
+<div id="dx-facets--overlay" class="dx-facets--overlay"></div>

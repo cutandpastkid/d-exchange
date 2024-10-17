@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <style>
+        :root {
+            --dx-search-container-bg: #ffffff;
+            --dx-search-container-margin: 1rem;
+        }
         html, body, div, span, applet, object, iframe,
         h1, h2, h3, h4, h5, h6, p, blockquote, pre,
         a, abbr, acronym, address, big, cite, code,
@@ -59,30 +63,45 @@
         }
         blockquote:before, blockquote:after,
         q:before, q:after {
-          content: '';
-          content: none;
+            content: '';
+            content: none;
         }
         table {
-          border-collapse: collapse;
-          border-spacing: 0;
+            border-collapse: collapse;
+            border-spacing: 0;
         }
         *, *:before, *:after {
             -webkit-box-sizing: border-box;
                     box-sizing: border-box;
         }
         body {
-          background: #f1f1f1;
+            background: #f1f1f1;
         }
         .dx-wrapper {
-          padding: 2rem;
+            padding: 2rem;
         }
         .dx-container {
-          padding: 1rem 0 1rem 0;
-          position: relative;
-          display: grid;
-          column-gap: 1.25rem;
-          row-gap: 1.25rem;
-          grid-template-columns: 20rem auto;
+            padding: 1rem 0 1rem 0;
+            position: relative;
+            display: grid;
+            column-gap: 1.25rem;
+            row-gap: 1.25rem;
+            grid-template-columns: 20rem auto;
+        }
+        .dx-search-container {
+            background-color: var(--dx-search-container-bg);
+            padding: calc(var(--dx-search-container-margin)*1.5);
+            display: -ms-grid;
+            display: grid;
+            -webkit-column-gap: calc(var(--dx-search-container-margin)*1.25);
+              -moz-column-gap: calc(var(--dx-search-container-margin)*1.25);
+                    column-gap: calc(var(--dx-search-container-margin)*1.25);
+            row-gap: calc(var(--dx-search-container-margin)*1.25);
+            -ms-grid-columns: calc(var(--dx-search-container-margin)*20) calc(var(--dx-search-container-margin)*1.25) auto;
+            grid-template-columns: calc(var(--dx-search-container-margin)*20) auto;
+        }
+        .dx-search-container div {
+            overflow: hidden;
         }
         @media only screen and (max-width: 1024px) {
             .dx-container {
@@ -90,18 +109,31 @@
                 grid-template-columns: auto;
                 row-gap: 0;
             }
+            .dx-search-container {
+              -ms-grid-columns: auto;
+                grid-template-columns: auto;
+            }
         }
     </style>
   </head>
   <body>
     <div class="dx-wrapper">
-        <!--#include file="includes/components/carousel.shtml" -->
+        <div class="dx-widget-container" id="dx-carousel"></div>
         <br>
-        <!--#include file="includes/components/search.shtml" -->
-      <div class="dx-container">
-        <!--#include file="includes/components/left.shtml" -->
-        <!--#include file="includes/components/right.shtml" -->
-      </div>
+        <div class="dx-search-container">
+            <div class="dx-widget-container" id="dx-keyword-search"></div>
+            <div class="dx-widget-container" id="dx-smart-search"></div>
+        </div>
+        <div class="dx-container">
+            <div class="dx-column">
+              <div class="dx-widget-container" id="dx-filter-panel"></div>
+              <div class="dx-widget-container" id="dx-featured"></div>
+            </div>
+            <div class="dx-column">
+              <div class="dx-widget-container" id="dx-results-banner"></div>
+              <div class="dx-widget-container" id="dx-reponsive-grid"></div>
+            </div>
+        </div>
     </div>
   </body>
 </html>

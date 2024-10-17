@@ -1,0 +1,283 @@
+/* Responsive Grid Start */
+
+.dx-component__REF__{
+    text-align:center;
+}
+
+.dx-component-title__REF__{
+    
+}
+
+.dx-component-intro__REF__{
+    
+}
+
+.dx-deck__REF__ {
+    --deck_template_columns:'';
+    --deck_template_rows:'';
+    --deck_template_columns_laptop:'';
+    --deck_template_rows_laptop:'';
+    --deck_template_columns_tablet:'';
+    --deck_template_rows_tablet:'';
+    --deck_template_columns_mobile:'';
+    --deck_template_rows_mobile:'';
+    --grid_column_gap:1rem;
+    --grid_row_gap:1rem;
+    
+    margin:var(--default-margin);
+    display: grid; 
+    grid-template-columns: var(--deck_template_columns);   
+    grid-template-rows: var(--deck_template_rows);   
+    grid-column-gap: var(--grid_column_gap);
+    grid-row-gap: var(--grid_row_gap);
+
+}
+
+.dx-card__REF__ {
+    overflow: hidden;
+    display:flex; 
+    flex-direction:column;
+    flex:1 1 auto;
+}
+
+@media only screen and (max-width: 480px){
+.dx-deck__REF__ {
+    grid-template-columns: var(--deck_template_columns_mobile);
+    grid-template-rows: var(--deck_template_rows_mobile);
+    }
+
+}
+
+@media only screen and (min-width: 481px) and (max-width: 1024px){
+.dx-deck__REF__ {
+    grid-template-columns: var(--deck_template_columns_tablet);
+    grid-template-rows: var(--deck_template_rows_tablet); 
+    }
+    .dx-asset-thumb-container-portrait__REF__{
+        
+    }
+
+}
+
+@media only screen and (min-width: 1025px) and (max-width: 1200px){
+.dx-deck__REF__ {
+    grid-template-columns: var(--deck_template_columns_laptop);
+    grid-template-rows: var(--deck_template_rows_laptop); 
+    }
+}
+
+
+.dx-asset-link__REF__{
+    display:flex;
+    flex-direction:column;
+    flex:1 1 auto;
+    position:relative; /* for the read time */
+}
+
+.dx-asset-link__REF__::before {
+    content: '';
+    display: block;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+a.dx-asset-link__REF__:hover {
+    text-decoration: none;
+}
+
+.dx-asset-thumb-container-portrait__REF__{
+    aspect-ratio:1/1.65;
+
+}
+
+.dx-asset-thumb-container-landscape__REF__{
+    aspect-ratio:1.65/1;
+}
+
+.dx-asset-thumb__REF__ {
+    height: 100%;
+    width: 100%;
+   /* object-fit: cover;*/
+}
+
+.dx-asset-content__REF__{
+    display: flex;
+    flex: 1 1 auto;
+    flex-wrap: wrap;
+    align-content: baseline;
+}
+
+.dx-asset-type__REF__{
+    margin:1em;
+    margin-right: auto;
+    display: flex;
+    border-radius:0.5em;
+}
+
+.dx-asset-type__REF__ > svg {
+    height:24px;
+    padding-right:0.25em;
+}
+
+.dx-asset-starttimes__REF__{
+    background-color: #00b6de;
+    color: #fff;
+    bottom: 3rem;
+    width: 100%;
+    padding: 0.25rem 1rem 0.25rem 1rem;
+}
+
+.dx-asset-title__REF__{
+    padding:1rem;
+    margin-right: auto;
+    flex:1 1 auto;
+}
+
+.dx-asset-partner-logo-holder__REF__ {
+    position: relative;
+    margin: 1rem;
+    height: 3rem;
+    transform: translateY(1rem);
+}
+
+.dx-asset-partner-logo__REF__{
+    max-width: 7rem;
+    max-height: 3rem;
+}
+
+.dx-duration__REF__,.dx-asset-duration__REF__ {
+    position:absolute;
+    top:0.5rem;
+    right: 0;
+    margin-right: 0.5rem;
+    display:flex;
+    align-items:center;
+    border-radius:0.5rem;
+    padding:0.5em 1em;
+}
+
+.dx-duration__REF__ > svg,.dx-asset-duration__REF__ > svg{
+    height:20px;
+    color:white;
+    margin-right:0.25em;
+}
+.dx-asset-cta-container__REF__ {
+    text-align:center;
+}
+
+.dx-asset-cta__REF__ {
+    margin-top:1rem;
+    padding: 15px 32px;
+    cursor: pointer;
+}
+.dx-deck-more__REF__{
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.dx-deck-more__REF__ > button {
+    border: 1px solid #00b6de;
+    border-radius:30px;
+    background-color: #00b6de;
+    color: #fff;
+    padding:0.5rem;
+    max-width:12.5rem;
+    min-width:9.375rem;
+    font-size:1.125rem;
+
+}
+
+/* Responsive Grid End */
+
+
+<div class="dx-component__REF__">
+    <xsl:if test="/doc/show_component_title='1'">
+        <div class="dx-component-title__REF__">
+            <xsl:value-of select="concat('&lt;', /doc/component_title_tag, '&gt;')" disable-output-escaping="yes"/>
+                <xsl:value-of select="/doc/title"/>
+            <xsl:value-of select="concat('&lt;', /doc/component_title_tag_end, '&gt;')" disable-output-escaping="yes"/>
+        </div>
+    </xsl:if>
+    <xsl:if test="/doc/component/component_intro != ''">
+        <div class="dx-component-intro__REF__">
+            <xsl:value-of select="/doc/component/component_intro" disable-output-escaping="yes"/>
+        </div>
+    </xsl:if>
+    <div class="dx-deck__REF__" id="dx-deck__REF__">
+        <xsl:for-each select="/doc/assets/asset">
+            <div class="{/doc/deck-card-class}" data-id="{asset_id}">
+                <a class="dx-asset-link__REF__" href="{dxlink}" title="{title}">
+                    <xsl:if test="/doc/show_duration = '1'">
+                        <xsl:choose>
+                            <xsl:when test="duration != '0'">
+                                <span class="dx-asset-duration__REF__">
+                                    <xsl:value-of select="concat(duration, ' ', duration_type)"/>
+                                </span>
+                            </xsl:when>
+                            <xsl:otherwise>
+                                <xsl:if test="timetoread != ''">
+                                    <span class="dx-asset-time-to-read__REF__">
+                                        <xsl:choose>
+                                            <xsl:when test="timetoread &lt; 5">Quick Read</xsl:when>
+                                            <xsl:otherwise><xsl:value-of select="timetoread"/> Min Read</xsl:otherwise>
+                                        </xsl:choose>
+                                    </span>
+                                </xsl:if>
+                            </xsl:otherwise>
+                        </xsl:choose>
+                    </xsl:if>
+                    <div class="{/doc/thumb-container-class}">
+                        <img class="dx-asset-thumb__REF__" src="{thumb}" alt="{title}"/>
+                    </div>
+                    <div class="dx-asset-content__REF__">
+                        <xsl:if test="/doc/show_asset_type='1'">
+                            <div class="dx-asset-type__REF__ dx_asset_type_id_{asset_type_id}__REF__"><xsl:value-of select="/doc/asset/dx_icon" disable-output-escaping="yes"/><xsl:value-of select="displayname"/></div>
+                        </xsl:if>
+        
+                        <div class="dx-asset-title__REF__">
+                            <xsl:value-of select="concat('&lt;', /doc/asset_title_tag, '&gt;')" disable-output-escaping="yes"/>
+                                <xsl:value-of select="title"/>
+                            <xsl:value-of select="concat('&lt;', /doc/asset_title_tag_end, '&gt;')" disable-output-escaping="yes"/>
+                        </div>
+                                            
+                        <xsl:if test="/doc/show_summary = '1' and summary != ''">
+                            <div class="dx-asset-intro__REF__">
+                                <xsl:value-of select="summary" disable-output-escaping="yes"/>
+                            </div>
+                        </xsl:if>
+                        
+                        <xsl:if test="/doc/show_starttimes = '1' and (asset_type_id = '3' or asset_type_id='5')">
+                            <div class="dx-asset-starttimes__REF__"><xsl:value-of select="start_date"/> at <xsl:value-of select="concat(starttimes/starttime[1]/time, ' ', starttimes/starttime[1]/timezone)"/></div>
+                        </xsl:if>
+                        
+                    </div>
+                    <xsl:if test="/doc/show_cta = '1' and calltoaction != ''">
+                        <div class="dx-asset-cta-container__REF__">
+                            <button class="dx-asset-cta__REF__"><xsl:value-of select="calltoaction"/></button>
+                        </div>
+                    </xsl:if>
+    
+                </a>
+                <xsl:if test="/doc/show_logo='1'">
+                   <div class="dx-asset-partner-logo-holder__REF__">
+                        <img class="dx-asset-partner-logo__REF__" src="{partnerlogo}" alt="{partnername}"/>
+                    </div>        
+                </xsl:if>
+            </div>
+        </xsl:for-each>
+    </div>
+    <xsl:if test="/doc/paging_mode != 'N'">
+        <div id="dx-deck-more__REF__" class="dx-deck-more__REF__">
+            <xsl:choose>
+                <xsl:when test="/doc/paging_mode='B'">
+                    <button type="button" data-page="1" data-mode="{/doc/paging_mode}" data-ref="id__REF__" class="dx-deck-more-button">More</button>
+                </xsl:when>
+                <xsl:otherwise>
+                    <span data-page="1" data-mode="{/doc/paging_mode}" data-ref="id__REF__" class="dx-deck-more-button">...</span>
+                </xsl:otherwise>
+            </xsl:choose>
+        </div>
+    </xsl:if>
+</div>

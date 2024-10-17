@@ -1,0 +1,449 @@
+    :root {
+        --dx-carousel-bg: #f1f1f1;
+        --dx-carousel-height: 350px;
+        --dx-carousel-margin: 1rem;
+        --dx-carousel-slide-bg: #fff;
+        --dx-carousel-nav-btn-dim: 3em;
+        --dx-carousel-page-nav-btn-dim: 0.5em;
+        --dx-carousel-inner-spacing: 2rem;
+        --dx-carousel-prev-next-btn-bg: #333;
+        --dx-carousel-prev-next-btn-color: #fff;
+        --dx-carousel-pagination-margin: 1rem;
+        --dx-carousel-pagination-gap: 0.75rem;
+        --dx-carousel-pagination-btn-bg: #aaa;
+        --dx-carousel-pagination-btn-active-bg: #333;
+    }
+    .dx-carousel,
+    .dx-carousel *,
+    .dx-carousel *::before,
+    .dx-carousel *::after {
+        -webkit-box-sizing: border-box;
+                box-sizing: border-box;
+    }
+    .dx-carousel--relpos {
+        position: relative;
+    }
+    .dx-carousel--abspos {
+        position: absolute;
+    }
+    .dx-carousel { 
+        font: normal 1rem/140% sans-serif;
+        background-color: var(--dx-carousel-bg); 
+        width: 100%;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
+        -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
+        padding: calc(var(--dx-carousel-margin) *2.5);
+        min-width: 320px;
+    }
+    .dx-carousel__wrap {
+        min-height: var(--dx-carousel-height);
+        margin: 0 auto;
+        overflow: hidden;
+    }
+    .dx-carousel__slide {
+        width: 100%;
+        height: 100%;
+        -webkit-transition: -webkit-transform 0.5s cubic-bezier(0.42, 0, 0.58, 1);
+        transition: -webkit-transform 0.5s cubic-bezier(0.42, 0, 0.58, 1);
+        -o-transition: transform 0.5s cubic-bezier(0.42, 0, 0.58, 1);
+        transition: transform 0.5s cubic-bezier(0.42, 0, 0.58, 1);
+        transition: transform 0.5s cubic-bezier(0.42, 0, 0.58, 1), -webkit-transform 0.5s cubic-bezier(0.42, 0, 0.58, 1);
+        -ms-flex-line-pack: center;
+            align-content: center;
+        background-color: var(--dx-carousel-slide-bg);
+        padding: calc(var(--dx-carousel-margin)*2);
+    }
+    .dx-carousel__row {
+        -webkit-box-flex: 1;
+            -ms-flex: 1 1 auto;
+                flex: 1 1 auto;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: row;
+                flex-direction: row;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+        min-height: -webkit-fit-content;
+        min-height: -moz-fit-content;
+        min-height: fit-content;
+        max-width: 100%;
+    }
+    .dx-carousel__row > * {
+        max-height: 100%;
+        min-height: -webkit-fit-content;
+        min-height: -moz-fit-content;
+        min-height: fit-content;
+    }
+    .dx-carousel__row, .dx-carousel__row > * {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+    }
+    .dx-carousel__cell {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        background-clip: padding-box;
+        background-origin: padding-box;
+        -webkit-box-flex: 0;
+            -ms-flex: 0 0 35%;
+                flex: 0 0 35%;
+        max-width: 35%;
+        min-width: 35%;
+        -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
+    }
+    .dx-carousel__cell:last-child {
+        -webkit-box-flex: 0;
+            -ms-flex: 0 0 65%;
+                flex: 0 0 65%;
+        max-width: 65%;
+        min-width: 65%;
+    }
+    .dx-carousel__image {
+        -ms-flex-line-pack: center;
+            align-content: center;
+        max-height: 300px;
+    }     
+    .dx-carousel__image img {
+        width: 100%;
+        height: 100%;
+        -o-object-fit: contain;
+           object-fit: contain;
+    }
+    .dx-carousel__tag {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
+        -ms-flex-item-align: start;
+            align-self: flex-start;
+        background: #333;
+        color: #fff;
+        padding: calc(var(--dx-carousel-margin) / 1.75) var(--dx-carousel-margin);
+        margin-bottom: var(--dx-carousel-margin);
+    }
+    .dx-carousel__tag img {
+        max-width: 15px;
+        max-height: 15px;
+    }
+    .dx-carousel__tag img + span {
+        font-size: .85rem;
+        margin-left: calc(var(--dx-carousel-margin)/2.5);
+    }
+    .dx-carousel__tag--abspos {
+        top: 0;
+        right: 0;
+    }
+    .dx-carousel__caption {
+        -webkit-box-flex: 1;
+            -ms-flex: 1;
+                flex: 1;
+        max-width: 100%;
+        padding: 0 2rem;
+        -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column; 
+        text-align: left;
+    }
+    .dx-carousel__title > * {
+        font-size: 1.5rem;
+        margin: 0 0 var(--dx-carousel-margin) 0;
+    }
+    .dx-carousel__summary {
+        margin: 0 0 var(--dx-carousel-margin) 0;
+    }
+    .dx-carousel__cta {
+        text-decoration: none;
+        cursor: pointer;
+/*        color: #fff;
+        background-color: #333;
+*/
+        margin-bottom: var(--dx-carousel-margin);
+  /*      text-align: center;*/
+        padding: calc(var(--dx-carousel-margin)/1.75) calc(var(--dx-carousel-margin) * 1.5);
+        -ms-flex-item-align: start;
+            align-self: flex-start;
+    }
+    .dx-carousel__btn {
+        width: var(--dx-carousel-nav-btn-dim);
+        height: var(--dx-carousel-nav-btn-dim);
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
+        -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        color: var(--dx-carousel-prev-next-btn-color);
+        background-color: var(--dx-carousel-prev-next-btn-bg);
+    }
+    .dx-carousel__btn--prev-next {
+        top: 46%;
+        -webkit-transform: translateY(-46%);
+            -ms-transform: translateY(-46%);
+                transform: translateY(-46%);
+        -webkit-transition: -webkit-transform 0.1s ease-in-out;
+        transition: -webkit-transform 0.1s ease-in-out;
+        -o-transition: transform 0.1s ease-in-out;
+        transition: transform 0.1s ease-in-out;
+        transition: transform 0.1s ease-in-out, -webkit-transform 0.1s ease-in-out;
+    }
+    .dx-carousel__btn--prev-next:hover {
+        -webkit-transform: translateY(-50%) scale(1.2);
+            -ms-transform: translateY(-50%) scale(1.2);
+                transform: translateY(-50%) scale(1.2);
+    }
+    .dx-carousel__btn--prev {
+        left: var(--dx-carousel-inner-spacing);
+    }
+    .dx-carousel__btn--next {
+        right: var(--dx-carousel-inner-spacing);
+    }
+    .dx-carousel__btn--next::after {
+        content: "";
+        display: block;
+        -webkit-box-sizing: border-box;
+                box-sizing: border-box;
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        border-bottom: 2px solid;
+        border-right: 2px solid;
+        -webkit-transform: rotate(-45deg);
+            -ms-transform: rotate(-45deg);
+                transform: rotate(-45deg);
+    }
+    .dx-carousel__btn--prev::after {
+        content: "";
+        display: block;
+        -webkit-box-sizing: border-box;
+                box-sizing: border-box;
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        border-bottom: 2px solid;
+        border-left: 2px solid;
+        -webkit-transform: rotate(45deg);
+            -ms-transform: rotate(45deg);
+                transform: rotate(45deg);
+    }
+    .dx-carousel__pagination {
+        margin-top: calc(var(--dx-carousel-pagination-margin)*2);
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        gap: var(--dx-carousel-pagination-gap);
+        -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
+    }
+    .dx-carousel__pagination .dx-carousel__btn {
+        background-color: var(--dx-carousel-pagination-btn-bg);
+        height: var(--dx-carousel-page-nav-btn-dim);
+        width: var(--dx-carousel-page-nav-btn-dim);
+        border-radius: 50%;
+        color: transparent;
+        -webkit-transition: background-color 0.25s ease-in-out, -webkit-transform 0.25s;
+        transition: background-color 0.25s ease-in-out, -webkit-transform 0.25s;
+        -o-transition: transform 0.25s, background-color 0.25s ease-in-out;
+        transition: transform 0.25s, background-color 0.25s ease-in-out;
+        transition: transform 0.25s, background-color 0.25s ease-in-out, -webkit-transform 0.25s;
+    }
+    .dx-carousel__pagination .dx-carousel__btn--active {
+        -webkit-transform: scale(1.5);
+            -ms-transform: scale(1.5);
+                transform: scale(1.5);
+        background-color: var(--dx-carousel-pagination-btn-active-bg);
+    }
+    @media (min-width: 1280px) {
+        .dx-carousel__wrap {
+            width: 1140px !important;
+        }
+    }
+    @media (min-width: 1024px) and (max-width: 1279px) {
+        .dx-carousel__wrap {
+            width: 940px !important;
+        }
+        .dx-carousel__row > .dx-carousel__cell {
+            -webkit-box-flex: 0;
+                -ms-flex: 0 0 45%;
+                    flex: 0 0 45%;
+            max-width: 45%;
+            min-width: 45%;
+        }
+        .dx-carousel__row > .dx-carousel__cell:last-child {
+            -webkit-box-flex: 0;
+                -ms-flex: 0 0 55%;
+                    flex: 0 0 55%;
+            max-width: 55%;
+            min-width: 55%;
+        }
+    }
+    @media (min-width: 768px) and (max-width: 1023px) {
+        .dx-carousel__wrap {
+            width: 720px !important;
+            min-height: 600px;
+        }
+    }
+    @media (min-width: 578px) and (max-width: 767px) {
+        .dx-carousel__wrap {
+            min-height: 600px;
+            width: 540px !important;
+        }
+        .dx-carousel__wrap .dx-carousel__row > * {
+            min-width: 100%;
+        }
+    }
+    @media (max-width: 1024px) {
+        .dx-carousel__row > .dx-carousel__cell,
+        .dx-carousel__row > .dx-carousel__cell:last-child {
+            -webkit-box-flex: 0;
+                -ms-flex: 0 0 100%;
+                    flex: 0 0 100%;
+            min-width: 100%;
+        }
+        .dx-carousel__cta {
+            -ms-flex-item-align: unset;
+                -ms-grid-row-align: unset;
+                align-self: unset;
+        }
+        .dx-carousel__image {
+            margin-bottom: var(--dx-carousel-margin);
+        }
+        .dx-carousel__caption {
+            text-align: center;
+        }
+        .dx-carousel__title {
+            font-size: 1.25rem;
+        }
+        .dx-carousel__summary {
+            font: .95rem/140% sans-serif;
+        }
+    }
+    @media (max-width: 767px) {
+        .dx-container-layout {
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
+    @media (max-width: 575px) {
+        .dx-carousel__row > * {
+            min-width: 100%;
+        }
+        .dx-carousel__wrap {
+            width: 100%;
+            min-height: 600px;
+        }
+        .dx-carousel__caption {
+            padding: 0;
+        }
+        .dx-carousel__btn--prev-next {
+            top: unset;
+            bottom: 15px;
+            -webkit-transform: unset;
+                -ms-transform: unset;
+                    transform: unset;
+        }
+        .dx-carousel__btn--prev-next:hover {
+            -webkit-transform: scale(1.0);
+                -ms-transform: scale(1.0);
+                    transform: scale(1.0);
+        }
+    }
+
+<section id="dx-carousel-internal" class="dx-carousel dx-carousel--relpos" role="region">
+    <xsl:for-each select="/doc/assets/asset">
+        <div class="dx-carousel__slide dx-carousel--abspos" role="tabpanel" aria-labelledby="dx-carousel-slide-1-title">
+            <div class="dx-carousel__card">
+                <div class="dx-carousel__row">
+                    <div class="dx-carousel__cell dx-carousel--relpos">
+                        <div class="dx-carousel__image dx-carousel--relpos {/doc/thumb-container-class}">
+                            <xsl:if test="/doc/show_asset_type='1'">
+                                <div class="dx-carousel__tag dx-carousel__tag--abspos dx-asset-time-to-read__REF__">
+                                    <img src="https://demandexchange-dx-platform.s3.eu-west-2.amazonaws.com/icons/document.svg"/> <span><xsl:value-of select="displayname"/></span>
+                                </div>
+                            </xsl:if>
+                            <xsl:if test="/doc/show_starttimes='1'">
+                                <div class="dx-carousel__tag dx-carousel__tag--abspos dx-carousel--abspos dx-asset-starttimes__REF__">
+                                    <img src="https://demandexchange-dx-platform.s3.eu-west-2.amazonaws.com/icons/calendar.svg "/> <xsl:value-of select="starttimes"/>
+                                </div>
+                            </xsl:if>   
+                            <xsl:if test="/doc/show_duration = '1'">
+                                <xsl:choose>
+                                    <xsl:when test="duration != '0'">
+                                        <li class="dx-tag dx-asset-duration__REF__"><img src="https://demandexchange-dx-platform.s3.eu-west-2.amazonaws.com/icons/timer.svg" /><xsl:value-of select="concat(duration, ' ', duration_type)"/></li>
+                                    </xsl:when>
+                                    <xsl:otherwise>
+                                        <xsl:if test="timetoread != ''">
+                                            <div class="dx-carousel__tag dx-carousel__tag--abspos dx-asset-time-to-read__REF__">
+                                                <img src="https://demandexchange-dx-platform.s3.eu-west-2.amazonaws.com/icons/clock.svg"/>
+                                                <xsl:choose>
+                                                    <xsl:when test="timetoread &lt; 5"><span>Quick Read</span></xsl:when>
+                                                    <xsl:otherwise>
+                                                        <span><xsl:value-of select="timetoread"/> Min Read</span>
+                                                    </xsl:otherwise>
+                                                </xsl:choose>
+                                            </div>
+                                        </xsl:if>
+                                    </xsl:otherwise>
+                                </xsl:choose>
+                            </xsl:if>
+                            <img 
+                                src="{thumb}" 
+                                srcset="{thumb} 1120w, {thumb} 720w, {thumb} 400w" 
+                                sizes="(max-width: 640px) 50vw, 100vw" 
+                                class="dx-asset-featured-image__REF__" 
+                                alt="{title}" 
+                                title="{title}" 
+                            />
+                        </div>
+                    </div>
+                    <div class="dx-carousel__cell dx-carousel--relpos">
+                        <xsl:if test="/doc/show_logo='1'">
+                            <img src="{partnerlogo}" class="dx-pimage dx-asset-partner-logo__REF__" alt="{partnername}" title="{partnername}" style="display:none;" />
+                        </xsl:if>
+                        <div class="dx-carousel__caption dx-carousel--relpos">
+                            <div class="dx-carousel__title dx-asset-title__REF__" id="dx-carousel-slide-1-title">
+                                <xsl:value-of select="concat('&lt;', /doc/asset_title_tag, '&gt;')" disable-output-escaping="yes"/>
+                                    <xsl:value-of select="title"/>
+                                <xsl:value-of select="concat('&lt;', /doc/asset_title_tag_end, '&gt;')" disable-output-escaping="yes"/>
+                            </div>
+                            <xsl:if test="/doc/show_summary = '1' and summary != ''">
+                                <p class="dx-carousel__summary dx-asset-intro__REF__"><xsl:value-of select="summary" disable-output-escaping="yes"/></p>
+                            </xsl:if>
+                            <xsl:if test="/doc/show_cta = '1'">
+                                <a href="#" class="dx-carousel__cta dx-asset-cta__REF__" title="{calltoaction}"><xsl:value-of select="calltoaction"/></a>
+                            </xsl:if>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </xsl:for-each>
+</section>
+
+const DXJSCarousel=({carouselSelector:e,slideSelector:t,enablePagination:r=!0,enableAutoplay:a=!0,autoplayInterval:n=2e3})=>{let l,s,o,c,i=0;const d=document.querySelector(e);if(!d)return console.error("Specify a valid selector for the carousel."),null;const u=d.querySelectorAll(t);if(!u.length)return console.error("Specify a valid selector for slides."),null;const v=(e,t,r)=>{const a=document.createElement(e);return t&&Object.entries(t).forEach((([e,t])=>{a.setAttribute(e,t)})),r&&("string"==typeof r?a.textContent=r:r.forEach((e=>{"string"==typeof e?a.appendChild(document.createTextNode(e)):a.appendChild(e)}))),a},b=()=>{r&&(()=>{const e=c.children;Array.from(e).filter((e=>e.classList.contains("dx-carousel__btn--active"))).forEach((e=>{e.classList.remove("dx-carousel__btn--active"),e.removeAttribute("aria-selected")}));const t=e[i];t&&(t.classList.add("dx-carousel__btn--active"),t.setAttribute("aria-selected",!0))})(),u.forEach(((e,t)=>{e.style.transform=`translateX(${100*(t-i)}%)`}))},p=e=>{const t="next"===e?(i+1)%u.length:(i-1+u.length)%u.length;i=t,b()},_=e=>{i=e,b()},x=()=>p("prev"),f=()=>p("next"),h=()=>{o=setInterval((()=>{p("next")}),n)},E=()=>clearInterval(o),m=()=>E(),y=()=>h(),L=e=>{if(d.contains(e.target)&&!e.defaultPrevented){switch(e.key){case"ArrowLeft":p("prev");break;case"ArrowRight":p("next");break;default:return}e.preventDefault()}};return{create:()=>{(()=>{d.setAttribute("tabindex","0");const e=v("div",{class:"dx-carousel__wrap dx-carousel--relpos"});d.insertBefore(e,u[0]),r&&(c=v("nav",{class:"dx-carousel__pagination",role:"tablist"}),d.appendChild(c)),u.forEach(((t,a)=>{if(e.appendChild(t),t.style.transform=`translateX(${100*a}%)`,r){const e=v("btn",{class:`dx-carousel__btn dx-carousel__btn--${a+1}`,role:"tab"},`${a+1}`);c.appendChild(e),0===a&&(e.classList.add("dx-carousel__btn--active"),e.setAttribute("aria-selected",!0)),e.addEventListener("click",(()=>{_(a)}))}})),l=v("btn",{class:"dx-carousel__btn dx-carousel__btn--prev-next dx-carousel__btn--prev dx-carousel--abspos","aria-label":"Previous Slide"}),d.appendChild(l),s=v("btn",{class:"dx-carousel__btn dx-carousel__btn--prev-next dx-carousel__btn--next dx-carousel--abspos","aria-label":"Next Slide"}),d.appendChild(s)})(),l.addEventListener("click",x),s.addEventListener("click",f),d.addEventListener("keydown",L),a&&null!==n&&(d.addEventListener("mouseenter",m),d.addEventListener("mouseleave",y)),a&&null!==n&&h()},destroy:()=>{if(l.removeEventListener("click",x),s.removeEventListener("click",f),d.removeEventListener("keydown",L),r){const e=c.querySelectorAll(".dx-carousel__btn");e.length&&e.forEach((e=>{e.removeEventListener("click",_)}))}a&&null!==n&&(d.removeEventListener("mouseenter",m),d.removeEventListener("mouseleave",y),E())}}},carousel=DXJSCarousel({carouselSelector:"#dx-carousel-internal",slideSelector:".dx-carousel__slide",enablePagination:!0,enableAutoplay:!1});carousel.create(),window.addEventListener("unload",(()=>{carousel.destroy()}));

@@ -1,32 +1,31 @@
 <style>
     :root {
-      --dx-smart-search-bg: #ffffff;
-      --dx-smart-search-margin: 1rem;
+      --dx-search-container-bg: #ffffff;
+      --dx-search-container-margin: 1rem;
     }
-    .dx-search {
-        font: normal 1rem/100% sans-serif;
-        background-color: var(--dx-smart-search-bg);
-        padding: calc(var(--dx-smart-search-margin)*1.5);
+    .dx-search-container {
+        background-color: var(--dx-search-container-bg);
+        padding: calc(var(--dx-search-container-margin)*1.5);
         display: -ms-grid;
         display: grid;
-        -webkit-column-gap: calc(var(--dx-smart-search-margin)*1.25);
-           -moz-column-gap: calc(var(--dx-smart-search-margin)*1.25);
-                column-gap: calc(var(--dx-smart-search-margin)*1.25);
-        row-gap: calc(var(--dx-smart-search-margin)*1.25);
-        -ms-grid-columns: calc(var(--dx-smart-search-margin)*20) calc(var(--dx-smart-search-margin)*1.25) auto;
-        grid-template-columns: calc(var(--dx-smart-search-margin)*20) auto;
+        -webkit-column-gap: calc(var(--dx-search-container-margin)*1.25);
+           -moz-column-gap: calc(var(--dx-search-container-margin)*1.25);
+                column-gap: calc(var(--dx-search-container-margin)*1.25);
+        row-gap: calc(var(--dx-search-container-margin)*1.25);
+        -ms-grid-columns: calc(var(--dx-search-container-margin)*20) calc(var(--dx-search-container-margin)*1.25) auto;
+        grid-template-columns: calc(var(--dx-search-container-margin)*20) auto;
     }
-    .dx-search div {
+    .dx-search-container div {
         overflow: hidden;
     }
-    @media (max-width: 1024px) {
-        .dx-keyword-search__container {
-        -ms-grid-columns: auto 4rem;
-        grid-template-columns: auto 4rem;
+    @media only screen and (max-width: 1024px) {
+        .dx-search-container {
+            -ms-grid-columns: auto;
+            grid-template-columns: auto;
         }
     }
 </style>
-<section class="dx-search">
+<section class="dx-search-container">
     <!--#include file="keyword-search.shtml" -->
     <!--#include file="smart-search.shtml" -->
 </section>
